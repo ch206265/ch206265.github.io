@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、概念主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR 1.1. Radar 雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”； 即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备； 雷达发射电磁波对目标进行照射并接收其回波，由此获">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ch206265&#39;Blog">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/草稿4各种雷达/index.html">
+<meta property="og:site_name" content="ch206265&#39;Blog">
+<meta property="og:description" content="一、概念主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR 1.1. Radar 雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”； 即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备； 雷达发射电磁波对目标进行照射并接收其回波，由此获">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-24T08:43:26.166Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ch206265&#39;Blog">
+<meta name="twitter:description" content="一、概念主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR 1.1. Radar 雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”； 即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备； 雷达发射电磁波对目标进行照射并接收其回波，由此获">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ch206265'Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/31/草稿4各种雷达/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | ch206265'Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ch206265'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Navigationsleiste an/ausschalten">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/草稿4各种雷达/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Auteur">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch206265'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-05-31 13:10:31" itemprop="dateCreated datePublished" datetime="2019-05-31T13:10:31+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-24 16:43:26" itemprop="dateModified" datetime="2019-04-24T16:43:26+08:00">2019-04-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR</p>
+<h2 id="1-1-Radar"><a href="#1-1-Radar" class="headerlink" title="1.1. Radar"></a>1.1. Radar</h2><ul>
+<li>雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”；</li>
+<li>即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备；</li>
+<li>雷达发射电磁波对目标进行照射并接收其回波，由此获得目标至电磁波发射点的距离、距离变化率（径向速度）、方位、高度等信息。</li>
+</ul>
+<h2 id="1-2-Lidar"><a href="#1-2-Lidar" class="headerlink" title="1.2. Lidar"></a>1.2. Lidar</h2><ul>
+<li>LiDAR——Light Detection And Ranging，即激光探测与测量，也就是激光雷达；</li>
+<li>利用GPS（Global Position System）和IMU（Inertial Measurement Unit，惯性测量装置）的机载激光扫描，其所测得的数据为数字表面模型(Digital Surface Model, DSM)的离散点表示，数据中含有空间三维信息和激光强度信息；</li>
+<li>应用分类(Classification)技术在这些原始数字表面模型中移除建筑物、人造物、覆盖植物等测点，即可获得数字高程模型(Digital Elevation Model, DEM)，并同时得到地面覆盖物的高度。</li>
+</ul>
+<h2 id="1-3-RAR"><a href="#1-3-RAR" class="headerlink" title="1.3. RAR"></a>1.3. RAR</h2><h2 id="1-4-SAR"><a href="#1-4-SAR" class="headerlink" title="1.4. SAR"></a>1.4. SAR</h2><ul>
+<li>合成孔径雷达（简称SAR）是一种主动式的对地观测系统；</li>
+<li>可安装在飞机、卫星、宇宙飞船等飞行平台上，全天时、全天候对地实施观测、并具有一定的地表穿透能力；</li>
+<li>SAR系统在灾害监测、环境监测、海洋监测、资源勘查、农作物估产、测绘和军事等方面的应用上具有独特的优势，可发挥其他遥感手段难以发挥的作用，因此越来越受到世界各国的重视</li>
+</ul>
+<h2 id="1-5-InSAR"><a href="#1-5-InSAR" class="headerlink" title="1.5. InSAR"></a>1.5. InSAR</h2><ul>
+<li>干涉雷达指采用干涉测量技术的合成孔径雷达（Interferometric Synthetic Aperture Radar,InSAR），是传统的SAR遥感技术与射电天文干涉技术相结合的产物；</li>
+<li>它利用雷达向目标区域发射微波，然后接收目标反射的回波，得到同一目标区域成像的SAR复图像对；</li>
+<li>若复图像对之间存在相干条件，SAR复图像对共轭相乘可以得到干涉图，根据干涉图的相位值，得出两次成像中微波的路程差，从而计算出目标地区的地形、地貌以及表面的微小变化，可用于数字高程模型建立、地壳形变探测等。</li>
+</ul>
+<h2 id="1-6-D-InSAR"><a href="#1-6-D-InSAR" class="headerlink" title="1.6. D-InSAR"></a>1.6. D-InSAR</h2><ul>
+<li>合成孔径雷达差分干涉测量技术（Differential InSAR, DInSAR），它是利用同一地区不同时相的SAR影像，通过差分干涉，获取该地区地表形变信息的技术手段；</li>
+<li>已有研究提出了三种方法进行差分干涉，两轨法、三轨法和四轨法；</li>
+</ul>
+<h2 id="1-7-PolSAR"><a href="#1-7-PolSAR" class="headerlink" title="1.7. PolSAR"></a>1.7. PolSAR</h2><ul>
+<li>极化干涉合成孔径雷达（Polarimetric Synthetic Aperture Radar Interferometry）是极化SAR与干涉SAR的结合，充分利用了干涉观测量(相干性和干涉相位)随极化变化的特性；</li>
+<li>既具有干涉SAR获取目标高程的能力，又具有极化SAR对不同散射机理的分辨能力，还具有提高干涉SAR相干性的能力以及提取体散射体(如森林，农作物，冰雪等)参数的潜力。</li>
+</ul>
+<h2 id="1-8-PSInSAR"><a href="#1-8-PSInSAR" class="headerlink" title="1.8. PSInSAR"></a>1.8. PSInSAR</h2><ul>
+<li>PSInSAR技术是“永久散射体合成孔径雷达干涉测量”的多重嵌套缩写，即Persistent Scatterer Interferometric Synthetic Aperture Radar。</li>
+</ul>
+<h1 id="二、区分"><a href="#二、区分" class="headerlink" title="二、区分"></a>二、区分</h1><h2 id="2-1-LiDAR和SAR"><a href="#2-1-LiDAR和SAR" class="headerlink" title="2.1 LiDAR和SAR"></a>2.1 LiDAR和SAR</h2><ol>
+<li>LiDAR其实是激光测距,是通过对从空中或空间飞行器上发射的激光角度和探测到的激光距离来解算激光点的地面坐标的方法,LiDAR是点测量.LiDAR是直接测量.SAR是合成孔径雷达,是用小孔径天线通过运动和数学计算而达到大孔径雷达的测量效果的技术.sar是需要通过对多个位置的雷达信号的联合数值计算来获得结果的,sar是间接测量.</li>
+<li>SAR是合成孔径雷达,数据记录的是雷达后向散射的强度.LiDAR是激光雷达,数据记录的是激光往返的时间和强度.</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/31/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/01/草稿1遥感卫星总结/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Auteur</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、概念"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Radar"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. Radar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Lidar"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. Lidar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-RAR"><span class="nav-number">1.3.</span> <span class="nav-text">1.3. RAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-SAR"><span class="nav-number">1.4.</span> <span class="nav-text">1.4. SAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-InSAR"><span class="nav-number">1.5.</span> <span class="nav-text">1.5. InSAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-D-InSAR"><span class="nav-number">1.6.</span> <span class="nav-text">1.6. D-InSAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-PolSAR"><span class="nav-number">1.7.</span> <span class="nav-text">1.7. PolSAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-PSInSAR"><span class="nav-number">1.8.</span> <span class="nav-text">1.8. PSInSAR</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、区分"><span class="nav-number">2.</span> <span class="nav-text">二、区分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-LiDAR和SAR"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 LiDAR和SAR</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Auteur</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

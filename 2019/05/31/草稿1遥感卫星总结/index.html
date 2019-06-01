@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>No title | ch206265&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="一、遥感卫星的分类 根据观测对象的不同，遥感卫星主要分为陆地观测卫星、气象观测卫星、海洋观测卫星       按观测对象分类 举例 描述    陆地观测卫星 LandsatSPOTIRSIkonosQuickBirdTERRA    气象观测卫星 GOESNOAA    海洋观测卫星 SeaStar    2. 根据遥感卫星所载传感器工作的不同波段可以分为光学遥感卫星和微波遥感卫星(紫外遥感、可见">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/草稿1遥感卫星总结/index.html">
+<meta property="og:site_name" content="ch206265&#39;Blog">
+<meta property="og:description" content="一、遥感卫星的分类 根据观测对象的不同，遥感卫星主要分为陆地观测卫星、气象观测卫星、海洋观测卫星       按观测对象分类 举例 描述    陆地观测卫星 LandsatSPOTIRSIkonosQuickBirdTERRA    气象观测卫星 GOESNOAA    海洋观测卫星 SeaStar    2. 根据遥感卫星所载传感器工作的不同波段可以分为光学遥感卫星和微波遥感卫星(紫外遥感、可见">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-31T03:31:30.892Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="一、遥感卫星的分类 根据观测对象的不同，遥感卫星主要分为陆地观测卫星、气象观测卫星、海洋观测卫星       按观测对象分类 举例 描述    陆地观测卫星 LandsatSPOTIRSIkonosQuickBirdTERRA    气象观测卫星 GOESNOAA    海洋观测卫星 SeaStar    2. 根据遥感卫星所载传感器工作的不同波段可以分为光学遥感卫星和微波遥感卫星(紫外遥感、可见">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ch206265</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">No title</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">No title</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-31T03:06:36.140Z" itemprop="datePublished" class="page-time">
+  2019-05-31
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、遥感卫星的分类"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、遥感卫星的分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-关于光学遥感"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 关于光学遥感</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-关于微波遥感"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 关于微波遥感</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-光学遥感和微波遥感的比较"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 光学遥感和微波遥感的比较</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、遥感卫星常用的波段有哪些"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、遥感卫星常用的波段有哪些</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、遥感卫星常用的传感器类型有哪些"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、遥感卫星常用的传感器类型有哪些</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、卫星分辨率"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、卫星分辨率</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-草稿1遥感卫星总结" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">No title</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-31 11:06:36" datetime="2019-05-31T03:06:36.140Z" itemprop="datePublished">2019-05-31</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、遥感卫星的分类"><a href="#一、遥感卫星的分类" class="headerlink" title="一、遥感卫星的分类"></a>一、遥感卫星的分类</h1><ol>
+<li>根据观测对象的不同，遥感卫星主要分为陆地观测卫星、气象观测卫星、海洋观测卫星  </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>按观测对象分类</th>
+<th align="center">举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>陆地观测卫星</td>
+<td align="center">Landsat<br>SPOT<br>IRS<br>Ikonos<br>QuickBird<br>TERRA</td>
+<td></td>
+</tr>
+<tr>
+<td>气象观测卫星</td>
+<td align="center">GOES<br>NOAA</td>
+<td></td>
+</tr>
+<tr>
+<td>海洋观测卫星</td>
+<td align="center">SeaStar</td>
+<td></td>
+</tr>
+<tr>
+<td>2. 根据遥感卫星所载传感器工作的不同波段可以分为光学遥感卫星和微波遥感卫星(紫外遥感、可见光遥感、红外遥感、微波遥感、多波段遥感)</td>
+<td align="center"></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按传感器波段分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>光学遥感卫星</td>
+<td>Landsat<br>SPOT<br>GF-1<br>GF-2</td>
+<td></td>
+</tr>
+<tr>
+<td>微波遥感卫星</td>
+<td>GF-3(合成孔径雷达成像卫星)</td>
+<td></td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>根据遥感卫星的运行轨道不同，又可以分为太阳同步轨道卫星和地球同步轨道卫星 </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>按运行轨道分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>太阳同步轨道卫星</td>
+<td>GF-1<br>GF-2</td>
+<td></td>
+</tr>
+<tr>
+<td>地球同步轨道卫星<br>(地球静止轨道)</td>
+<td>GF-4<br>风云二号<br>风云四号</td>
+<td></td>
+</tr>
+<tr>
+<td>极地轨道卫星</td>
+<td>风云一号<br>风云三号</td>
+<td></td>
+</tr>
+<tr>
+<td>4. 根据获取遥感数据的方式不同，分为返回型和传输型卫星</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按获取数据方式分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>返回型卫星</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>传输型卫星</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5. 按照遥感平台的不同可以分为地面遥感、航空遥感、航天遥感</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按遥感平台分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>地面遥感</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>航空遥感</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>航天遥感(卫星遥感)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6. 按照遥感探测的工作方式不同，可将遥感分为主动式遥感和被动式遥感</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按探测方式分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主动式遥感(雷达遥感)</td>
+<td></td>
+<td>由传感器主动地向被探测的目标物发射一定波长的电磁波，然后接受并记录从目标物反射回来的电磁波</td>
+</tr>
+<tr>
+<td>被动式遥感</td>
+<td></td>
+<td>传感器不向被探测的目标物发射电磁波，而是直接接受并记录目标物反射太阳辐射或目标物自身发射的电磁波</td>
+</tr>
+</tbody></table>
+<p>补充：  </p>
+<h2 id="1-1-关于光学遥感"><a href="#1-1-关于光学遥感" class="headerlink" title="1.1 关于光学遥感"></a>1.1 关于光学遥感</h2><p>随着<strong>光谱分辨率</strong>的提高，光学遥感卫星的发展过程可以分为：<strong>全色遥感卫星-&gt;彩色遥感卫星-&gt;多光谱遥感卫星-&gt;高光谱遥感卫星-&gt;超高光谱遥感卫星</strong><br>==全色波段（Panchromaticband）==，即可见光波段范围。因为是<strong>单波段</strong>，在图上显示是灰度图片。全色遥感影像一般空间分辨率高，但无法显示地物色彩。实际操作中，我们经常将之与波段影象融合处理，得到既有全色影象的高分辨率，又有多波段影象的彩色信息的影象。<br>全色波段，一般指使用0.5微米到0.75微米左右的单波段，即从绿色往后的可见光波段。全色遥感影象也就是对地物辐射中全色波段的影象摄取，因为是单波段，在图上显示是灰度图片。全色遥感影象一般空间分辨率高，但无法显示地物色彩。<br>==多光谱遥感==：将地物辐射电磁破分割成若干个较窄的光谱段，以摄影或扫描的方式，在同一时间获得同一目标不同波段信息的遥感技术。<br>原理：不同地物有不同的光谱特性，同一地物则具有相同的光谱特性。不同地物在不同波段的辐射能量有差别，取得的不同波段图像上有差别。<br>优点：多光谱遥感不仅可以根据影像的形态和结构的差异判别地物，还可以根据光谱特性的差异判别地物，扩大了遥感的信息量。<br>==高光谱遥感==起源于20世纪70年代初的多光谱遥感，它将成像技术与光谱技术结合在一起，在对目标的空间特征成像的同时，对每个空间像元经过色散形成几十乃至几百个窄波段以进行连续的光谱覆盖，这样形成的遥感数据可以用“图像立方体”来形象的描述。同传统遥感技术相比，其所获取的图像包含丰富的空间、辐射和光谱三重信息。  </p>
+<blockquote>
+<p>高光谱遥感具有不同于传统遥感的新特点：<br>1）波段多：可以为每个像元提供十几、数百甚至上千个波段；<br>2）光谱范围窄：波段范围一般小于10nm；<br>3）波段连续：有些传感器可以在350~2500nm的太阳光谱范围内提供几乎连续的地物光谱；<br>4）数据量大：随着波段数的增加，数据量成指数增加；<br>5）信息冗余增加：由于相邻波段高度相关，冗余信息也相对增加。<br>优点：<br>1）有利于利用光谱特征分析来研究地物；<br>2）有利于采用各种光谱匹配模型；<br>3）有利于地物的精细分类与识别；  </p>
+</blockquote>
+<p>==比较==：<br>高光谱和多光谱实质上的差别就是：高光谱的波段较多，普带较窄。（Hyperion有233~309个波段，MODIS有36个波段）<br>多光谱相对波段较少。（如ETM+，8个波段，分为红波段，绿波段，蓝波段，可见光，热红外（2个），近红外和全色波段）<br>高光谱遥感就是多比多光谱遥感的光谱分辨率更高，但光谱分辨率高的同时空间分辨率会降低。  </p>
+<h2 id="1-2-关于微波遥感"><a href="#1-2-关于微波遥感" class="headerlink" title="1.2 关于微波遥感"></a>1.2 关于微波遥感</h2><h2 id="1-3-光学遥感和微波遥感的比较"><a href="#1-3-光学遥感和微波遥感的比较" class="headerlink" title="1.3 光学遥感和微波遥感的比较"></a>1.3 光学遥感和微波遥感的比较</h2><h1 id="二、遥感卫星常用的波段有哪些"><a href="#二、遥感卫星常用的波段有哪些" class="headerlink" title="二、遥感卫星常用的波段有哪些"></a>二、遥感卫星常用的波段有哪些</h1><h1 id="三、遥感卫星常用的传感器类型有哪些"><a href="#三、遥感卫星常用的传感器类型有哪些" class="headerlink" title="三、遥感卫星常用的传感器类型有哪些"></a>三、遥感卫星常用的传感器类型有哪些</h1><table>
+<thead>
+<tr>
+<th>卫星</th>
+<th>传感器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Landsat</td>
+<td>ETM+<br>MSS<br>TM</td>
+<td></td>
+</tr>
+<tr>
+<td>SPOT</td>
+<td>HRS<br>HRG<br>VEGETATION</td>
+<td></td>
+</tr>
+<tr>
+<td>GF-1</td>
+<td>PMS(全色多光谱相机)<br>WFV(多光谱相机)</td>
+<td>1. 有效载荷配置有 2 台分辨率为 2m全色 /8m多光谱的高分辨率相机和 4 台<br>分辨率为 16m 的多光谱宽幅相机，从而在同一颗卫星上实现了<br>高分辨率和830Km宽幅的成像能力，<br>2. 一帧画面即可覆盖64000平方千米范围的地表，相当于北京市面积的4倍！<br>3. 其还具有多载荷图像拼接融合技术</td>
+</tr>
+<tr>
+<td>GF-2</td>
+<td>PMS(全色多光谱相机)<br></td>
+<td>装有两 台 1m分辨率全色 /4m分辨率多光谱、幅宽 26km的对地 成像相机，<br>通过拼接可实现 45km大幅宽图像</td>
+</tr>
+<tr>
+<td>GF-4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GF-5</td>
+<td>大气环境红外甚高光谱分辨率探测仪<br>全谱段光谱成像仪<br>大气气溶胶多角度偏振探测仪<br>大气主要温室气体检测仪<br>可见短波红外高光谱相机<br>大气痕量气体差分吸收光谱仪</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="四、卫星分辨率"><a href="#四、卫星分辨率" class="headerlink" title="四、卫星分辨率"></a>四、卫星分辨率</h1><p>总的包括空间分辨率、时间分辨率和光谱分辨率  </p>
+<table>
+    <tr>
+        <th colspan="2">分辨率
+        </th><th width="400">描述
+        </th><th>影响因素
+    </th></tr>
+    <tr>
+        <th rowspan="2">空间分辨率
+        </th><td>光学成像卫星的空间分辨率</td>
+        <td>光学遥感卫星的空间分辨率是指从光学成像卫星所拍摄的照片上辨别地面目标额最小尺寸</td>
+        <td>光学成像卫星的空间分辨率与卫星轨道高度和相机焦距有关，高度越高，焦距越小，空间分辨率就越低</td>
+    </tr>
+     <tr>
+        <td>雷达成像卫星的空间分辨率</td>
+        <td>1. 与光学成像卫星有所不同，它指雷达图像上能够区分开的地面两个不同目标的最小距离;<br>2. 具体有方位分辨率、距离分辨率和面分辨率三种参数。其中， 面分辨率是方位分辨率和距离分辨率的乘积，表示地面分辨单元的大小</td>
+        <td>1. 雷达成像卫星的分辨率与卫星的运动方向有关，通常用区分同一运动方向上相邻两个目标的能力来表示<br>2. 提高分辨率的方式主要有两种：一是采用短波长；二是增加天线口径
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">
+            时间分辨率
+        
+        </th><td>重复观测同一区域所需要的时间，对于动态观测统一区域十分重要</td>
+        <td>时间分辨率和空间分辨率是一对冤家，卫星运行轨道高覆盖面大，时间分辨率就高，但是空间分辨率就小；<br>
+        1. 一般来讲，用于普查的对地观测卫星的轨道高度和时间分辨率都比较高，但是空间分辨率较小；<br>
+        2. 但是，用于详查的对地观测卫星的轨道高度和时间分辨率都比较小，但是空间分辨率高</td>
+    </tr>
+     <tr>
+        <th colspan="2">
+            光谱分辨率
+        
+        </th><td></td>
+        <td></td>
+    </tr>
+</table>
+
+
+
+
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-05-31T03:31:30.892Z" itemprop="dateUpdated">2019-05-31 11:31:30</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/31/草稿1遥感卫星总结/" target="_blank" rel="external">http://yoursite.com/2019/05/31/草稿1遥感卫星总结/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="ch206265">
+            ch206265
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/&title=《No title》 — ch206265'Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/&title=《No title》 — ch206265'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ch206265'Blog&url=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/31/hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ch206265 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/&title=《No title》 — ch206265'Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/&title=《No title》 — ch206265'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ch206265'Blog&url=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/05/31/草稿1遥感卫星总结/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

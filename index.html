@@ -1,91 +1,966 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+
+
+
+
+
+
+
+
+
+
+
 
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="ch206265&#39;Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="ch206265&#39;Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="ch206265&#39;Blog">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ch206265'Blog" type="application/atom+xml">
+
+
+
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/31/hello-world/" class="article-date">
-  <time datetime="2019-05-31T00:10:32.006Z" itemprop="datePublished">2019-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/31/hello-world/">Hello World</a>
-    </h1>
+  <link rel="canonical" href="http://yoursite.com/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ch206265'Blog</title>
   
 
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ch206265'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Navigationsleiste an/ausschalten">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/草稿1遥感卫星总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Auteur">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch206265'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/01/草稿1遥感卫星总结/" class="post-title-link" itemprop="url">Unbenannt</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-06-01 14:11:47" itemprop="dateCreated datePublished" datetime="2019-06-01T14:11:47+08:00">2019-06-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-05-22 08:57:35" itemprop="dateModified" datetime="2019-05-22T08:57:35+08:00">2019-05-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+        
+          
+            <h1 id="一、遥感卫星的分类"><a href="#一、遥感卫星的分类" class="headerlink" title="一、遥感卫星的分类"></a>一、遥感卫星的分类</h1><ol>
+<li>根据观测对象的不同，遥感卫星主要分为陆地观测卫星、气象观测卫星、海洋观测卫星  </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>按观测对象分类</th>
+<th align="center">举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>陆地观测卫星</td>
+<td align="center">Landsat<br>SPOT<br>IRS<br>Ikonos<br>QuickBird<br>TERRA</td>
+<td></td>
+</tr>
+<tr>
+<td>气象观测卫星</td>
+<td align="center">GOES<br>NOAA</td>
+<td></td>
+</tr>
+<tr>
+<td>海洋观测卫星</td>
+<td align="center">SeaStar</td>
+<td></td>
+</tr>
+<tr>
+<td>2. 根据遥感卫星所载传感器工作的不同波段可以分为光学遥感卫星和微波遥感卫星(紫外遥感、可见光遥感、红外遥感、微波遥感、多波段遥感)</td>
+<td align="center"></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按传感器波段分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>光学遥感卫星</td>
+<td>Landsat<br>SPOT<br>GF-1<br>GF-2</td>
+<td></td>
+</tr>
+<tr>
+<td>微波遥感卫星</td>
+<td>GF-3(合成孔径雷达成像卫星)</td>
+<td></td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>根据遥感卫星的运行轨道不同，又可以分为太阳同步轨道卫星和地球同步轨道卫星 </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>按运行轨道分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>太阳同步轨道卫星</td>
+<td>GF-1<br>GF-2</td>
+<td></td>
+</tr>
+<tr>
+<td>地球同步轨道卫星<br>(地球静止轨道)</td>
+<td>GF-4<br>风云二号<br>风云四号</td>
+<td></td>
+</tr>
+<tr>
+<td>极地轨道卫星</td>
+<td>风云一号<br>风云三号</td>
+<td></td>
+</tr>
+<tr>
+<td>4. 根据获取遥感数据的方式不同，分为返回型和传输型卫星</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按获取数据方式分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>返回型卫星</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>传输型卫星</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5. 按照遥感平台的不同可以分为地面遥感、航空遥感、航天遥感</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按遥感平台分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>地面遥感</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>航空遥感</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>航天遥感(卫星遥感)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6. 按照遥感探测的工作方式不同，可将遥感分为主动式遥感和被动式遥感</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按探测方式分类</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主动式遥感(雷达遥感)</td>
+<td></td>
+<td>由传感器主动地向被探测的目标物发射一定波长的电磁波，然后接受并记录从目标物反射回来的电磁波</td>
+</tr>
+<tr>
+<td>被动式遥感</td>
+<td></td>
+<td>传感器不向被探测的目标物发射电磁波，而是直接接受并记录目标物反射太阳辐射或目标物自身发射的电磁波</td>
+</tr>
+</tbody></table>
+<p>补充：  </p>
+<h2 id="1-1-关于光学遥感"><a href="#1-1-关于光学遥感" class="headerlink" title="1.1 关于光学遥感"></a>1.1 关于光学遥感</h2><p>随着<strong>光谱分辨率</strong>的提高，光学遥感卫星的发展过程可以分为：<strong>全色遥感卫星-&gt;彩色遥感卫星-&gt;多光谱遥感卫星-&gt;高光谱遥感卫星-&gt;超高光谱遥感卫星</strong><br>==全色波段（Panchromaticband）==，即可见光波段范围。因为是<strong>单波段</strong>，在图上显示是灰度图片。全色遥感影像一般空间分辨率高，但无法显示地物色彩。实际操作中，我们经常将之与波段影象融合处理，得到既有全色影象的高分辨率，又有多波段影象的彩色信息的影象。<br>全色波段，一般指使用0.5微米到0.75微米左右的单波段，即从绿色往后的可见光波段。全色遥感影象也就是对地物辐射中全色波段的影象摄取，因为是单波段，在图上显示是灰度图片。全色遥感影象一般空间分辨率高，但无法显示地物色彩。<br>==多光谱遥感==：将地物辐射电磁破分割成若干个较窄的光谱段，以摄影或扫描的方式，在同一时间获得同一目标不同波段信息的遥感技术。<br>原理：不同地物有不同的光谱特性，同一地物则具有相同的光谱特性。不同地物在不同波段的辐射能量有差别，取得的不同波段图像上有差别。<br>优点：多光谱遥感不仅可以根据影像的形态和结构的差异判别地物，还可以根据光谱特性的差异判别地物，扩大了遥感的信息量。<br>==高光谱遥感==起源于20世纪70年代初的多光谱遥感，它将成像技术与光谱技术结合在一起，在对目标的空间特征成像的同时，对每个空间像元经过色散形成几十乃至几百个窄波段以进行连续的光谱覆盖，这样形成的遥感数据可以用“图像立方体”来形象的描述。同传统遥感技术相比，其所获取的图像包含丰富的空间、辐射和光谱三重信息。  </p>
+<blockquote>
+<p>高光谱遥感具有不同于传统遥感的新特点：<br>1）波段多：可以为每个像元提供十几、数百甚至上千个波段；<br>2）光谱范围窄：波段范围一般小于10nm；<br>3）波段连续：有些传感器可以在350~2500nm的太阳光谱范围内提供几乎连续的地物光谱；<br>4）数据量大：随着波段数的增加，数据量成指数增加；<br>5）信息冗余增加：由于相邻波段高度相关，冗余信息也相对增加。<br>优点：<br>1）有利于利用光谱特征分析来研究地物；<br>2）有利于采用各种光谱匹配模型；<br>3）有利于地物的精细分类与识别；  </p>
+</blockquote>
+<p>==比较==：<br>高光谱和多光谱实质上的差别就是：高光谱的波段较多，普带较窄。（Hyperion有233~309个波段，MODIS有36个波段）<br>多光谱相对波段较少。（如ETM+，8个波段，分为红波段，绿波段，蓝波段，可见光，热红外（2个），近红外和全色波段）<br>高光谱遥感就是多比多光谱遥感的光谱分辨率更高，但光谱分辨率高的同时空间分辨率会降低。  </p>
+<h2 id="1-2-关于微波遥感"><a href="#1-2-关于微波遥感" class="headerlink" title="1.2 关于微波遥感"></a>1.2 关于微波遥感</h2><h2 id="1-3-光学遥感和微波遥感的比较"><a href="#1-3-光学遥感和微波遥感的比较" class="headerlink" title="1.3 光学遥感和微波遥感的比较"></a>1.3 光学遥感和微波遥感的比较</h2><h1 id="二、遥感卫星常用的波段有哪些"><a href="#二、遥感卫星常用的波段有哪些" class="headerlink" title="二、遥感卫星常用的波段有哪些"></a>二、遥感卫星常用的波段有哪些</h1><h1 id="三、遥感卫星常用的传感器类型有哪些"><a href="#三、遥感卫星常用的传感器类型有哪些" class="headerlink" title="三、遥感卫星常用的传感器类型有哪些"></a>三、遥感卫星常用的传感器类型有哪些</h1><table>
+<thead>
+<tr>
+<th>卫星</th>
+<th>传感器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Landsat</td>
+<td>ETM+<br>MSS<br>TM</td>
+<td></td>
+</tr>
+<tr>
+<td>SPOT</td>
+<td>HRS<br>HRG<br>VEGETATION</td>
+<td></td>
+</tr>
+<tr>
+<td>GF-1</td>
+<td>PMS(全色多光谱相机)<br>WFV(多光谱相机)</td>
+<td>1. 有效载荷配置有 2 台分辨率为 2m全色 /8m多光谱的高分辨率相机和 4 台<br>分辨率为 16m 的多光谱宽幅相机，从而在同一颗卫星上实现了<br>高分辨率和830Km宽幅的成像能力，<br>2. 一帧画面即可覆盖64000平方千米范围的地表，相当于北京市面积的4倍！<br>3. 其还具有多载荷图像拼接融合技术</td>
+</tr>
+<tr>
+<td>GF-2</td>
+<td>PMS(全色多光谱相机)<br></td>
+<td>装有两 台 1m分辨率全色 /4m分辨率多光谱、幅宽 26km的对地 成像相机，<br>通过拼接可实现 45km大幅宽图像</td>
+</tr>
+<tr>
+<td>GF-4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GF-5</td>
+<td>大气环境红外甚高光谱分辨率探测仪<br>全谱段光谱成像仪<br>大气气溶胶多角度偏振探测仪<br>大气主要温室气体检测仪<br>可见短波红外高光谱相机<br>大气痕量气体差分吸收光谱仪</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="四、卫星分辨率"><a href="#四、卫星分辨率" class="headerlink" title="四、卫星分辨率"></a>四、卫星分辨率</h1><p>总的包括空间分辨率、时间分辨率和光谱分辨率  </p>
+<table>
+    <tr>
+        <th colspan="2">分辨率
+        </th><th width="400">描述
+        </th><th>影响因素
+    </th></tr>
+    <tr>
+        <th rowspan="2">空间分辨率
+        </th><td>光学成像卫星的空间分辨率</td>
+        <td>光学遥感卫星的空间分辨率是指从光学成像卫星所拍摄的照片上辨别地面目标额最小尺寸</td>
+        <td>光学成像卫星的空间分辨率与卫星轨道高度和相机焦距有关，高度越高，焦距越小，空间分辨率就越低</td>
+    </tr>
+     <tr>
+        <td>雷达成像卫星的空间分辨率</td>
+        <td>1. 与光学成像卫星有所不同，它指雷达图像上能够区分开的地面两个不同目标的最小距离;<br>2. 具体有方位分辨率、距离分辨率和面分辨率三种参数。其中， 面分辨率是方位分辨率和距离分辨率的乘积，表示地面分辨单元的大小</td>
+        <td>1. 雷达成像卫星的分辨率与卫星的运动方向有关，通常用区分同一运动方向上相邻两个目标的能力来表示<br>2. 提高分辨率的方式主要有两种：一是采用短波长；二是增加天线口径
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">
+            时间分辨率
+        
+        </th><td>重复观测同一区域所需要的时间，对于动态观测统一区域十分重要</td>
+        <td>时间分辨率和空间分辨率是一对冤家，卫星运行轨道高覆盖面大，时间分辨率就高，但是空间分辨率就小；<br>
+        1. 一般来讲，用于普查的对地观测卫星的轨道高度和时间分辨率都比较高，但是空间分辨率较小；<br>
+        2. 但是，用于详查的对地观测卫星的轨道高度和时间分辨率都比较小，但是空间分辨率高</td>
+    </tr>
+     <tr>
+        <th colspan="2">
+            光谱分辨率
+        
+        </th><td></td>
+        <td></td>
+    </tr>
+</table>
+
+
+
+
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/草稿4各种雷达/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Auteur">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch206265'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/31/草稿4各种雷达/" class="post-title-link" itemprop="url">Unbenannt</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-05-31 13:10:31" itemprop="dateCreated datePublished" datetime="2019-05-31T13:10:31+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-24 16:43:26" itemprop="dateModified" datetime="2019-04-24T16:43:26+08:00">2019-04-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR</p>
+<h2 id="1-1-Radar"><a href="#1-1-Radar" class="headerlink" title="1.1. Radar"></a>1.1. Radar</h2><ul>
+<li>雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”；</li>
+<li>即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备；</li>
+<li>雷达发射电磁波对目标进行照射并接收其回波，由此获得目标至电磁波发射点的距离、距离变化率（径向速度）、方位、高度等信息。</li>
+</ul>
+<h2 id="1-2-Lidar"><a href="#1-2-Lidar" class="headerlink" title="1.2. Lidar"></a>1.2. Lidar</h2><ul>
+<li>LiDAR——Light Detection And Ranging，即激光探测与测量，也就是激光雷达；</li>
+<li>利用GPS（Global Position System）和IMU（Inertial Measurement Unit，惯性测量装置）的机载激光扫描，其所测得的数据为数字表面模型(Digital Surface Model, DSM)的离散点表示，数据中含有空间三维信息和激光强度信息；</li>
+<li>应用分类(Classification)技术在这些原始数字表面模型中移除建筑物、人造物、覆盖植物等测点，即可获得数字高程模型(Digital Elevation Model, DEM)，并同时得到地面覆盖物的高度。</li>
+</ul>
+<h2 id="1-3-RAR"><a href="#1-3-RAR" class="headerlink" title="1.3. RAR"></a>1.3. RAR</h2><h2 id="1-4-SAR"><a href="#1-4-SAR" class="headerlink" title="1.4. SAR"></a>1.4. SAR</h2><ul>
+<li>合成孔径雷达（简称SAR）是一种主动式的对地观测系统；</li>
+<li>可安装在飞机、卫星、宇宙飞船等飞行平台上，全天时、全天候对地实施观测、并具有一定的地表穿透能力；</li>
+<li>SAR系统在灾害监测、环境监测、海洋监测、资源勘查、农作物估产、测绘和军事等方面的应用上具有独特的优势，可发挥其他遥感手段难以发挥的作用，因此越来越受到世界各国的重视</li>
+</ul>
+<h2 id="1-5-InSAR"><a href="#1-5-InSAR" class="headerlink" title="1.5. InSAR"></a>1.5. InSAR</h2><ul>
+<li>干涉雷达指采用干涉测量技术的合成孔径雷达（Interferometric Synthetic Aperture Radar,InSAR），是传统的SAR遥感技术与射电天文干涉技术相结合的产物；</li>
+<li>它利用雷达向目标区域发射微波，然后接收目标反射的回波，得到同一目标区域成像的SAR复图像对；</li>
+<li>若复图像对之间存在相干条件，SAR复图像对共轭相乘可以得到干涉图，根据干涉图的相位值，得出两次成像中微波的路程差，从而计算出目标地区的地形、地貌以及表面的微小变化，可用于数字高程模型建立、地壳形变探测等。</li>
+</ul>
+<h2 id="1-6-D-InSAR"><a href="#1-6-D-InSAR" class="headerlink" title="1.6. D-InSAR"></a>1.6. D-InSAR</h2><ul>
+<li>合成孔径雷达差分干涉测量技术（Differential InSAR, DInSAR），它是利用同一地区不同时相的SAR影像，通过差分干涉，获取该地区地表形变信息的技术手段；</li>
+<li>已有研究提出了三种方法进行差分干涉，两轨法、三轨法和四轨法；</li>
+</ul>
+<h2 id="1-7-PolSAR"><a href="#1-7-PolSAR" class="headerlink" title="1.7. PolSAR"></a>1.7. PolSAR</h2><ul>
+<li>极化干涉合成孔径雷达（Polarimetric Synthetic Aperture Radar Interferometry）是极化SAR与干涉SAR的结合，充分利用了干涉观测量(相干性和干涉相位)随极化变化的特性；</li>
+<li>既具有干涉SAR获取目标高程的能力，又具有极化SAR对不同散射机理的分辨能力，还具有提高干涉SAR相干性的能力以及提取体散射体(如森林，农作物，冰雪等)参数的潜力。</li>
+</ul>
+<h2 id="1-8-PSInSAR"><a href="#1-8-PSInSAR" class="headerlink" title="1.8. PSInSAR"></a>1.8. PSInSAR</h2><ul>
+<li>PSInSAR技术是“永久散射体合成孔径雷达干涉测量”的多重嵌套缩写，即Persistent Scatterer Interferometric Synthetic Aperture Radar。</li>
+</ul>
+<h1 id="二、区分"><a href="#二、区分" class="headerlink" title="二、区分"></a>二、区分</h1><h2 id="2-1-LiDAR和SAR"><a href="#2-1-LiDAR和SAR" class="headerlink" title="2.1 LiDAR和SAR"></a>2.1 LiDAR和SAR</h2><ol>
+<li>LiDAR其实是激光测距,是通过对从空中或空间飞行器上发射的激光角度和探测到的激光距离来解算激光点的地面坐标的方法,LiDAR是点测量.LiDAR是直接测量.SAR是合成孔径雷达,是用小孔径天线通过运动和数学计算而达到大孔径雷达的测量效果的技术.sar是需要通过对多个位置的雷达信号的联合数值计算来获得结果的,sar是间接测量.</li>
+<li>SAR是合成孔径雷达,数据记录的是雷达后向散射的强度.LiDAR是激光雷达,数据记录的是激光往返的时间和强度.</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Auteur">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch206265'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/31/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-05-31 08:10:32 / Geändert am: 13:09:24" itemprop="dateCreated datePublished" datetime="2019-05-31T08:10:32+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h2 id="做了一下修改"><a href="#做了一下修改" class="headerlink" title="做了一下修改"></a>做了一下修改</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -98,91 +973,303 @@
 
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/hello-world/" data-id="cjwbge9xs00002sw4u7qrhav7" class="article-share-link">Share</a>
+
+    
+
+    
+    
+    
+
+    
+
+    
       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+  </section>
 
   
 
 
-</section>
+          </div>
+          
+
+        </div>
         
-          <aside id="sidebar">
+          
   
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li></ul>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/05/31/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Auteur</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
     </div>
-  </div>
-
+  </aside>
   
-</aside>
+
+
         
       </div>
-      <footer id="footer">
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Auteur</span>
+
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
 
+    
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    
   </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
