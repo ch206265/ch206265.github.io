@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="一、概念主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR 1.1. Radar 雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”； 即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备； 雷达发射电磁波对目标进行照射并接收其回波，由此获">
+  <meta name="description" content="请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d[0]中，把10～19岁年龄段的人数放在d[1]中，把20～29岁年龄段的人数放在d[2]中，依此类推，把100岁(含100岁)以上年龄的人数都放在d[10]中。结果在主函数中输出#include &amp;lt;stdio.h&amp;gt; # define">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch206265&#39;Blog">
-<meta property="og:url" content="http://yoursite.com/2019/05/31/草稿4各种雷达/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/06/01/分段统计思想(100)/index.html">
 <meta property="og:site_name" content="ch206265&#39;Blog">
-<meta property="og:description" content="一、概念主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR 1.1. Radar 雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”； 即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备； 雷达发射电磁波对目标进行照射并接收其回波，由此获">
+<meta property="og:description" content="请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d[0]中，把10～19岁年龄段的人数放在d[1]中，把20～29岁年龄段的人数放在d[2]中，依此类推，把100岁(含100岁)以上年龄的人数都放在d[10]中。结果在主函数中输出#include &amp;lt;stdio.h&amp;gt; # define">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-24T08:43:26.166Z">
+<meta property="og:updated_time" content="2019-06-01T06:27:08.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ch206265&#39;Blog">
-<meta name="twitter:description" content="一、概念主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR 1.1. Radar 雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”； 即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备； 雷达发射电磁波对目标进行照射并接收其回波，由此获">
+<meta name="twitter:description" content="请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d[0]中，把10～19岁年龄段的人数放在d[1]中，把20～29岁年龄段的人数放在d[2]中，依此类推，把100岁(含100岁)以上年龄的人数都放在d[10]中。结果在主函数中输出#include &amp;lt;stdio.h&amp;gt; # define">
 
 
 
@@ -116,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/31/草稿4各种雷达/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/01/分段统计思想(100)/">
 
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/草稿4各种雷达/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/分段统计思想(100)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Author">
@@ -334,24 +334,12 @@
                 
               
 
-              <time title="Erstellt: 2019-05-31 13:10:31" itemprop="dateCreated datePublished" datetime="2019-05-31T13:10:31+08:00">2019-05-31</time>
+              <time title="Erstellt: 2019-06-01 14:24:54 / Geändert am: 14:27:08" itemprop="dateCreated datePublished" datetime="2019-06-01T14:24:54+08:00">2019-06-01</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-04-24 16:43:26" itemprop="dateModified" datetime="2019-04-24T16:43:26+08:00">2019-04-24</time>
               
             
           </span>
@@ -385,43 +373,64 @@
       
 
       
-        <h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>主要区分一下Lidar/SAR/InSAR/D-InSAR/RAR/PolSAR</p>
-<h2 id="1-1-Radar"><a href="#1-1-Radar" class="headerlink" title="1.1. Radar"></a>1.1. Radar</h2><ul>
-<li>雷达，是英文Radar的音译，源于radio detection and ranging的缩写，意思为”无线电探测和测距”；</li>
-<li>即用无线电的方法发现目标并测定它们的空间位置。因此，雷达也被称为“无线电定位”，是利用电磁波探测目标的电子设备；</li>
-<li>雷达发射电磁波对目标进行照射并接收其回波，由此获得目标至电磁波发射点的距离、距离变化率（径向速度）、方位、高度等信息。</li>
-</ul>
-<h2 id="1-2-Lidar"><a href="#1-2-Lidar" class="headerlink" title="1.2. Lidar"></a>1.2. Lidar</h2><ul>
-<li>LiDAR——Light Detection And Ranging，即激光探测与测量，也就是激光雷达；</li>
-<li>利用GPS（Global Position System）和IMU（Inertial Measurement Unit，惯性测量装置）的机载激光扫描，其所测得的数据为数字表面模型(Digital Surface Model, DSM)的离散点表示，数据中含有空间三维信息和激光强度信息；</li>
-<li>应用分类(Classification)技术在这些原始数字表面模型中移除建筑物、人造物、覆盖植物等测点，即可获得数字高程模型(Digital Elevation Model, DEM)，并同时得到地面覆盖物的高度。</li>
-</ul>
-<h2 id="1-3-RAR"><a href="#1-3-RAR" class="headerlink" title="1.3. RAR"></a>1.3. RAR</h2><h2 id="1-4-SAR"><a href="#1-4-SAR" class="headerlink" title="1.4. SAR"></a>1.4. SAR</h2><ul>
-<li>合成孔径雷达（简称SAR）是一种主动式的对地观测系统；</li>
-<li>可安装在飞机、卫星、宇宙飞船等飞行平台上，全天时、全天候对地实施观测、并具有一定的地表穿透能力；</li>
-<li>SAR系统在灾害监测、环境监测、海洋监测、资源勘查、农作物估产、测绘和军事等方面的应用上具有独特的优势，可发挥其他遥感手段难以发挥的作用，因此越来越受到世界各国的重视</li>
-</ul>
-<h2 id="1-5-InSAR"><a href="#1-5-InSAR" class="headerlink" title="1.5. InSAR"></a>1.5. InSAR</h2><ul>
-<li>干涉雷达指采用干涉测量技术的合成孔径雷达（Interferometric Synthetic Aperture Radar,InSAR），是传统的SAR遥感技术与射电天文干涉技术相结合的产物；</li>
-<li>它利用雷达向目标区域发射微波，然后接收目标反射的回波，得到同一目标区域成像的SAR复图像对；</li>
-<li>若复图像对之间存在相干条件，SAR复图像对共轭相乘可以得到干涉图，根据干涉图的相位值，得出两次成像中微波的路程差，从而计算出目标地区的地形、地貌以及表面的微小变化，可用于数字高程模型建立、地壳形变探测等。</li>
-</ul>
-<h2 id="1-6-D-InSAR"><a href="#1-6-D-InSAR" class="headerlink" title="1.6. D-InSAR"></a>1.6. D-InSAR</h2><ul>
-<li>合成孔径雷达差分干涉测量技术（Differential InSAR, DInSAR），它是利用同一地区不同时相的SAR影像，通过差分干涉，获取该地区地表形变信息的技术手段；</li>
-<li>已有研究提出了三种方法进行差分干涉，两轨法、三轨法和四轨法；</li>
-</ul>
-<h2 id="1-7-PolSAR"><a href="#1-7-PolSAR" class="headerlink" title="1.7. PolSAR"></a>1.7. PolSAR</h2><ul>
-<li>极化干涉合成孔径雷达（Polarimetric Synthetic Aperture Radar Interferometry）是极化SAR与干涉SAR的结合，充分利用了干涉观测量(相干性和干涉相位)随极化变化的特性；</li>
-<li>既具有干涉SAR获取目标高程的能力，又具有极化SAR对不同散射机理的分辨能力，还具有提高干涉SAR相干性的能力以及提取体散射体(如森林，农作物，冰雪等)参数的潜力。</li>
-</ul>
-<h2 id="1-8-PSInSAR"><a href="#1-8-PSInSAR" class="headerlink" title="1.8. PSInSAR"></a>1.8. PSInSAR</h2><ul>
-<li>PSInSAR技术是“永久散射体合成孔径雷达干涉测量”的多重嵌套缩写，即Persistent Scatterer Interferometric Synthetic Aperture Radar。</li>
-</ul>
-<h1 id="二、区分"><a href="#二、区分" class="headerlink" title="二、区分"></a>二、区分</h1><h2 id="2-1-LiDAR和SAR"><a href="#2-1-LiDAR和SAR" class="headerlink" title="2.1 LiDAR和SAR"></a>2.1 LiDAR和SAR</h2><ol>
-<li>LiDAR其实是激光测距,是通过对从空中或空间飞行器上发射的激光角度和探测到的激光距离来解算激光点的地面坐标的方法,LiDAR是点测量.LiDAR是直接测量.SAR是合成孔径雷达,是用小孔径天线通过运动和数学计算而达到大孔径雷达的测量效果的技术.sar是需要通过对多个位置的雷达信号的联合数值计算来获得结果的,sar是间接测量.</li>
-<li>SAR是合成孔径雷达,数据记录的是雷达后向散射的强度.LiDAR是激光雷达,数据记录的是激光往返的时间和强度.</li>
-</ol>
+        <font size="4">
 
+<h5 id="请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d-0-中，把10～19岁年龄段的人数放在d-1-中，把20～29岁年龄段的人数放在d-2-中，依此类推，把100岁-含100岁-以上年龄的人数都放在d-10-中。结果在主函数中输出"><a href="#请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d-0-中，把10～19岁年龄段的人数放在d-1-中，把20～29岁年龄段的人数放在d-2-中，依此类推，把100岁-含100岁-以上年龄的人数都放在d-10-中。结果在主函数中输出" class="headerlink" title="请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d[0]中，把10～19岁年龄段的人数放在d[1]中，把20～29岁年龄段的人数放在d[2]中，依此类推，把100岁(含100岁)以上年龄的人数都放在d[10]中。结果在主函数中输出"></a>请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d[0]中，把10～19岁年龄段的人数放在d[1]中，把20～29岁年龄段的人数放在d[2]中，依此类推，把100岁(含100岁)以上年龄的人数都放在d[10]中。结果在主函数中输出</h5><pre><code class="c"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span>
+<span class="meta"># <span class="meta-keyword">define</span> N  50</span>
+<span class="meta"># <span class="meta-keyword">define</span> M  11</span>
+<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> *a,  <span class="keyword">int</span> *b)</span></span>
+<span class="function"></span>{
+  <span class="keyword">int</span> i,j;
+  <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;M;j++)
+     b[j]=<span class="number">0</span>;          <span class="comment">/*数组b初始化为0*/</span>
+  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)
+     <span class="keyword">if</span>(a[i]&gt;=<span class="number">100</span>) 
+        b[<span class="number">10</span>]++;         <span class="comment">/*如果年龄大于等于100，b[10]自增1*/</span>
+     <span class="keyword">else</span> 
+        b[a[i]/<span class="number">10</span>]++;    <span class="comment">/*如果年龄小于100，则将其分别统计到b[a[i]/10]中*/</span>
+}
+<span class="function"><span class="keyword">double</span>  <span class="title">rnd</span><span class="params">()</span></span>
+<span class="function"></span>{
+  <span class="keyword">static</span> t=<span class="number">29</span>,c=<span class="number">217</span>,m=<span class="number">1024</span>,r=<span class="number">0</span>;
+  r=(r*t+c)%m;  
+  <span class="keyword">return</span>((<span class="keyword">double</span>)r/m);
+}
+<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>
+<span class="function"></span>{ 
+  FILE *wf;
+  <span class="keyword">int</span> age[N], i,d[M];
+
+  <span class="keyword">int</span> b[N]={<span class="number">32</span>,<span class="number">45</span>,<span class="number">15</span>,<span class="number">12</span>,<span class="number">86</span>,<span class="number">49</span>,<span class="number">97</span>,<span class="number">3</span>,<span class="number">44</span>,<span class="number">52</span>,<span class="number">17</span>,<span class="number">95</span>,<span class="number">63</span>};
+
+  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)  
+     age[i]=(<span class="keyword">int</span>)(<span class="number">115</span>*rnd());     <span class="comment">/*产生一个随机的年龄数组*/</span>
+
+  <span class="built_in">printf</span>(<span class="string">"The original data :\n"</span>);
+  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)  
+     <span class="built_in">printf</span>((i+<span class="number">1</span>)%<span class="number">10</span>==<span class="number">0</span>? <span class="string">"%4d\n"</span>:<span class="string">"%4d"</span>,age[i]);   <span class="comment">/*每行输出10个数*/</span>
+  <span class="built_in">printf</span>(<span class="string">"\n\n"</span>);
+
+  fun(age,d);
+  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)  
+     <span class="built_in">printf</span>(<span class="string">"%4d---%4d  :%4d\n"</span>, i*<span class="number">10</span>, i*<span class="number">10</span>+<span class="number">9</span>,d[i]);
+  <span class="built_in">printf</span>(<span class="string">"Over 100  :  %4d\n"</span>,d[<span class="number">10</span>]);
+
+<span class="comment">/******************************/</span>
+  wf=fopen(<span class="string">"out.dat"</span>,<span class="string">"w"</span>);
+  fun(b,d);
+  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)  
+     <span class="built_in">fprintf</span>(wf,<span class="string">"%4d---%4d  :%4d\n"</span>, i*<span class="number">10</span>, i*<span class="number">10</span>+<span class="number">9</span>,d[i]);
+  <span class="built_in">fprintf</span>(wf,<span class="string">"Over 100  :  %4d"</span>,d[<span class="number">10</span>]);
+  fclose(wf);
+<span class="comment">/*****************************/</span>
+}</code></pre>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>本题是一个分段函数的问题，用两个循环来完成。  </p>
+<ul>
+<li>第1个循环的作用是使b中的所有元素值都为0。这个循环不能省略，因为若未对b中的元素赋初值，则它们的值是不可预测的。  </li>
+<li>第2个循环的作用是分别统计a中各年龄段的人数。当a[i]≥100时，按题意要将其统计到b[10]中。else的作用是如果年龄小于100，则将其分别统计到b[a[i]/10]中。  </li>
+<li>由运算优先级可知先进行a[i]/10的运算，所得结果作为b的下标。若a[i]为0～9时，a[i]/10的值为0，且0～9岁的人数正好要存入b[0]中。若a[i]为10～19时，a[i]/10 的值为1，且10～19岁的人数正好要存入b[1]中，依此类推。</li>
+</ul>
+</font>
       
     </div>
 
@@ -451,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/31/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/06/01/草稿1遥感卫星总结/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -460,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/01/草稿1遥感卫星总结/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -581,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、概念"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Radar"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. Radar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Lidar"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. Lidar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-RAR"><span class="nav-number">1.3.</span> <span class="nav-text">1.3. RAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-SAR"><span class="nav-number">1.4.</span> <span class="nav-text">1.4. SAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-InSAR"><span class="nav-number">1.5.</span> <span class="nav-text">1.5. InSAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-D-InSAR"><span class="nav-number">1.6.</span> <span class="nav-text">1.6. D-InSAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-PolSAR"><span class="nav-number">1.7.</span> <span class="nav-text">1.7. PolSAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-PSInSAR"><span class="nav-number">1.8.</span> <span class="nav-text">1.8. PSInSAR</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、区分"><span class="nav-number">2.</span> <span class="nav-text">二、区分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-LiDAR和SAR"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 LiDAR和SAR</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d-0-中，把10～19岁年龄段的人数放在d-1-中，把20～29岁年龄段的人数放在d-2-中，依此类推，把100岁-含100岁-以上年龄的人数都放在d-10-中。结果在主函数中输出"><span class="nav-number">1.</span> <span class="nav-text">请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d[0]中，把10～19岁年龄段的人数放在d[1]中，把20～29岁年龄段的人数放在d[2]中，依此类推，把100岁(含100岁)以上年龄的人数都放在d[10]中。结果在主函数中输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

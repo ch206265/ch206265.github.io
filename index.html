@@ -288,10 +288,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/分段统计思想(100)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Author">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch206265'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/01/分段统计思想(100)/" class="post-title-link" itemprop="url">Unbenannt</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-06-01 14:24:54 / Geändert am: 14:27:08" itemprop="dateCreated datePublished" datetime="2019-06-01T14:24:54+08:00">2019-06-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <font size="4">
+
+<h5 id="请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d-0-中，把10～19岁年龄段的人数放在d-1-中，把20～29岁年龄段的人数放在d-2-中，依此类推，把100岁-含100岁-以上年龄的人数都放在d-10-中。结果在主函数中输出"><a href="#请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d-0-中，把10～19岁年龄段的人数放在d-1-中，把20～29岁年龄段的人数放在d-2-中，依此类推，把100岁-含100岁-以上年龄的人数都放在d-10-中。结果在主函数中输出" class="headerlink" title="请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d[0]中，把10～19岁年龄段的人数放在d[1]中，把20～29岁年龄段的人数放在d[2]中，依此类推，把100岁(含100岁)以上年龄的人数都放在d[10]中。结果在主函数中输出"></a>请编写函数fun，该函数的功能是：统计各年龄段的人数。N个年龄通过调用随机函数获得，并放入主函数的age数组中。要求函数把0～9岁年龄段的人数放在d[0]中，把10～19岁年龄段的人数放在d[1]中，把20～29岁年龄段的人数放在d[2]中，依此类推，把100岁(含100岁)以上年龄的人数都放在d[10]中。结果在主函数中输出</h5><pre><code class="c"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span>
+<span class="meta"># <span class="meta-keyword">define</span> N  50</span>
+<span class="meta"># <span class="meta-keyword">define</span> M  11</span>
+<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> *a,  <span class="keyword">int</span> *b)</span></span>
+<span class="function"></span>{
+  <span class="keyword">int</span> i,j;
+  <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;M;j++)
+     b[j]=<span class="number">0</span>;          <span class="comment">/*数组b初始化为0*/</span>
+  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)
+     <span class="keyword">if</span>(a[i]&gt;=<span class="number">100</span>) 
+        b[<span class="number">10</span>]++;         <span class="comment">/*如果年龄大于等于100，b[10]自增1*/</span>
+     <span class="keyword">else</span> 
+        b[a[i]/<span class="number">10</span>]++;    <span class="comment">/*如果年龄小于100，则将其分别统计到b[a[i]/10]中*/</span>
+}
+<span class="function"><span class="keyword">double</span>  <span class="title">rnd</span><span class="params">()</span></span>
+<span class="function"></span>{
+  <span class="keyword">static</span> t=<span class="number">29</span>,c=<span class="number">217</span>,m=<span class="number">1024</span>,r=<span class="number">0</span>;
+  r=(r*t+c)%m;  
+  <span class="keyword">return</span>((<span class="keyword">double</span>)r/m);
+}
+<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>
+<span class="function"></span>{ 
+  FILE *wf;
+  <span class="keyword">int</span> age[N], i,d[M];
+
+  <span class="keyword">int</span> b[N]={<span class="number">32</span>,<span class="number">45</span>,<span class="number">15</span>,<span class="number">12</span>,<span class="number">86</span>,<span class="number">49</span>,<span class="number">97</span>,<span class="number">3</span>,<span class="number">44</span>,<span class="number">52</span>,<span class="number">17</span>,<span class="number">95</span>,<span class="number">63</span>};
+
+  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)  
+     age[i]=(<span class="keyword">int</span>)(<span class="number">115</span>*rnd());     <span class="comment">/*产生一个随机的年龄数组*/</span>
+
+  <span class="built_in">printf</span>(<span class="string">"The original data :\n"</span>);
+  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)  
+     <span class="built_in">printf</span>((i+<span class="number">1</span>)%<span class="number">10</span>==<span class="number">0</span>? <span class="string">"%4d\n"</span>:<span class="string">"%4d"</span>,age[i]);   <span class="comment">/*每行输出10个数*/</span>
+  <span class="built_in">printf</span>(<span class="string">"\n\n"</span>);
+
+  fun(age,d);
+  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)  
+     <span class="built_in">printf</span>(<span class="string">"%4d---%4d  :%4d\n"</span>, i*<span class="number">10</span>, i*<span class="number">10</span>+<span class="number">9</span>,d[i]);
+  <span class="built_in">printf</span>(<span class="string">"Over 100  :  %4d\n"</span>,d[<span class="number">10</span>]);
+
+<span class="comment">/******************************/</span>
+  wf=fopen(<span class="string">"out.dat"</span>,<span class="string">"w"</span>);
+  fun(b,d);
+  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)  
+     <span class="built_in">fprintf</span>(wf,<span class="string">"%4d---%4d  :%4d\n"</span>, i*<span class="number">10</span>, i*<span class="number">10</span>+<span class="number">9</span>,d[i]);
+  <span class="built_in">fprintf</span>(wf,<span class="string">"Over 100  :  %4d"</span>,d[<span class="number">10</span>]);
+  fclose(wf);
+<span class="comment">/*****************************/</span>
+}</code></pre>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>本题是一个分段函数的问题，用两个循环来完成。  </p>
+<ul>
+<li>第1个循环的作用是使b中的所有元素值都为0。这个循环不能省略，因为若未对b中的元素赋初值，则它们的值是不可预测的。  </li>
+<li>第2个循环的作用是分别统计a中各年龄段的人数。当a[i]≥100时，按题意要将其统计到b[10]中。else的作用是如果年龄小于100，则将其分别统计到b[a[i]/10]中。  </li>
+<li>由运算优先级可知先进行a[i]/10的运算，所得结果作为b的下标。若a[i]为0～9时，a[i]/10的值为0，且0～9岁的人数正好要存入b[0]中。若a[i]为10～19时，a[i]/10 的值为1，且10～19岁的人数正好要存入b[1]中，依此类推。</li>
+</ul>
+</font>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/草稿1遥感卫星总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Auteur">
+      <meta itemprop="name" content="Author">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -686,7 +885,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/草稿4各种雷达/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Auteur">
+      <meta itemprop="name" content="Author">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -876,7 +1075,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Auteur">
+      <meta itemprop="name" content="Author">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -1044,7 +1243,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Auteur</p>
+              <p class="site-author-name" itemprop="name">Author</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
 
@@ -1055,7 +1254,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -1112,7 +1311,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Auteur</span>
+  <span class="author" itemprop="copyrightHolder">Author</span>
 
   
 
