@@ -339,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/初识小波变换/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/从傅里叶变换到小波变换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ch206265">
@@ -359,7 +359,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/06/04/初识小波变换/" class="post-title-link" itemprop="url">初识小波变换</a>
+                <a href="/2019/06/05/从傅里叶变换到小波变换/" class="post-title-link" itemprop="url">从傅里叶变换到小波变换</a>
               
             
           </h1>
@@ -384,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2019-06-04 21:09:02" itemprop="dateCreated datePublished" datetime="2019-06-04T21:09:02+08:00">2019-06-04</time>
+              <time title="创建时间：2019-06-05 20:22:15" itemprop="dateCreated datePublished" datetime="2019-06-05T20:22:15+08:00">2019-06-05</time>
             
 
             
@@ -401,7 +401,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-05 00:28:25" itemprop="dateModified" datetime="2019-06-05T00:28:25+08:00">2019-06-05</time>
+                <time title="修改时间：2019-06-06 20:21:55" itemprop="dateModified" datetime="2019-06-06T20:21:55+08:00">2019-06-06</time>
               
             
           </span>
@@ -456,13 +456,15 @@
         
           
             <p>
-               
-              
+              一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。
+如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。
+傅里叶变换FT傅里叶变换主要是将信号从时间域转换到频率域，信号的一些在时间域内表现的不明显的特征在频率域内会更加明显，更有利于对信号的分析。此外，傅里叶变换（包括小波变换）是一种可逆
+              ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/06/04/初识小波变换/#more" rel="contents">
+              <a class="btn" href="/2019/06/05/从傅里叶变换到小波变换/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -627,9 +629,11 @@
 
 
 
+
 按观测对象分类
 举例
 描述
+
 
 
 
@@ -648,9 +652,9 @@ SeaStar
 
 
 
-2. 根据遥感卫星所载传感器工作的不同波段可以分为光学遥感卫星和微波遥感卫星(紫外遥感、可见光遥感、红外遥感、微波遥感、多波段遥感)
 
 
+根据遥感卫星所载传感器工作的不同波段可以分为光学遥感卫星和微波遥感卫星(紫外遥感、可见光遥感、红外遥感、微波遥感、多波段遥感)
 
 
 
@@ -662,11 +666,9 @@ SeaStar
 
 
 
+
 光学遥感卫星
-LandsatSPOTGF-1GF-2
-
-
-
+Landsat&lt;/br&gt;SPOT
               ...
             </p>
           <!--noindex-->
@@ -943,12 +945,16 @@ LiDAR——Light Detection And
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
                     <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -958,12 +964,18 @@ LiDAR——Light Detection And
                 <div class="site-state-item site-state-tags">
                   
                     
+                      <a href="/tags/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -1161,6 +1173,63 @@ LiDAR——Light Detection And
   
 
   
+  
+
+  
+  
+    
+      
+        
+      
+    
+      
+    
+      
+    
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
 
   
 
