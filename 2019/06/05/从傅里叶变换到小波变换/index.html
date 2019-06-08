@@ -104,13 +104,13 @@
 <meta property="og:site_name" content="ch206265 BLOG">
 <meta property="og:description" content="一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。 如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。 傅里叶变换FT傅里叶变换主要是将">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://note.youdao.com/yws/public/resource/efd6a83b6489350011dcb0de95edc1ae/xmlnote/39A5CF032FA24DD1A8AF856915DEAE3F/65211">
-<meta property="og:image" content="https://note.youdao.com/yws/public/resource/efd6a83b6489350011dcb0de95edc1ae/xmlnote/1B31739ED1CB4D9BAF086056A13E0DD6/65215">
-<meta property="og:updated_time" content="2019-06-06T15:10:55.571Z">
+<meta property="og:image" content="http://pss6phvi4.bkt.clouddn.com/1559820115294.png">
+<meta property="og:image" content="http://pss6phvi4.bkt.clouddn.com/1559820739327.png">
+<meta property="og:updated_time" content="2019-06-08T13:17:49.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从傅里叶变换到小波变换">
 <meta name="twitter:description" content="一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。 如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。 傅里叶变换FT傅里叶变换主要是将">
-<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/efd6a83b6489350011dcb0de95edc1ae/xmlnote/39A5CF032FA24DD1A8AF856915DEAE3F/65211">
+<meta name="twitter:image" content="http://pss6phvi4.bkt.clouddn.com/1559820115294.png">
 
 
 
@@ -406,7 +406,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-06 23:10:55" itemprop="dateModified" datetime="2019-06-06T23:10:55+08:00">2019-06-06</time>
+                <time title="修改时间：2019-06-08 21:17:49" itemprop="dateModified" datetime="2019-06-08T21:17:49+08:00">2019-06-08</time>
               
             
           </span>
@@ -478,9 +478,9 @@ S T F T_{f}(b, \omega)=\int_{-\infty}^{+\infty}[f(t) g(t-b)] \cdot \mathrm{e}^{-
 <h2 id="一个短时傅里叶变换的例子"><a href="#一个短时傅里叶变换的例子" class="headerlink" title="一个短时傅里叶变换的例子"></a>一个短时傅里叶变换的例子</h2><p>信号$f(t)$的表达式如下：</p>
 <script type="math/tex; mode=display">
 f(t)=\left\{\begin{array}{ll}{\sin 2 \pi \cdot 300 t,} & {t \in[0,250]} \\ {\sin 2 \pi \cdot 200 t,} & {t \in[250,500]} \\ {\sin 2 \pi \cdot 100 t,} & {t \in[500,750]} \\ {\sin 2 \pi \cdot 50 t,} & {t \in[750,1000]}\end{array}\right.</script><p>很明显它是一个非平稳信号，并且它的时间域图像如下：</p>
-<p><center><img src="https://note.youdao.com/yws/public/resource/efd6a83b6489350011dcb0de95edc1ae/xmlnote/39A5CF032FA24DD1A8AF856915DEAE3F/65211" alt="1559820115294.png" title="1559820115294.png" width="60%"><center></center></center></p>
+<p><center><img src="http://pss6phvi4.bkt.clouddn.com/1559820115294.png" alt="1559820115294.png" title="1559820115294.png" width="60%"><center></center></center></p>
 <p>下图是该信号在在不同窗口下进行短时傅里叶变换的三维图：</p>
-<p><center><img src="https://note.youdao.com/yws/public/resource/efd6a83b6489350011dcb0de95edc1ae/xmlnote/1B31739ED1CB4D9BAF086056A13E0DD6/65215" alt="1559820739327.png" title="1559820739327.png" width="60%"><center></center></center></p>
+<p><center><img src="http://pss6phvi4.bkt.clouddn.com/1559820739327.png" alt="1559820739327.png" title="1559820739327.png" width="60%"><center></center></center></p>
 <p>从这三组图中可以看出</p>
 <ul>
 <li><code>(a)</code>图的窗口函数最窄，时间分辨率最高（时间轴上对应的窗口宽度最窄），但是频率分辨率较差（频率轴上对应的窗口宽度最宽）</li>
