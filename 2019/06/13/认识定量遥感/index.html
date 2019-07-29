@@ -1,22 +1,20 @@
 extends partial/layout
 
-include mixins/container
-include mixins/paginator
-include mixins/tags
-include mixins/comment
+block site_title
+    != page.title + " · " + config.title
 
-block title
-  title= page.title + " · " + config.title
+block description
+    - var desc = page.desc || page.title + ' - ' + config.author;
+    meta(name="description", content=desc)
 
 block container
-  +post()
-
-block tags
-  +tags()
+    include mixins/post
+    +post(page)
 
 block pagination
-  +paginator()
+    include mixins/paginator
+    +post()
+    include partial/comment
 
-block comment
-  if theme.comments.post
-    +comment()
+block copyright
+    include partial/copyright

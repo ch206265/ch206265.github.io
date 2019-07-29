@@ -1,13 +1,12 @@
 extends partial/layout
 
-include mixins/container
-include mixins/paginator
-
-block title
-  title= config.title
-
 block container
-  +home()
+    include mixins/post
+    +posts()
 
 block pagination
-  +paginator()
+    include mixins/paginator
+    +home()
+
+block copyright
+    include partial/copyright
