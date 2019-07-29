@@ -1,20 +1,936 @@
-extends partial/layout
+<!DOCTYPE html>
 
-block site_title
-    != page.title + " · " + config.title
 
-block description
-    - var desc = page.desc || page.title + ' - ' + config.author;
-    meta(name="description", content=desc)
 
-block container
-    include mixins/post
-    +post(page)
 
-block pagination
-    include mixins/paginator
-    +post()
-    include partial/comment
 
-block copyright
-    include partial/copyright
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="主要总结一下阅读过博文《从定性遥感到定量遥感——大数据时代的空间数据科学》之后的认识。 遥感，remote sensing，遥远地感知。既然需要传感器从远处感知被观测物体的属性，那么肯定有信使来传递信息，最常见的信使就是电磁波，而传递的这个信息就是地物对电磁波的反射、吸收和透射特性（包含很多，比如反射率（主要）/吸收率/透射率）。无论是定量遥感还是定性遥感，其核心都是电磁波。 定性遥感初中物理告诉">
+<meta name="keywords" content="定量遥感">
+<meta property="og:type" content="article">
+<meta property="og:title" content="认识定量遥感">
+<meta property="og:url" content="http://ch206265.github.io/2019/06/13/认识定量遥感/index.html">
+<meta property="og:site_name" content="ch206265&#39;s BLOG">
+<meta property="og:description" content="主要总结一下阅读过博文《从定性遥感到定量遥感——大数据时代的空间数据科学》之后的认识。 遥感，remote sensing，遥远地感知。既然需要传感器从远处感知被观测物体的属性，那么肯定有信使来传递信息，最常见的信使就是电磁波，而传递的这个信息就是地物对电磁波的反射、吸收和透射特性（包含很多，比如反射率（主要）/吸收率/透射率）。无论是定量遥感还是定性遥感，其核心都是电磁波。 定性遥感初中物理告诉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-18T10:58:51.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="认识定量遥感">
+<meta name="twitter:description" content="主要总结一下阅读过博文《从定性遥感到定量遥感——大数据时代的空间数据科学》之后的认识。 遥感，remote sensing，遥远地感知。既然需要传感器从远处感知被观测物体的属性，那么肯定有信使来传递信息，最常见的信使就是电磁波，而传递的这个信息就是地物对电磁波的反射、吸收和透射特性（包含很多，比如反射率（主要）/吸收率/透射率）。无论是定量遥感还是定性遥感，其核心都是电磁波。 定性遥感初中物理告诉">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ch206265's BLOG" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://ch206265.github.io/2019/06/13/认识定量遥感/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>认识定量遥感 | ch206265's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ch206265's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ch206265.github.io/2019/06/13/认识定量遥感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ch206265">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch206265's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">认识定量遥感
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-13 18:34:35" itemprop="dateCreated datePublished" datetime="2019-06-13T18:34:35+08:00">2019-06-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-18 18:58:51" itemprop="dateModified" datetime="2019-06-18T18:58:51+08:00">2019-06-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/遥感/" itemprop="url" rel="index"><span itemprop="name">遥感</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>主要总结一下阅读过博文<a href="https://blog.csdn.net/ESA_DSQ/article/details/70475470" target="_blank" rel="noopener">《从定性遥感到定量遥感——大数据时代的空间数据科学》</a>之后的认识。</p>
+<p>遥感，remote sensing，遥远地感知。既然需要传感器从远处感知被观测物体的属性，那么肯定有信使来传递信息，最常见的信使就是电磁波，而传递的这个信息就是地物对电磁波的反射、吸收和透射特性（包含很多，比如反射率（主要）/吸收率/透射率）。无论是定量遥感还是定性遥感，其核心都是<strong>电磁波</strong>。</p>
+<h1 id="定性遥感"><a href="#定性遥感" class="headerlink" title="定性遥感"></a>定性遥感</h1><p>初中物理告诉我们，不同色光混合在一起组成了白光。映入眼帘的世界之所以五颜六色，是因为这些物体吸收和透射了一部分色光，而且也反射一部分色光。经它们反射的色光投射到眼睛中，我们就感受到物体的颜色。投射到我们眼睛中的可见光是电磁波，并且只是其中很小的一部分。</p>
+<p>遥感传感器（相机）就像我们的眼睛，只不过，除了可见光之外，它还能接收到更多波段的电磁波。可见光进入人眼经过一些生物过程产生了视觉效果，而电磁波进入到遥感传感器（相机）经过一些数字信号的处理过程也产生了遥感图像。</p>
+<p>定性遥感，主要指的是就是对遥感影像的定性分析，或者是从几何角度的分析，并不考虑地物的物理属性。比如，对获取的遥感数据作一些简单校正后，利用地面目标的光谱特性作有监督或无监督的最大似然率分类， 或经验判读 。</p>
+<h1 id="定量遥感反演"><a href="#定量遥感反演" class="headerlink" title="定量遥感反演"></a>定量遥感反演</h1><p>当然，遥感图像中包含着丰富的光谱信息，这些光谱信息包含着地物与电磁波之间的相互作用（反射/吸收/透射）。不同的地物对电磁波的作用（反射/吸收/透射）也不同，因此，根据遥感图像中的波普信息定量获取观测目标参量 ，并用这些目标参量，通过链接模型生产出满足用户 (地学或生物学模型运行) 需要的时空尺度和精度的产品，就是定量遥感反演（默认是成像遥感反演）。要想建立起波普信息与地物之间的联系，需要寻找二者之间的关系模型，也就是反演模型。</p>
+<p>反演模型主要有物理模型、统计模型或物理与统计模型的耦合模型。基于物理模型的遥感反演具有严格的机理模型。统计模型以及耦合模型对于特定区域或者特定样本的反演结果可能会比较好，但是不具有普遍适应性。</p>
+<p>定量遥感，主要聚焦于构成地物状态特征的物理化学要素，以及导致地物目标变化的物理化学动力驱动机制。它强调通过<strong>数学的或物理的模型</strong>将遥感信息与观测地表目标参量联系起来， 定量地反演或推算出某些地学目标参量。但是，定量遥感反演的真正核心是基于物理模型的反演。此外，目前所使用的物理模型大部分也是简化之后的模型。</p>
+<h1 id="定量遥感的一些问题"><a href="#定量遥感的一些问题" class="headerlink" title="定量遥感的一些问题"></a>定量遥感的一些问题</h1><p>目前，定量遥感存在一些问题，尺度效应和尺度转换的机理、异质像元的真实性检验、多尺度数据的联合应用等方面的研究仍较薄弱。</p>
+<ol>
+<li><p>反演问题，</p>
+<ul>
+<li>病态反演——参数求解过程大部分是求解参数大于方程数； </li>
+</ul>
+</li>
+<li><p>尺度问题，不同的自然现象有不同的最佳观测距离和尺度，需要适当的距离和比例尺，才能有效完整的观察。 </p>
+<ul>
+<li><p>尺度效应：由于地球表面空间作为一个巨系统的复杂性，在某一尺度上人们观察到的性质、总结出的原理或规律，在另一尺度上可能有效、可能相似，也可能需要修正。加之遥感观测信息多空间分辨率并有的特点，从定量遥感出发的地学描述必然存在多尺度的问题 </p>
+</li>
+<li><p>尺度转换与多尺度数据联合应用：多尺度 (分辨率等) 的遥感图像能够提供从“点观测”尺度 (代表区间) 到地理现象尺度之间多级差的尺度，但是，遥感图像各有自己的分辨率、幅面、重访周期和波段选择，必须有可靠、便捷、自洽的尺度转换，才能满足用户的需求。 </p>
+</li>
+<li><p>尺度效应研究需要回答两个重要问题： 第一，在像元尺度上的基本物理定律是否仍然适用，适用的条件及如何修正？ 第二，不同分辨率尺度上目标 (地学) 要素存在何种规律及联系，如何进行尺度转换？ </p>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p> 在遥感科学方面，从认识上我们往往觉得搞电磁波与地物的相互作用机理，才算基础研究，所以花了很大力气，作机理模型。那当然是遥感基础研究的一个层次，但是，地球表层的时空异质性是普遍存在的。就算我们零敲碎打，在特定地区，特定的产品，作出一些改进了的模型，能发文章；但对我们解决上述问题究竟能有多大帮助呢？</p>
+<p>由于对遥感观测的尺度效应了解不够， 对一些基本物理定理、定律、概念在遥感像元尺度上的适用性不清，对在一个遥感像元尺度上建立的模型在另一像元尺度的适用性不清， 对用地面测量的点上数据验证像元尺度的遥感反演结果的适用性不清，使得对遥感观测的像元尺度上的信息缺乏理解，难以进行像元尺度之间及其与传统点信息之间的转换。这也是导致海量遥感数据无法有效利用、定量遥感研究缺乏普适性和系统性、遥感应用难以再上新台阶的根本原因之一 。</p>
+</blockquote>
+<ol>
+<li>定量遥感产品的真实性检验 </li>
+</ol>
+<p>Reference：</p>
+<p><a href="http://xueshu.baidu.com/usercenter/paper/show?paperid=da99e3d781a1c5f028669d1d535bdc1d&amp;site=xueshu_se" target="_blank" rel="noopener">[1]李小文, 王祎婷. 定量遥感尺度效应刍议[J]. 地理学报, 2013, 68(9).</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ch206265</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://ch206265.github.io/2019/06/13/认识定量遥感/" title="认识定量遥感">http://ch206265.github.io/2019/06/13/认识定量遥感/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/定量遥感/" rel="tag"># 定量遥感</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/使用AI获取位图图像光滑的图形轮廓/" rel="next" title="使用AI获取图像光滑的图形轮廓">
+                <i class="fa fa-chevron-left"></i> 使用AI获取图像光滑的图形轮廓
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/26/记一次写标书的经历/" rel="prev" title="记一次写标书的经历">
+                记一次写标书的经历 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ch206265</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定性遥感"><span class="nav-number">1.</span> <span class="nav-text">定性遥感</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定量遥感反演"><span class="nav-number">2.</span> <span class="nav-text">定量遥感反演</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定量遥感的一些问题"><span class="nav-number">3.</span> <span class="nav-text">定量遥感的一些问题</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ch206265</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
