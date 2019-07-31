@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ch206265&#39;s BLOG</title>
+  <title>���Ѽ�����</title>
   
-  
+  <subtitle>ÿ���糿�Ľ��ٶ���һ��������������</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ch206265.github.io/"/>
-  <updated>2019-07-28T09:28:17.831Z</updated>
+  <updated>2019-07-31T03:08:52.741Z</updated>
   <id>http://ch206265.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo-next主题改造之旅</title>
+    <link href="http://ch206265.github.io/2019/07/31/hexo-next%E4%B8%BB%E9%A2%98%E6%94%B9%E9%80%A0%E4%B9%8B%E6%97%85/"/>
+    <id>http://ch206265.github.io/2019/07/31/hexo-next主题改造之旅/</id>
+    <published>2019-07-31T03:08:52.000Z</published>
+    <updated>2019-07-31T03:08:52.741Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>时光碎语</title>
+    <link href="http://ch206265.github.io/2019/07/31/%E6%97%B6%E5%85%89%E7%A2%8E%E8%AF%AD/"/>
+    <id>http://ch206265.github.io/2019/07/31/时光碎语/</id>
+    <published>2019-07-31T03:05:17.000Z</published>
+    <updated>2019-07-31T03:05:17.973Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>周总结（2019-07-28）</title>
+    <link href="http://ch206265.github.io/2019/07/31/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-07-28%EF%BC%89/"/>
+    <id>http://ch206265.github.io/2019/07/31/周总结（2019-07-28）/</id>
+    <published>2019-07-31T02:15:51.000Z</published>
+    <updated>2019-07-31T02:49:40.489Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="生活" scheme="http://ch206265.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="反思" scheme="http://ch206265.github.io/tags/%E5%8F%8D%E6%80%9D/"/>
+    
+      <category term="周总结" scheme="http://ch206265.github.io/tags/%E5%91%A8%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>记一次写标书的经历</title>
