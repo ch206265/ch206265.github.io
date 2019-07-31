@@ -1779,7 +1779,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #12f6b5;
+  background: #70fadd;
 }
 .feed-link,
 .chat {
@@ -2662,8 +2662,8 @@ hr {
   border-bottom-color: #222;
 }
 .posts-expand .post {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
