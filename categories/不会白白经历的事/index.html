@@ -14,8 +14,10 @@
     
     
     
-    <title>Categories: 不会白白经历的事 | 清醒即活着 | 每个早晨的降临都是一次令人愉快的邀请</title>
+    <title>分类: 不会白白经历的事 | 清醒即活着 | 每个早晨的降临都是一次令人愉快的邀请</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
@@ -29,8 +31,8 @@
     
         <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -46,19 +48,75 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">ch206265</h5>
-          <a href="mailto:undefined" class="mail">
-        </a></hgroup>
+          <a href="mailto:penghhjj@qq.com" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
+        </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/categories">
+                <i class="icon icon-lg icon-categories"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ch206265" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/favorite">
+                <i class="icon icon-lg icon-favorite"></i>
+                收藏
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -71,15 +129,29 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">undefined: 不会白白经历的事</div>
+        <div class="flex-col header-title ellipsis">分类: 不会白白经历的事</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
 <header class="content-header categories-header">
 
     <div class="container fade-scale">
-        <h1 class="title">undefined: 不会白白经历的事</h1>
+        <h1 class="title">分类: 不会白白经历的事</h1>
         <h5 class="subtitle">
             
         </h5>
@@ -92,15 +164,15 @@
             ">全部</a>
         
 
-            <a href="/categories/遥感/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">遥感</a>
+            <a href="/categories/生活/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">生活</a>
 
         
 
-            <a href="/categories/生活/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">生活</a>
+            <a href="/categories/可视化/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">可视化</a>
 
         
 
-            <a href="/categories/可视化/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">可视化</a>
+            <a href="/categories/遥感/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">遥感</a>
 
         
 
@@ -169,6 +241,15 @@
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -192,19 +273,108 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/categories/不会白白经历的事/&title=清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/categories/不会白白经历的事/&title=清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/categories/不会白白经历的事/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=清醒即活着&url=http://ch206265.github.io/categories/不会白白经历的事/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/categories/不会白白经历的事/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3a22qEAAyE4X3/l7ZQeteanZnoUpPfq8Xi4bMQcnq95OP4Ps7O/P599tf6nvX5Cw4YMGA8lnGUR/3Syj2VZ9WfoL4KBgwYexh14KtvUb+uHspbwRoGDBgwokTQDaAwYMCAcVXA7YdOJXGEAQMGjKyI7TTI3LTyxlocBgwYD2S4g4FP/r5xvgEDBoyHMA7z0O+gl76dQvfnKhgwYIxmKMlZ/dJZkucGdCkcw4ABYzSjfsVsFcMdXrr4N/8TGDBgDGLoDSy3lZ8Vq3oy+nIvgwEDxmMZbsKXJYVZc81uxsGAAWMoI1tuyFYo9OfaQRkGDBijGXqSl61ZuAMAd5wJAwaMDQzd2k/13Ka/UjbDgAFjA8PdrcpWuIzpRKPNBwMGjJ2MTtnZHznoax8wYMCYzcge4y57KYHbPXO6bAEDBow1DD38ZUlefyDxR7sNBgwYCxhZ2ueOFq4aM8CAAWMPo5/GuS963wIHDBgwZjOUsWIWXjuFsZukwoABYypDD5eddQq9HHVTTxgwYOxhdBI1vXDNYNJHhAEDxmhGZ5CZvYq7Uma05GDAgDGUcZiHi9QDaDZ+OJ1vwIABYxCjE+bq5M+FuWAYMGBsYyhBNitlsxGpuzoGAwaMPQwl8LlRPJypulU4DBgwYAitNL2g7RSrb5JOGDBgwIia/tmQMsTDgAFjAUMpMt2FLbdJ57b5wlocBgwYD2R0Ckh95qB8ILc9d8F8AwYMGP+d8QVRmyLgpGna6AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 
 
-
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>使用AI获取图像光滑的图形轮廓 | 清醒即活着 | 每个早晨的降临都是一次令人愉快的邀请</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="符号设计,Illustrated">
+    <meta name="description" content="最近需要将一些地图资源符号化，以便在地图上显示。 在阿里巴巴矢量图标库)中能找到大部分比较满意的基础图元符号，然后按找自己的设计思路进行修改，尤其是当需要找一些知名的APP图标时，它们的矢量logo大部分都可以找到。但是也有一些找不到，比如我想在地图上表示水木清华论坛，需要寻找它的logo作为在地图上显示的符号（logo背景统一填充为白色）。 在网络上，我只找到了一个比较模糊的水木论坛的jpg图片">
+<meta name="keywords" content="符号设计,Illustrated">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用AI获取图像光滑的图形轮廓">
+<meta property="og:url" content="http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/index.html">
+<meta property="og:site_name" content="清醒即活着">
+<meta property="og:description" content="最近需要将一些地图资源符号化，以便在地图上显示。 在阿里巴巴矢量图标库)中能找到大部分比较满意的基础图元符号，然后按找自己的设计思路进行修改，尤其是当需要找一些知名的APP图标时，它们的矢量logo大部分都可以找到。但是也有一些找不到，比如我想在地图上表示水木清华论坛，需要寻找它的logo作为在地图上显示的符号（logo背景统一填充为白色）。 在网络上，我只找到了一个比较模糊的水木论坛的jpg图片">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://pss6phvi4.bkt.clouddn.com/shuimuqinghua.png">
+<meta property="og:updated_time" content="2019-06-12T10:09:58.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用AI获取图像光滑的图形轮廓">
+<meta name="twitter:description" content="最近需要将一些地图资源符号化，以便在地图上显示。 在阿里巴巴矢量图标库)中能找到大部分比较满意的基础图元符号，然后按找自己的设计思路进行修改，尤其是当需要找一些知名的APP图标时，它们的矢量logo大部分都可以找到。但是也有一些找不到，比如我想在地图上表示水木清华论坛，需要寻找它的logo作为在地图上显示的符号（logo背景统一填充为白色）。 在网络上，我只找到了一个比较模糊的水木论坛的jpg图片">
+<meta name="twitter:image" content="http://pss6phvi4.bkt.clouddn.com/shuimuqinghua.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ch206265</h5>
+          <a href="mailto:penghhjj@qq.com" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-categories"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ch206265" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/favorite">
+                <i class="icon icon-lg icon-favorite"></i>
+                收藏
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">使用AI获取图像光滑的图形轮廓</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">使用AI获取图像光滑的图形轮廓</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-12T09:03:16.000Z" itemprop="datePublished" class="page-time">
+  2019-06-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/可视化/">可视化</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PS的快速选择工具"><span class="post-toc-number">1.</span> <span class="post-toc-text">PS的快速选择工具</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Illustrated的图像描摹工具"><span class="post-toc-number">2.</span> <span class="post-toc-text">Illustrated的图像描摹工具</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-使用AI获取位图图像光滑的图形轮廓" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">使用AI获取图像光滑的图形轮廓</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-12 17:03:16" datetime="2019-06-12T09:03:16.000Z" itemprop="datePublished">2019-06-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/可视化/">可视化</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>最近需要将一些地图资源符号化，以便在地图上显示。</p>
+<p>在<a href="[https://www.iconfont.cn](https://www.iconfont.cn/">阿里巴巴矢量图标库</a>)中能找到大部分比较满意的基础图元符号，然后按找自己的设计思路进行修改，尤其是当需要找一些知名的APP图标时，它们的矢量logo大部分都可以找到。但是也有一些找不到，比如我想在地图上表示<code>水木清华论坛</code>，需要寻找它的logo作为在地图上显示的符号（logo背景统一填充为白色）。</p>
+<p>在网络上，我只找到了一个比较模糊的<code>水木论坛</code>的jpg图片，并且图片中除了图形符号外，还有一些文字，但是我只需要上面的图形符号。此外，我不会使用上面的钢笔工具，没有办法描边，只能借助于AI 或者PS看看有没有比较傻瓜一点的方式。下面就此总结一下。</p>
+<h1 id="PS的快速选择工具"><a href="#PS的快速选择工具" class="headerlink" title="PS的快速选择工具"></a>PS的快速选择工具</h1><p>快速选择工具可以快速把相似颜色的区域选择出来，能够选出符号的轮廓，但是因为位图符号，都是一些锯齿状的边缘，勾选的边缘不够平滑，效果不好。如果将图像放大，局部修改蚂蚁线，不仅比较费时费力，而且效果也不好，没有办法保证平滑。</p>
+<h1 id="Illustrated的图像描摹工具"><a href="#Illustrated的图像描摹工具" class="headerlink" title="Illustrated的图像描摹工具"></a>Illustrated的图像描摹工具</h1><p>将jpg图像导入到AI中，使用图像描摹——高保真度/低保真度照片/…——扩展</p>
+<p>经过这三步，大致就能将图片中图形的轮廓勾选出来，效果比PS的快速选择工具要好，但是总体来讲还是有很多地方可以修改。</p>
+<ul>
+<li>右键图像——取消编组，这样就可以分离整张图片上的图形轮廓和文字轮廓，删除不感兴趣的文字轮廓；</li>
+<li>使用剪刀工具修剪一些比较大的轮廓偏差，然后使用橡皮擦工具对局部的不够光滑的边缘做一下处理；</li>
+<li>然后将背景填充为白色，之后导出为PNG(应该是位图的格式都可以)；</li>
+<li>在此把导出的图像导进AI中，重复上面的操作，效果就会越来越好了</li>
+</ul>
+<p>效果如下：</p>
+<center>
+    <img src="http://pss6phvi4.bkt.clouddn.com/shuimuqinghua.png" width="80%">
+</center>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-12T10:09:58.366Z" itemprop="dateUpdated">2019-06-12 18:09:58</time>
+</span><br>
+
+
+        
+        转载请附本文链接：<a href="/2019/06/12/使用AI获取位图图像光滑的图形轮廓/" target="_blank" rel="external">http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ch206265.github.io">
+            <img src="/img/avatar.jpg" alt="ch206265">
+            ch206265
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Illustrated/">Illustrated</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/符号设计/">符号设计</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/&title=《使用AI获取图像光滑的图形轮廓》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/&title=《使用AI获取图像光滑的图形轮廓》 — 清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用AI获取图像光滑的图形轮廓》 — 清醒即活着&url=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/13/认识定量遥感/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">认识定量遥感</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/08/思而不学则殆/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">思而不学则殆</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ch206265 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/&title=《使用AI获取图像光滑的图形轮廓》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/&title=《使用AI获取图像光滑的图形轮廓》 — 清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用AI获取图像光滑的图形轮廓》 — 清醒即活着&url=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/06/12/使用AI获取位图图像光滑的图形轮廓/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJ0lEQVR42u3aQW7jQAwEwPz/094HLDJqkgpgUeVTIBj21PjAsMmfn/j1+e91fk/yaee/z9+bnOeGFzY2NvZD2J/j6zdScpQz6fy8et25BRsbG3sre1Jm8mKWF7/Jk+hysbGxsV/MTspG3qIkRz+/BxsbGxu7V8DOT3JA0hQl142NjY2NnUdCOTtvXfIymf8kt2Vp2NjY2F/Prh7om//+k/k2NjY29hezP8XXpPHoDQZ6hepCgY2Njb2I3Rvc5sOAvJnJ35Nf6EWYhY2Njb2CnRx6EhhNSld1YFAIkrCxsbEXsXuA3qUkjU1+uflwt/zLY2NjYz+KXT3KvNhMIqfqAlBhWQcbGxv7seykIbn3mibfnrQxScHDxsbGfht7MqDtxUbVViSPqLCxsbG3spsFoJW655+TB1V5BIaNjY29lT1fi8mLRxIS9ajl0S82Njb2IvakzOTsnJoHRqNQCRsbG3sFO4+BqiFU8gk9wPwSsbGxsfexq0lLbyhbfd5rV6I1TWxsbOyl7Oo6Tt4A5EPfasnMi+JFRoWNjY29gt0b4k7WNPNwP/8BoiYHGxsbexE7KWOTI+bD1zm1PA/BxsbGXsGOFlnilqBQPAajhaSbuLg4bGxs7KXsXsmZDICrYVDy/Pw3NjY29m72ZBiQH3Sy1lP9/F+fY2NjYy9lJ9HSpHRVD1e9oHz8jI2Njb2JfW4G8ifViH9eOJOW46IEYmNjY69g53FMDz8ZD+fFsjkewMbGxn4Buxr398D5FfSGzdHaJTY2NvZj2b2lmSiyiRue3tEn7RM2Njb2Vna+1Ng7YrWM9UpdYU0TGxsbeym71wZM2pL50k9zRI2NjY29lJ0PXO9qS5JvrBatqIxhY2Njr2Df+69/Hhv1+oJ8Tefi27GxsbEXsasFoBrc91aCJu1KM2DCxsbGfjj7rgh+XjDyAKvarhRWdrCxsbEfy+4dIh8S5As6+ajgtiwNGxsb+2XsatxTbXXKI9v4VBfzbWxsbOxXsvOjlwtMEGb1QjFsbGzsrex8qbF3rOoiZnUlNGlpsLGxsbeym6HMoNn4k4LUGlFjY2NjP5z9D4AWxHAlMkzcAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

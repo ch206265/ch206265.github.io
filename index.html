@@ -17,6 +17,8 @@
     <title>清醒即活着 | 每个早晨的降临都是一次令人愉快的邀请</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
     
     <meta name="keywords" content>
     <meta property="og:type" content="website">
@@ -29,8 +31,8 @@
     
         <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -46,19 +48,75 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">ch206265</h5>
-          <a href="mailto:undefined" class="mail">
-        </a></hgroup>
+          <a href="mailto:penghhjj@qq.com" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
+        </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-categories"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-about"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ch206265" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/favorite">
+                <i class="icon icon-lg icon-favorite"></i>
+                收藏
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -73,6 +131,20 @@
         </a>
         <div class="flex-col header-title ellipsis">清醒即活着</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -212,7 +284,17 @@
 
     
         投标文件中一些重要的东西
-开标一览表（报价表）、投标分...
+开标一览表（报价表）、投标分项报价表
+投标服务方案
+技术规格响应表、合同文本条款响应表
+法定代表人授权书
+剩下的就是一些投标人基本情况、投标人资格证明、同类项目成功执行情况、招标代理费承诺、退投标保证金说明等等一些内容。
+
+投标人、投标人授权代表
+投标人：一般是公司名称
+投标人授权代表，也就是法定代表人授权书中的被授权人
+
+招标人、采购代理机构、评标委员会法人、法人...
     
 
         <a href="/2019/07/26/记一次写标书的经历/" class="post-more waves-effect waves-button">
@@ -258,7 +340,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        主要总结一下阅读过博文《从定性遥感到定量遥感——大数据...
+        主要总结一下阅读过博文《从定性遥感到定量遥感——大数据时代的空间数据科学》之后的认识。
+遥感，remote sensing，遥远地感知。既然需要传感器从远处感知被观测物体的属性，那么肯定有信使来传递信息，最常见的信使就是电磁波，而传递的这个信息就是地物对电磁波的反射、吸收和透射特性（包含很多，比如反射率（主要）/吸收率/透射率）。无论是定量遥感还是定性遥感，其核心都是电磁波。
+定性遥感初中物...
     
 
         <a href="/2019/06/13/认识定量遥感/" class="post-more waves-effect waves-button">
@@ -305,7 +389,8 @@
 
     
         最近需要将一些地图资源符号化，以便在地图上显示。
-在阿...
+在阿里巴巴矢量图标库)中能找到大部分比较满意的基础图元符号，然后按找自己的设计思路进行修改，尤其是当需要找一些知名的APP图标时，它们的矢量logo大部分都可以找到。但是也有一些找不到，比如我想在地图上表示水木清华论坛，需要寻找它的logo作为在地图上显示的符号（logo背景统一填充为白色）。
+在网络上，我只找到了一个比较模糊的水木论坛的jp...
     
 
         <a href="/2019/06/12/使用AI获取位图图像光滑的图形轮廓/" class="post-more waves-effect waves-button">
@@ -351,7 +436,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        为什么今天要写这个呢？其实在接触到博客之前，自己一直使...
+        为什么今天要写这个呢？其实在接触到博客之前，自己一直使用云笔记，也经常在云笔记里面写一些思考和反思。说“经常”其实也不太对，毕竟在自己目标明确或者“一帆风顺”的时候，根本不会想起来写一些反思，往往都会是在心情或者学习状态比较起伏，目标不明确，总之生活有些混乱的时候才会去写。所以，今天写这个东西，的确是最近感觉遇到了些小问题，需要用文字理一理。
+之前的一些事上学期研一刚开学，自己心中冲劲十足，...
     
 
         <a href="/2019/06/08/思而不学则殆/" class="post-more waves-effect waves-button">
@@ -397,7 +483,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        一般称在时间域内的离散数字信号为原始信号。大多数的信号...
+        一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。
+如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。
+傅里叶变换FT傅里叶变换主...
     
 
         <a href="/2019/06/05/从傅里叶变换到小波变换/" class="post-more waves-effect waves-button">
@@ -424,6 +512,15 @@
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -447,19 +544,108 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/&title=清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/&title=清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=清醒即活着&url=http://ch206265.github.io/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAAAAAAZai4+AAABVUlEQVR42u3awRKCMAxFUf7/p+uMK11Q7mtQx+Z2xQjC6YK0JDkOPMZznB2/jvnvNw9ZsjZijemYU+rTOL2bLFktWfzWa283f5YsWbLmrPlrn14pS5asuwIE30DLkiWLsMimmZz9wV5elqwtWPVEEj/+an5Llqw/YY2lQZb5ylNkyerG4inaSrAgy/nFbGTJ2ppFXvi09FKZ/FvckiWrDYsvupUkEZ82k8qStRtrnmBNg0KabArssmQ1Y6XtPjyxyycgS1Y3FlnJ0wenjQgX05Alqxlr7VMz/Sgt1X9kydqald6UtCOsNSLIkiUrLWdWCp+ohiJLVhtWvdWAf+IG4UOWrGasdBu91kyQ/leWrJ6sSimFnyVbbbSDkCVraxYPCqRkspa0kiVLViUV+5GNsixZssICJyltxiknWbJastIWukpqSZYsWZUWhDSIrC3esmQ1Yz0ALoo1/Sr1xH0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 
 
-
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
