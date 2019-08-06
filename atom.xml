@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ch206265.github.io/"/>
-  <updated>2019-08-06T11:51:49.464Z</updated>
+  <updated>2019-08-06T15:15:10.309Z</updated>
   <id>http://ch206265.github.io/</id>
   
   <author>
@@ -17,13 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>在VScode中编译和调试C和C++代码</title>
+    <link href="http://ch206265.github.io/2019/08/06/%E5%9C%A8VScode%E4%B8%AD%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95C%E5%92%8CC-%E4%BB%A3%E7%A0%81/"/>
+    <id>http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/</id>
+    <published>2019-08-06T15:01:57.000Z</published>
+    <updated>2019-08-06T15:15:10.309Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="1-安装VS-code"><a href="#1-安装VS-code" class="headerlink" title="1. 安装VS code"></a>1. 安装VS code</h2><h2 id="2-安装插件"><a href="#2-安装插件" class="headerlink" title="2. 安装插件"></a>2. 安装插件</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img-blog.csdnimg.cn/20190806223810627.png" alt="chinese(Simplified) Language pack for VScode" title>                </div>                <div class="image-caption">chinese(Simplified) Language pack for VScode</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img-blog.csdnimg.cn/2019080622391955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" alt="C/C++" title>                </div>                <div class="image-caption">C/C++</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img-blog.csdnimg.cn/20190806223856918.png" alt="Code Runner" title>                </div>                <div class="image-caption">Code Runner</div>            </figure><h2 id="3-下载MinGW并配置环境变量"><a href="#3-下载MinGW并配置环境变量" class="headerlink" title="3. 下载MinGW并配置环境变量"></a>3. 下载MinGW并配置环境变量</h2><ul><li>官网下载<a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">[下载]</a></li><li>配置环境变量，参考这篇文章：<a href="https://www.jianshu.com/p/ee1ccb0a3062" target="_blank" rel="noopener">如何安装MinGW - 简书</a></li></ul><p><strong>讲道理，此时应该就可以运行程序了，接下来是调试</strong></p><h2 id="4-调试（即，配置-vscode文件）"><a href="#4-调试（即，配置-vscode文件）" class="headerlink" title="4. 调试（即，配置.vscode文件）"></a>4. 调试（即，配置.vscode文件）</h2><p>注意：文件名和路径名最好全是英文</p><ul><li>新建文件，需要调试的源文件放到此文件夹中，然后右键，选择<code>Open with Code</code></li><li>点击debug图标，打开launch.json并修改</li><li>该文件夹内，新建文件<code>tasks.json</code>，并完善内容<h2 id="5-完工，F5可以进行调试"><a href="#5-完工，F5可以进行调试" class="headerlink" title="5. 完工，F5可以进行调试"></a>5. 完工，F5可以进行调试</h2></li><li>程序最后加一个<code>getchar();</code>，或者加<code>system(&quot;pause&quot;);</code>等避免调试后黑框闪没</li></ul><h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p>编译和运行：<a href="https://www.jianshu.com/p/86313c6a1e0e" target="_blank" rel="noopener">零基础 | 如何用VS Code写C/C++程序 - 安装与配置 - 简书</a><br>调试：<a href="https://blog.csdn.net/bat67/article/details/81268581" target="_blank" rel="noopener">Visual Studio Code (vscode) 配置C、C++环境/编写运行C、C++（Windows）【真正的小白版】 - 一苇以航 - CSDN博客</a> </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h1&gt;&lt;h2 id=&quot;1-安装VS-code&quot;&gt;&lt;a href=&quot;#1-安装VS-code&quot; class=&quot;headerlink&quot; title=&quot;1. 
+      
+    
+    </summary>
+    
+      <category term="学习工具" scheme="http://ch206265.github.io/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="VScode" scheme="http://ch206265.github.io/tags/VScode/"/>
+    
+      <category term="C/C++" scheme="http://ch206265.github.io/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>周总结（2019-08-06）</title>
     <link href="http://ch206265.github.io/2019/08/06/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-08-06%EF%BC%89/"/>
     <id>http://ch206265.github.io/2019/08/06/周总结（2019-08-06）/</id>
     <published>2019-08-06T11:51:49.000Z</published>
-    <updated>2019-08-06T11:51:49.464Z</updated>
+    <updated>2019-08-06T12:32:16.775Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="所思所想"><a href="#所思所想" class="headerlink" title="所思所想"></a>所思所想</h1><p> 这周总结目前也没有什么固定的内容要写，就先记录一下的这周自己的所思所想吧。</p><p>很早之前就说过，不要想得太多而做的太少。其实，想的太多最主要还是因为想要确定一个明晰的目标和方向，如果认准了目标，剩下的自然就是朝着他往前冲，想的自然也就少了。</p><p>而最近一直处于比较迷茫的时期，逛了逛很多关于知乎上原画以及编程的一些问答。虽然感觉浪费了不少的时间，但是也并不是一无所获。在上面，有两条回答令我印象深刻：1、<a href="https://zhuanlan.zhihu.com/p/70907978" target="_blank" rel="noopener">那个被知乎绘画大佬劝退的少年最后哪去了？</a> 2、<a href="https://www.zhihu.com/question/25034235/answer/756334105" target="_blank" rel="noopener">自学编程的人，都是怎么找到第一份软件开发工作的？</a>。都是实打实的逆袭。</p><p>之前一直在主攻前端和C/C++语言上定夺不了，上半学期自己一直心心念念地想要学习C/C++，但是项目上和它地联系不是很大；后来项目了解地更深了一点，逐渐转向前端，稍微有些眉目时，跟的项目又突然有了变化，又突然和C/C++走的更近了点。按道理，这不是很好的转变吗，现在想想，自己的困惑在哪里？刷了不少知乎，现在也思考的更明确了点，就打C和C++的基础吧。沿着这条路，走下去。</p><p>现在，生活由这几部分组成：老师安排的项目任务（积累经验）；自己的研究方向钻研（毕业就业相关）；自学C/C++。平衡好这三方面安排。</p><h1 id="下次注意"><a href="#下次注意" class="headerlink" title="下次注意"></a>下次注意</h1><ul><li><p>学习方式。项目驱动式学习。尽量是在完成项目的时候需要学习什么技能，然后再去精深去钻研，刚开始可能不知道的东西太多了，所以，刚开始也不要想着要把所有东西搞懂，只需要把遇到的问题中的大块头，主要矛盾解决了就好。</p></li><li><p>立即行动。开始一件事前你准备充分当然比较好，但是也不能强求万事都是如此。在真正动手做之前，想的再多，再好也不一定就真的有用。路，是慢慢走出来的。</p></li><li><p>不要被工具所累，它有时候是次要的。</p></li><li><p>接受。所有事情都不会白白经历。有时候麻烦并不是麻烦，而是一开始自己就把它定位成了麻烦，被自己推脱，拖成了麻烦事。事情来了，不要嫌，不要怕。要想不就是这点事吗？赶快做完干我的正事！少花些其他的心思。其次，所有编程语言都是要有所涉猎的，思维不要那么二分性，非黑即白。</p></li><li><p>作息。良好的作息习惯是好好工作学习的保证。手机平时就开启超级省电模式吧。学习工作和并不是全部的生活，不要拿工作上的努力掩盖生活中的懒惰。</p></li><li><p>锻炼。每天下午的运动一定要坚持，跑步3公里，5公里，10公里慢慢跑，争取这三年下来，能够和课题组一起跑完半马。</p></li><li><p>之前浏览一位老哥的博客，他上面有段关于“人与人的纽带”的话，</p><blockquote><p>据不完全概率统计，人一生大约会遇到 2920 万人。</p><p>做 IT 这行的，离职入职非常频繁。</p><p>也许每天和你交流业务的人，下个月就断绝了往来。</p><p>也许你觉得这个人是你的知心朋友，但是不做同一块业务后，你们就没有了任何的聊天话题。</p><p>因此，遇到真心朋友后一定要建立一个业务之外的纽带。</p><p>如果真是真心朋友的话，你一定能找到这个纽带</p></blockquote><p>确实，也许你觉得这个人是你的知心朋友，那就应该能够建立起“业务”之外的纽带，无论如何，你们之间都不能少了共同话题。有一些比较有营养的共同话题，双方交流过后都能得到提升。之前一直感觉自己不会聊天，找话题的能力实在一般。其实，还是自己涉猎的东西太少，知识面太窄，亦或者是自己对身边的事物大都不感兴趣，事事都不留心。这的确也是自己目前比较欠缺的。想要找共同话题，就先多看书吧，多写写读书笔记，这真的是一个很好的途径。</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="所思所想"><a href="#所思所想" class="headerlink" title="所思所想"></a>所思所想</h1><p> 这周总结目前也没有什么固定的内容要写，就先记录一下的这周自己的所思所想吧。</p><p>很早之前就说过，不要想得太多而做的太少。其实，想的太多最主要还是因为想要确定一个明晰的目标和方向，如果认准了目标，剩下的自然就是朝着他往前冲，想的自然也就少了。</p><p>而最近一直处于比较迷茫的时期，逛了逛很多关于知乎上原画以及编程的一些问答。虽然感觉浪费了不少的时间，但是也并不是一无所获。在上面，有两条回答令我印象深刻：1、<a href="https://zhuanlan.zhihu.com/p/70907978" target="_blank" rel="noopener">那个被知乎绘画大佬劝退的少年最后哪去了？</a> 2、<a href="https://www.zhihu.com/question/25034235/answer/756334105" target="_blank" rel="noopener">自学编程的人，都是怎么找到第一份软件开发工作的？</a>。都是实打实的逆袭。</p><p>之前一直在主攻前端和C/C++语言上定夺不了，上半学期自己一直心心念念地想要学习C/C++，但是项目上和它地联系不是很大；后来项目了解地更深了一点，逐渐转向前端，稍微有些眉目时，跟的项目又突然有了变化，又突然和C/C++走的更近了点。按道理，这不是很好的转变吗，现在想想，自己的困惑在哪里？刷了不少知乎，现在也思考的更明确了点，就打C和C++的基础吧。沿着这条路，走下去。</p><p>现在，生活由这几部分组成：老师安排的项目任务（积累经验）；自己的研究方向钻研（毕业就业相关）；自学C/C++。平衡好这三方面安排。</p><h1 id="下次注意"><a href="#下次注意" class="headerlink" title="下次注意"></a>下次注意</h1><ul><li><p>学习方式。项目驱动式学习。尽量是在完成项目的时候需要学习什么技能，然后再去精深去钻研，刚开始可能不知道的东西太多了，所以，刚开始也不要想着要把所有东西搞懂，只需要把遇到的问题中的大块头，主要矛盾解决了就好。</p></li><li><p>立即行动。开始一件事前你准备充分当然比较好，但是也不能强求万事都是如此。在真正动手做之前，想的再多，再好也不一定就真的有用。路，是慢慢走出来的。</p></li><li><p>不要被工具所累，它有时候是次要的。</p></li><li><p>接受。所有事情都不会白白经历。有时候麻烦并不是麻烦，而是一开始自己就把它定位成了麻烦，被自己推脱，拖成了麻烦事。事情来了，不要嫌，不要怕。要想不就是这点事吗？赶快做完干我的正事！少花些其他的心思。其次，所有编程语言都是要有所涉猎的，思维不要那么二分性，非黑即白。</p></li><li><p>作息。良好的作息习惯是好好工作学习的保证。手机平时就开启超级省电模式吧。学习工作和并不是全部的生活，不要拿工作上的努力掩盖生活中的懒惰。</p></li><li><p>今日事今日毕，尽量自己电脑能在晚上睡觉前关机而不是睡眠。</p></li><li><p>锻炼。每天下午的运动一定要坚持，跑步3公里，5公里，10公里慢慢跑，争取这三年下来，能够和课题组一起跑完半马。</p></li><li><p>之前浏览一位老哥的博客，他上面有段关于“人与人的纽带”的话，</p><blockquote><p>据不完全概率统计，人一生大约会遇到 2920 万人。</p><p>做 IT 这行的，离职入职非常频繁。</p><p>也许每天和你交流业务的人，下个月就断绝了往来。</p><p>也许你觉得这个人是你的知心朋友，但是不做同一块业务后，你们就没有了任何的聊天话题。</p><p>因此，遇到真心朋友后一定要建立一个业务之外的纽带。</p><p>如果真是真心朋友的话，你一定能找到这个纽带</p></blockquote><p>确实，也许你觉得这个人是你的知心朋友，那就应该能够建立起“业务”之外的纽带，无论如何，你们之间都不能少了共同话题。有一些比较有营养的共同话题，双方交流过后都能得到提升。之前一直感觉自己不会聊天，找话题的能力实在一般。其实，还是自己涉猎的东西太少，知识面太窄，亦或者是自己对身边的事物大都不感兴趣，事事都不留心。这的确也是自己目前比较欠缺的。想要找共同话题，就先多看书吧，多写写读书笔记，这真的是一个很好的途径。</p></li></ul>]]></content>
     
     <summary type="html">
     

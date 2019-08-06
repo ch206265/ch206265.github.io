@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>在VScode中编译和调试C和C++代码 | 清醒即活着 | 每个清晨的降临都是一次令人愉悦的邀请</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="VScode,C/C++">
+    <meta name="description" content="过程1. 安装VS code2. 安装插件                                                                                             chinese(Simplified) Language pack for VScode">
+<meta name="keywords" content="VScode,C&#x2F;C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在VScode中编译和调试C和C++代码">
+<meta property="og:url" content="http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/index.html">
+<meta property="og:site_name" content="清醒即活着">
+<meta property="og:description" content="过程1. 安装VS code2. 安装插件                                                                                             chinese(Simplified) Language pack for VScode">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190806223810627.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019080622391955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190806223856918.png">
+<meta property="og:updated_time" content="2019-08-06T15:15:10.309Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在VScode中编译和调试C和C++代码">
+<meta name="twitter:description" content="过程1. 安装VS code2. 安装插件                                                                                             chinese(Simplified) Language pack for VScode">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190806223810627.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ch206265</h5>
+          <a href="mailto:penghhjj@qq.com" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/favorite">
+                <i class="icon icon-lg icon-heart"></i>
+                收藏夹
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timesaying">
+                <i class="icon icon-lg icon-hourglass"></i>
+                时光碎语
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">在VScode中编译和调试C和C++代码</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">在VScode中编译和调试C和C++代码</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-06T15:01:57.000Z" itemprop="datePublished" class="page-time">
+  2019-08-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习工具/">学习工具</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过程"><span class="post-toc-number">1.</span> <span class="post-toc-text">过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-安装VS-code"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 安装VS code</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-安装插件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 安装插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-下载MinGW并配置环境变量"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 下载MinGW并配置环境变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-调试（即，配置-vscode文件）"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. 调试（即，配置.vscode文件）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-完工，F5可以进行调试"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5. 完工，F5可以进行调试</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考："><span class="post-toc-number">2.</span> <span class="post-toc-text">参考：</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-在VScode中编译和调试C和C-代码" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">在VScode中编译和调试C和C++代码</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-06 23:01:57" datetime="2019-08-06T15:01:57.000Z" itemprop="datePublished">2019-08-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习工具/">学习工具</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="1-安装VS-code"><a href="#1-安装VS-code" class="headerlink" title="1. 安装VS code"></a>1. 安装VS code</h2><h2 id="2-安装插件"><a href="#2-安装插件" class="headerlink" title="2. 安装插件"></a>2. 安装插件</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20190806223810627.png" alt="chinese(Simplified) Language pack for VScode" title>
+                </div>
+                <div class="image-caption">chinese(Simplified) Language pack for VScode</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/2019080622391955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" alt="C/C++" title>
+                </div>
+                <div class="image-caption">C/C++</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20190806223856918.png" alt="Code Runner" title>
+                </div>
+                <div class="image-caption">Code Runner</div>
+            </figure>
+<h2 id="3-下载MinGW并配置环境变量"><a href="#3-下载MinGW并配置环境变量" class="headerlink" title="3. 下载MinGW并配置环境变量"></a>3. 下载MinGW并配置环境变量</h2><ul>
+<li>官网下载<a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">[下载]</a></li>
+<li>配置环境变量，参考这篇文章：<a href="https://www.jianshu.com/p/ee1ccb0a3062" target="_blank" rel="noopener">如何安装MinGW - 简书</a></li>
+</ul>
+<p><strong>讲道理，此时应该就可以运行程序了，接下来是调试</strong></p>
+<h2 id="4-调试（即，配置-vscode文件）"><a href="#4-调试（即，配置-vscode文件）" class="headerlink" title="4. 调试（即，配置.vscode文件）"></a>4. 调试（即，配置.vscode文件）</h2><p>注意：文件名和路径名最好全是英文</p>
+<ul>
+<li>新建文件，需要调试的源文件放到此文件夹中，然后右键，选择<code>Open with Code</code></li>
+<li>点击debug图标，打开launch.json并修改</li>
+<li>该文件夹内，新建文件<code>tasks.json</code>，并完善内容<h2 id="5-完工，F5可以进行调试"><a href="#5-完工，F5可以进行调试" class="headerlink" title="5. 完工，F5可以进行调试"></a>5. 完工，F5可以进行调试</h2></li>
+<li>程序最后加一个<code>getchar();</code>，或者加<code>system(&quot;pause&quot;);</code>等避免调试后黑框闪没</li>
+</ul>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p>编译和运行：<a href="https://www.jianshu.com/p/86313c6a1e0e" target="_blank" rel="noopener">零基础 | 如何用VS Code写C/C++程序 - 安装与配置 - 简书</a><br>调试：<a href="https://blog.csdn.net/bat67/article/details/81268581" target="_blank" rel="noopener">Visual Studio Code (vscode) 配置C、C++环境/编写运行C、C++（Windows）【真正的小白版】 - 一苇以航 - CSDN博客</a> </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-06T15:15:10.309Z" itemprop="dateUpdated">2019-08-06 23:15:10</time>
+</span><br>
+
+
+        
+        转载请附本文链接：<a href="/2019/08/06/在VScode中编译和调试C和C-代码/" target="_blank" rel="external">http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ch206265.github.io">
+            <img src="/img/avatar.jpg" alt="ch206265">
+            ch206265
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VScode/">VScode</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/&title=《在VScode中编译和调试C和C++代码》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/&title=《在VScode中编译和调试C和C++代码》 — 清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在VScode中编译和调试C和C++代码》 — 清醒即活着&url=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/06/周总结（2019-08-06）/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">周总结（2019-08-06）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '15fb3f88aa202cb2cb68',
+          clientSecret: '31bb5ea95401c493f47b641e956a0596b886c60e',
+          repo: 'BlogTalks',
+          owner: 'ch206265',
+          admin: ['ch206265'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ch206265 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/&title=《在VScode中编译和调试C和C++代码》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/&title=《在VScode中编译和调试C和C++代码》 — 清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在VScode中编译和调试C和C++代码》 — 清醒即活着&url=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvElEQVR42u3aQW7jMAwF0Nz/0ikwu0Fr+5MU2yyeVoET23oqILEkX694vP+Nq+v5t1efr971/jZeGwMPDw+vNfWrcT+t76/MJ53MJ7nysAR4eHh4a7zqhJJvq4uVHA/5XXh4eHifwJswqtOqLigeHh7eZ/LyREOSsEgC4nzh8PDw8H6fl2zx1aRAPvKnLeZa8PDw8GJetQD2CZ8X63t4eHh4g6p6vk0nJf9euDw5hPDw8PA2eEnjVG/v7ZWykuA4T0zg4eHhbfDmB0DeOtArtlVTw/89DQ8PD2+NlxTDeqWs5Gn32/399Ye54eHh4a3x8hvyxEF+YCRTH+We8fDw8NZ4OSxPvxY28UE7V3Qw4OHh4R3izaeSTyj/TY8RFcDw8PDwxrx5CHs29VBNizRDajw8PLwBr1pn723WE2TeoPCAx8PDwzvKyyd3n7rthd09ZH4FDw8P7ywvT8JWy1QTarlF4OpbPDw8vAVetbg1KUr1lqyaky7/r4CHh4dX5FW35rzpKmH0GgiSu/Dw8PD2eHlAXA2Rq0WsatvBpBSHh4eHd5a3fTDkS5lv/YVECR4eHt4CL39xNTExafOqLmj5oXh4eHhFXhLO5mH02ef08A8ZFzw8PLwxL0+GVotevV/2njA68fDw8PCKvPw1k9D2HY88URtR8fDw8BZ4eRCcnzAH2kyD9MeBzAoeHh7eoBJ0qqm02hAwf0IhpMbDw8M7yuslT3uhcy8RfCBLjYeHhzfmvYujF+ZWl6DXuPDDvXh4eHgLvF55/n5TTs6iSdg9T5Tg4eHhzXnVbbqXkJ2UtUYHAx4eHt4ab7Lp91oE7qdePcEKTQN4eHh4f8pLXpMcIdXfFNq28PDw8P6U13xBnKqYvAUPDw/v93nVMn+ejKhOugp4CMHx8PDwFni9AlieeJ2EyJM/AB4eHt4C7wu/5iIWEkvyXwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
