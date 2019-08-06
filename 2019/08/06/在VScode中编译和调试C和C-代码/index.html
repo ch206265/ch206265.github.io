@@ -21,21 +21,21 @@
     
     
     <meta name="keywords" content="VScode,C/C++">
-    <meta name="description" content="过程1. 安装VS code2. 安装插件                                                                                             chinese(Simplified) Language pack for VScode">
+    <meta name="description" content="过程安装VS code安装插件                                                                                             chinese(Simplified) Language pack for VScode">
 <meta name="keywords" content="VScode,C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在VScode中编译和调试C和C++代码">
 <meta property="og:url" content="http://ch206265.github.io/2019/08/06/在VScode中编译和调试C和C-代码/index.html">
 <meta property="og:site_name" content="清醒即活着">
-<meta property="og:description" content="过程1. 安装VS code2. 安装插件                                                                                             chinese(Simplified) Language pack for VScode">
+<meta property="og:description" content="过程安装VS code安装插件                                                                                             chinese(Simplified) Language pack for VScode">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190806223810627.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019080622391955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190806223856918.png">
-<meta property="og:updated_time" content="2019-08-06T15:15:10.309Z">
+<meta property="og:updated_time" content="2019-08-06T15:18:13.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在VScode中编译和调试C和C++代码">
-<meta name="twitter:description" content="过程1. 安装VS code2. 安装插件                                                                                             chinese(Simplified) Language pack for VScode">
+<meta name="twitter:description" content="过程安装VS code安装插件                                                                                             chinese(Simplified) Language pack for VScode">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190806223810627.png">
     
         <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
@@ -171,7 +171,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过程"><span class="post-toc-number">1.</span> <span class="post-toc-text">过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-安装VS-code"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 安装VS code</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-安装插件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 安装插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-下载MinGW并配置环境变量"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 下载MinGW并配置环境变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-调试（即，配置-vscode文件）"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. 调试（即，配置.vscode文件）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-完工，F5可以进行调试"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5. 完工，F5可以进行调试</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考："><span class="post-toc-number">2.</span> <span class="post-toc-text">参考：</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过程"><span class="post-toc-number">1.</span> <span class="post-toc-text">过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装VS-code"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装VS code</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装插件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下载MinGW并配置环境变量"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">下载MinGW并配置环境变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调试（即，配置-vscode文件）"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">调试（即，配置.vscode文件）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完工，F5可以进行调试"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">完工，F5可以进行调试</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">2.</span> <span class="post-toc-text">参考</span></a></li></ol>
         </nav>
     </aside>
 
@@ -196,7 +196,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="1-安装VS-code"><a href="#1-安装VS-code" class="headerlink" title="1. 安装VS code"></a>1. 安装VS code</h2><h2 id="2-安装插件"><a href="#2-安装插件" class="headerlink" title="2. 安装插件"></a>2. 安装插件</h2><figure class="image-bubble">
+            <h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="安装VS-code"><a href="#安装VS-code" class="headerlink" title="安装VS code"></a>安装VS code</h2><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://img-blog.csdnimg.cn/20190806223810627.png" alt="chinese(Simplified) Language pack for VScode" title>
@@ -217,19 +217,19 @@
                 </div>
                 <div class="image-caption">Code Runner</div>
             </figure>
-<h2 id="3-下载MinGW并配置环境变量"><a href="#3-下载MinGW并配置环境变量" class="headerlink" title="3. 下载MinGW并配置环境变量"></a>3. 下载MinGW并配置环境变量</h2><ul>
+<h2 id="下载MinGW并配置环境变量"><a href="#下载MinGW并配置环境变量" class="headerlink" title="下载MinGW并配置环境变量"></a>下载MinGW并配置环境变量</h2><ul>
 <li>官网下载<a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">[下载]</a></li>
 <li>配置环境变量，参考这篇文章：<a href="https://www.jianshu.com/p/ee1ccb0a3062" target="_blank" rel="noopener">如何安装MinGW - 简书</a></li>
 </ul>
 <p><strong>讲道理，此时应该就可以运行程序了，接下来是调试</strong></p>
-<h2 id="4-调试（即，配置-vscode文件）"><a href="#4-调试（即，配置-vscode文件）" class="headerlink" title="4. 调试（即，配置.vscode文件）"></a>4. 调试（即，配置.vscode文件）</h2><p>注意：文件名和路径名最好全是英文</p>
+<h2 id="调试（即，配置-vscode文件）"><a href="#调试（即，配置-vscode文件）" class="headerlink" title="调试（即，配置.vscode文件）"></a>调试（即，配置.vscode文件）</h2><p>注意：文件名和路径名最好全是英文</p>
 <ul>
 <li>新建文件，需要调试的源文件放到此文件夹中，然后右键，选择<code>Open with Code</code></li>
 <li>点击debug图标，打开launch.json并修改</li>
-<li>该文件夹内，新建文件<code>tasks.json</code>，并完善内容<h2 id="5-完工，F5可以进行调试"><a href="#5-完工，F5可以进行调试" class="headerlink" title="5. 完工，F5可以进行调试"></a>5. 完工，F5可以进行调试</h2></li>
+<li>该文件夹内，新建文件<code>tasks.json</code>，并完善内容<h2 id="完工，F5可以进行调试"><a href="#完工，F5可以进行调试" class="headerlink" title="完工，F5可以进行调试"></a>完工，F5可以进行调试</h2></li>
 <li>程序最后加一个<code>getchar();</code>，或者加<code>system(&quot;pause&quot;);</code>等避免调试后黑框闪没</li>
 </ul>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p>编译和运行：<a href="https://www.jianshu.com/p/86313c6a1e0e" target="_blank" rel="noopener">零基础 | 如何用VS Code写C/C++程序 - 安装与配置 - 简书</a><br>调试：<a href="https://blog.csdn.net/bat67/article/details/81268581" target="_blank" rel="noopener">Visual Studio Code (vscode) 配置C、C++环境/编写运行C、C++（Windows）【真正的小白版】 - 一苇以航 - CSDN博客</a> </p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>编译和运行：<a href="https://www.jianshu.com/p/86313c6a1e0e" target="_blank" rel="noopener">零基础 | 如何用VS Code写C/C++程序 - 安装与配置 - 简书</a><br>调试：<a href="https://blog.csdn.net/bat67/article/details/81268581" target="_blank" rel="noopener">Visual Studio Code (vscode) 配置C、C++环境/编写运行C、C++（Windows）【真正的小白版】 - 一苇以航 - CSDN博客</a> </p>
 
         </div>
 
@@ -238,7 +238,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-06T15:15:10.309Z" itemprop="dateUpdated">2019-08-06 23:15:10</time>
+    最后更新时间：<time datetime="2019-08-06T15:18:13.639Z" itemprop="dateUpdated">2019-08-06 23:18:13</time>
 </span><br>
 
 
