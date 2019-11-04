@@ -23,15 +23,15 @@
     
     
     <meta name="keywords" content="反思">
-    <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&amp;apos;in doDecrypt&amp;apos;); 	const txt = document.getElementById(&amp;apos;enc_content&amp;apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+    <meta name="description" content="关心自己的人一直在关心自己，而我大概却只是把这种关心当成了生活中普普通通的东西，没有好好珍惜。最大的表现就是没有把这些关心听到心里去。父母经常告诉我不要熬夜，那我是否听父母的话呢，好像没有，基本每天都在熬夜，很久都没有早早睡觉的习惯了。 那种基本11点之前就睡觉的感觉貌似高中之后就没有了。小学时候在家中，作息和家里人一致，完成每天的作业之后还能和家人在电视前追剧，这是在我记忆中家庭场景印象比较深的">
 <meta name="keywords" content="反思">
 <meta property="og:type" content="article">
 <meta property="og:title" content="生活需要平衡">
 <meta property="og:url" content="http:&#x2F;&#x2F;ch206265.github.io&#x2F;2019&#x2F;10&#x2F;08&#x2F;%E7%94%9F%E6%B4%BB&#x2F;index.html">
 <meta property="og:site_name" content="清醒即活着">
-<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&amp;apos;in doDecrypt&amp;apos;); 	const txt = document.getElementById(&amp;apos;enc_content&amp;apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:description" content="关心自己的人一直在关心自己，而我大概却只是把这种关心当成了生活中普普通通的东西，没有好好珍惜。最大的表现就是没有把这些关心听到心里去。父母经常告诉我不要熬夜，那我是否听父母的话呢，好像没有，基本每天都在熬夜，很久都没有早早睡觉的习惯了。 那种基本11点之前就睡觉的感觉貌似高中之后就没有了。小学时候在家中，作息和家里人一致，完成每天的作业之后还能和家人在电视前追剧，这是在我记忆中家庭场景印象比较深的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-04T16:40:05.542Z">
+<meta property="og:updated_time" content="2019-11-04T17:07:00.883Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
@@ -186,46 +186,11 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <script src=/js/crypto-js.js></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">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</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>
+            <p>关心自己的人一直在关心自己，而我大概却只是把这种关心当成了生活中普普通通的东西，没有好好珍惜。最大的表现就是没有把这些关心听到心里去。父母经常告诉我不要熬夜，那我是否听父母的话呢，好像没有，基本每天都在熬夜，很久都没有早早睡觉的习惯了。</p>
+<p>那种基本11点之前就睡觉的感觉貌似高中之后就没有了。小学时候在家中，作息和家里人一致，完成每天的作业之后还能和家人在电视前追剧，这是在我记忆中家庭场景印象比较深的时刻。说起这个，每次能回想起来发生场景是在家的趣事，基本都是一些小时候记忆。其实想一想，自小学之后，自己呆在家中的时间越来越少，而家人一起参加的活动除了晚饭基本再没有其他，我们的生活都被某种因素禁锢或分割，感觉这很是问题，也是我一直想要改变的。其实这种禁锢就是谋生，不单单我们家这样，很多家庭也都是这样。</p>
+<p>父母做小生意整日奔波，虽然自己就是自己的老板，但是没有见他们给自己放过假。爷爷奶奶也是这样，虽然老人们相继生了大病，以前的工作以现在的身体条件实在无法为继，但也没有完全偃旗息鼓。我和姐姐，小学时候还对成绩没有太大概念，只知道期末成绩考的好的话会收获到亲人的表扬，上初中时有了成绩的排名，从那时起，看着比较靠前的名次，我们的精力自然很少从学习中分离。就这样，大家的生活都有了谋生的方向。</p>
+<p>社会中每个人的谋生都是不易的，少不了背井离乡，岁月静好的背后是有人在负重前行。但是呢，为了谋生，我们不应该牺牲现在的幸福，就像《瓦尔登湖》中梭罗说的那样，“把大半生的时光花费在挣钱上，目的是期望在一生中最没有价值的一段时光里享受到很成问题的自由。这种情形使我想起那个英国人，开头时跑到印度去发财，希图将来返回英国时可以过着诗人般的生活。其实他应该立刻爬上阁楼去。”幸福的生活也不应该被谋生作为借口而不断侵蚀。不要希冀等一切准备好了才可以，不同的阶段都会有令你烦恼和疲于应对的事情，这样，真正重要的东西只会被一拖再拖，酿成遗憾，况且自己真正准备好了的时刻或许永远不会到来。（ 2019/10/07 15:47 ）</p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -233,7 +198,7 @@ doDecrypt(passwd, onError);
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-11-04T16:40:05.542Z" itemprop="dateUpdated">2019-11-05 00:40:05</time>
+    最后更新时间：<time datetime="2019-11-04T17:07:00.883Z" itemprop="dateUpdated">2019-11-05 01:07:00</time>
 </span><br>
 
 
