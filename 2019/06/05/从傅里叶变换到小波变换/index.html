@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     
 
     
@@ -23,21 +23,19 @@
     
     
     <meta name="keywords" content="小波变换,图形处理">
-    <meta name="description" content="一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。 如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。 傅里叶变换FT傅里叶变换主要是将">
+    <meta name="description" content="一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。 如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换&#x2F;小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。 傅里叶变换FT傅里叶变换主要是将">
 <meta name="keywords" content="小波变换,图形处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从傅里叶变换到小波变换">
-<meta property="og:url" content="http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;ch206265.github.io&#x2F;2019&#x2F;06&#x2F;05&#x2F;%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2&#x2F;index.html">
 <meta property="og:site_name" content="清醒即活着">
-<meta property="og:description" content="一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。 如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。 傅里叶变换FT傅里叶变换主要是将">
+<meta property="og:description" content="一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。 如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换&#x2F;小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。 傅里叶变换FT傅里叶变换主要是将">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4">
-<meta property="og:image" content="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212156.png?token=AJD4OPQB2QBPFXBVSR7CWFS5IWFLK">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ch206265&#x2F;BlogPictures&#x2F;master&#x2F;20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ch206265&#x2F;BlogPictures&#x2F;master&#x2F;20190803212156.png?token=AJD4OPQB2QBPFXBVSR7CWFS5IWFLK">
 <meta property="og:updated_time" content="2019-11-02T08:00:46.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从傅里叶变换到小波变换">
-<meta name="twitter:description" content="一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。 如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。 傅里叶变换FT傅里叶变换主要是将">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ch206265&#x2F;BlogPictures&#x2F;master&#x2F;20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4">
     
         <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
     
@@ -63,9 +61,9 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu">
+    <aside id="menu"  >
   <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
     <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
@@ -75,7 +73,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">ch206265</h5>
-          <a href="mailto:penghhjj@qq.com" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
+          <a href="mailto:penghhjj@qq.com" target="_blank" rel="noopener" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -83,42 +81,42 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/">
+              <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives">
+              <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags">
+              <a href="/tags"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/favorite">
+              <a href="/favorite"  >
                 <i class="icon icon-lg icon-heart"></i>
                 收藏夹
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/timesaying">
+              <a href="/timesaying"  >
                 <i class="icon icon-lg icon-hourglass"></i>
                 时光碎语
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/about">
+              <a href="/about"  >
                 <i class="icon icon-lg icon-user"></i>
                 关于
               </a>
@@ -132,23 +130,23 @@
     <main id="main">
         <header class="top-header" id="header">
     <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">从傅里叶变换到小波变换</div>
         
         <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
             <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
         
@@ -165,7 +163,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/遥感与图像处理/">遥感与图像处理</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%81%A5%E6%84%9F%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">遥感与图像处理</a></li></ul>
 
             
         </h5>
@@ -187,20 +185,21 @@
     </aside>
 
 
-<article id="[layout]-从傅里叶变换到小波变换" class="post-article article-type-[layout] fade" itemprop="blogPost">
+<article id="[layout]-从傅里叶变换到小波变换"
+  class="post-article article-type-[layout] fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">从傅里叶变换到小波变换</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-06-05 20:22:15" datetime="2019-06-05T12:22:15.000Z" itemprop="datePublished">2019-06-05</time>
+            <time class="post-time" title="2019-06-05 20:22:15" datetime="2019-06-05T12:22:15.000Z"  itemprop="datePublished">2019-06-05</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/遥感与图像处理/">遥感与图像处理</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%81%A5%E6%84%9F%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">遥感与图像处理</a></li></ul>
 
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -227,9 +226,9 @@ S T F T_{f}(b, \omega)=\int_{-\infty}^{+\infty}[f(t) g(t-b)] \cdot \mathrm{e}^{-
 <h2 id="一个短时傅里叶变换的例子"><a href="#一个短时傅里叶变换的例子" class="headerlink" title="一个短时傅里叶变换的例子"></a>一个短时傅里叶变换的例子</h2><p>信号$f(t)$的表达式如下：</p>
 <script type="math/tex; mode=display">
 f(t)=\left\{\begin{array}{ll}{\sin 2 \pi \cdot 300 t,} & {t \in[0,250]} \\ {\sin 2 \pi \cdot 200 t,} & {t \in[250,500]} \\ {\sin 2 \pi \cdot 100 t,} & {t \in[500,750]} \\ {\sin 2 \pi \cdot 50 t,} & {t \in[750,1000]}\end{array}\right.</script><p>很明显它是一个非平稳信号，并且它的时间域图像如下：</p>
-<p><center> <img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4" alt="1559820115294.png" title="1559820115294.png" width="60%"><center></center></center></p>
+<p><center> <img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4" alt="1559820115294.png" title="1559820115294.png"  width="60%"/><center/></p>
 <p>下图是该信号在在不同窗口下进行短时傅里叶变换的三维图：</p>
-<p><center><img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212156.png?token=AJD4OPQB2QBPFXBVSR7CWFS5IWFLK" width="60%"><center></center></center></p>
+<p><center><img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212156.png?token=AJD4OPQB2QBPFXBVSR7CWFS5IWFLK"  width="60%" /><center/></p>
 <p>从这三组图中可以看出</p>
 <ul>
 <li><code>(a)</code>图的窗口函数最窄，时间分辨率最高（时间轴上对应的窗口宽度最窄），但是频率分辨率较差（频率轴上对应的窗口宽度最宽）</li>
@@ -261,7 +260,7 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
 
 
         
-        转载请附本文链接：<a href="/2019/06/05/从傅里叶变换到小波变换/" target="_blank" rel="external">http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/</a>
+        转载请附本文链接：<a href="/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" target="_blank" rel="external">http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/</a>
         
     </div>
     
@@ -278,7 +277,7 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图形处理/">图形处理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小波变换/">小波变换</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E5%BD%A2%E5%A4%84%E7%90%86/" rel="tag">图形处理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" rel="tag">小波变换</a></li></ul>
 
 
             
@@ -288,32 +287,32 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/&title=《从傅里叶变换到小波变换》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/&title=《从傅里叶变换到小波变换》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/&title=《从傅里叶变换到小波变换》 — 清醒即活着&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/&title=《从傅里叶变换到小波变换》 — 清醒即活着&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从傅里叶变换到小波变换》 — 清醒即活着&url=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/&via=http://ch206265.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从傅里叶变换到小波变换》 — 清醒即活着&url=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/&via=http://ch206265.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -322,7 +321,7 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
 
 
 
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
         <i class="icon icon-share-alt icon-lg"></i>
     </a>
 </div>
@@ -336,7 +335,7 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/06/08/思而不学则殆/" id="post-prev" class="post-nav-link">
+      <a href="/2019/06/08/%E6%80%9D%E8%80%8C%E4%B8%8D%E5%AD%A6%E5%88%99%E6%AE%86/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">思而不学则殆</h4>
       </a>
@@ -403,10 +402,10 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style="display:none">
+    <span id="busuanzi_container_site_uv" style='display:none'>
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
+    <span id="busuanzi_container_site_pv" style='display:none'>
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
@@ -416,7 +415,7 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -431,39 +430,39 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
 
     </main>
     <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
 
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/&title=《从傅里叶变换到小波变换》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/&title=《从傅里叶变换到小波变换》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/&title=《从傅里叶变换到小波变换》 — 清醒即活着&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/&title=《从傅里叶变换到小波变换》 — 清醒即活着&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从傅里叶变换到小波变换》 — 清醒即活着&url=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/&via=http://ch206265.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从傅里叶变换到小波变换》 — 清醒即活着&url=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/&via=http://ch206265.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/06/05/从傅里叶变换到小波变换/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/06/05/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%88%B0%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -472,9 +471,9 @@ W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}
 
 
 <div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3aQZLiQAwEwPn/p2cfQBiqpO5lDukTAdju9MGtKOnnJz5+X47kn7Nf27MOHHh4eHjrpb9e7vVzvpSnc89+/7gqPDw8vGu896/pnPT6n3xxT/d9//mDBQ8PD++P8ZIy93d05JsNHh4e3l/m7YOM9/fNowo8PDy8v8BLytxZ/NoW6O8f08WsBQ8PDy/mzS793c9X+nt4eHh46656HrbuX+6zsPjDOvHw8PAu8NqX8j5yTc7dl/t4eHh493j5eFO70LbWbXnR4AIeHh7eBd6sZdVGuvkelVNXUQUeHh7egpePTG0W2v7aRhiP/8fDw8O7xmujgbbkTbacTeD7eDU8PDy8C7x2sCl5lc+W1T64YXMODw8P7xBvEyvMWmj74LgYPsDDw8M7ymuHq9oCul1WuyGtZsrw8PDwFry2cZW3pjaPI2+DPa4QDw8P7zIvDwWSZeWTC7OoIroLHh4e3pd4+6B2U3wnbbMok8bDw8M7xJsNV81C2M0D3Q894OHh4d3m7cvlzdU2owOPWwgeHh7eUV7b4kqW3oYaOSNpoRVpBx4eHt6Clwe1LT4v0PMAorgaHh4e3lHe7OSzkWteOteNOjw8PLwLvPY2m/bVJow4sEI8PDy8Q7y8iTX7dV9kt2w8PDy827xkaCBpOLXx7qZYz6MKPDw8vBu8/BKb0YHZXdrvH/NpPDw8vKO8ttU0K6n38W6+sdVpNB4eHl7J+y2P9snl15zFuB/AeHh4eBd4+TF7EPvSud2cigwGDw8Pb8HLF7oZgZoFvvlY1bCwxsPDw1vwZo2xdjvJo97ZsNdjjIuHh4f3JV77Qm/j3VnQUHf58PDw8P4jr21obQrxWcF9oKTGw8PDuxBGnEXmIwhtnIGHh4d3j5fHCjNSXha3gwKziAQPDw9vwfsHtTXFOgYmKeoAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEd0lEQVR42u3a2W7jMAwF0P7/T2eAPg0wk+SSVArTPX4qHC/yUQGJy9dXfDy+j3/P/H3+2d+v70quef2010/In3bgwIQJEyZMl2R6vDyeEVThEvR8nNV7n12ffDsmTJgwYboHU/K4yQdXF+lkYk49OdpqYMKECROmX8BUxap+fL4RqZ4/EFRjwoQJE6ZfwDQJfXtp1gn3JOGLCRMmTJjux5Q8Ll+Gq0XKNwnW4Dn5XR/PhWPChAkTposx9UqA9/j78IEJEyZMmC7G9GgdyRI+OZ8v2NUgvPm9mDBhwoRpLVMeOp4i6CV58yahXvI3GhUmTJgwYVrIlL8mSd1WB1FNsE7OjyYJEyZMmDAtZ5oEtPlQJtDJqKqbhvw8JkyYMGHaztSDqC60+eZgHs1X3/XmLkyYMGHCtJYpvy3PeVYH97lQNi+aRqE+JkyYMGFayFRtbZmEwT24yVTlAfabycCECRMmTGuZJona5MXVJHJ1Q1AlzpPFX5P9CCZMmDBhuhhTD2Kecv1E02rvaQf+szBhwoQJ0+WZeo9OgudeaP36jdXNQT7BUVETEyZMmDCtZcpfn7Sc9kLWfNrm7yr/igkTJkyYFjJVaXqp3l5a+ewGpTpVzRwzJkyYMGG6MFN1i9Arf/aSxZOJ6d37dEOACRMmTJiWMPWGmBc+q/cmJcY8rXzsGkyYMGHCdCOm3gc0S4NxG80kBVydpP+cx4QJEyZMa5lODfFs0raXVp6AFq7HhAkTJkyrmKpNpXkkmCy385Jkr0BbThNjwoQJE6blTNVS5ePlcarwmW9Zek20yYRhwoQJE6Z7MFUX496i3mvH6RVTk+3Cx/dNmDBhwoTpAkxn06/VsPPUG+dP/uCBCRMmTJguxjRPs1YX5jxY7V2fH5gwYcKE6a5MVYJk+c+TxfMUcC84rz4NEyZMmDBtZKrSzNt6kuW8StMLvwvQmDBhwoTpFkzzYDKHmATSvUJmDvq06osJEyZMmBYyJcv8qU/KC5zVt1d/zdtqMWHChAnTPZjmydw89M2nZF6G7I2tUObEhAkTJkyrmPIlPA+bfzJIzjc6+fKPCRMmTJi2M51qeamWD6ufl99VLW0e+A/ChAkTJkwXZsqbYJKWnV5TTq9lJwHqNSQ9vRcTJkyYMC1k6n1kj69aNO3N+aQ1501iFxMmTJgwLWfKW3byl00IetuC6iYjei8mTJgwYbop0ySROt925I01eaq6mVzGhAkTJky3YDpbuTuVnO0liw+3AWHChAkTprVMVaA5SnVwr4PwHLQngAkTJkyYtjM9isdkBvJNRg7aG1X1uzBhwoQJ016mXgK0ujmYlBurb0mu76WkMWHChAnTXqa8ZSdP8uabgGqIm+Dm4y+0JWHChAkTpuVM+SJdHVA14Mw3DUmo/EPtO5gwYcKE6XZMeVJ4nt49NRmjhh5MmDBhwvQLmA4EkONyY6/ppzq20YYAEyZMmDBdkmm+qH9iqT7bsjMKyDFhwoQJ01qmU8PKG3F6CdnJZ0y2EZgwYcKEaS3TH404230nfhOwAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
@@ -530,7 +529,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
