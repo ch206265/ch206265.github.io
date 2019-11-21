@@ -1,0 +1,30 @@
+// Sidebar Navigation
+
+.sidebar-nav {
+  margin: 0 0 20px;
+  padding-left: 0;
+}
+
+.sidebar-nav li {
+  display: inline-block;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  font-size: 14px;
+  color: gray ;//这是文章目录、站点概况两个分类的颜色设置
+
+  &:hover { color: gray ; }
+}
+
+.page-post-detail .sidebar-nav-toc { padding: 0 5px; }
+
+.page-post-detail .sidebar-nav-overview { margin-left: 10px; }
+
+.sidebar-nav .sidebar-nav-active {//这是文章目录、站点概况两个分类的下划线设置
+  color: balck;
+  border-bottom-color:gray;
+
+  &:hover { color: black; }
+}
+
+.sidebar-panel { display: none; }
+.sidebar-panel-active { display: block; }

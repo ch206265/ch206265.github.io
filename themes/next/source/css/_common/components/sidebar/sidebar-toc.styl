@@ -1,0 +1,62 @@
+.post-toc-empty {
+  font-size: 14px;
+  color: $grey-dim;
+}
+
+.post-toc-wrap { overflow: hidden; }
+
+.post-toc { overflow: auto; }
+
+.post-toc ol {
+  margin: 0;
+  padding: 0 2px 5px 10px;
+  text-align: left;
+  list-style: none;
+  font-size: 14px;
+
+  & > ol { padding-left: 0; }
+
+  a {//修改目录字体和下划线的颜色
+    the-transition();
+    transition-property: all;
+    color: $toc-link-color;//正常状态下目录文字的颜色
+    border-bottom-color: $toc-link-color;//正常状态下目录文字下方横线的颜色
+
+    &:hover {
+      color: black;
+      border-bottom-color:black;
+    }
+  }
+}
+
+.post-toc .nav-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //text-align: justify;
+  white-space: nowrap if !hexo-config('toc.wrap');
+  line-height: 1.8;
+}
+
+.post-toc .nav .nav-child {
+  display: hexo-config('toc.expand_all') ? block : none;
+}
+
+.post-toc .nav .active > .nav-child { display: block; }
+
+.post-toc .nav .active-current > .nav-child {
+  show();
+  & > .nav-item { display: block; }
+}
+
+.post-toc .nav .active > a {//每个目录条下的横线的默认颜色
+  color: #8E8E8E ;
+  border-bottom-color: black;
+}
+
+.post-toc .nav .active-current > a {//当前所在目录的显示效果
+  color: black;
+  font-weight: 1000;
+  &:hover {
+    color: black;
+  }
+}
