@@ -4,7 +4,7 @@ date: 2019-08-06 23:01:57
 tags:
 - VScode
 - C/C++
-categories: 工具使用
+categories: 学习工具
 mathjax: false
 ---
 

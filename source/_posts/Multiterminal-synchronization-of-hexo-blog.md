@@ -5,7 +5,7 @@ tags:
 - git
 - hexo
 - 建站笔记
-categories: 工具使用
+categories: 学习工具
 mathjax: false
 
 ---
