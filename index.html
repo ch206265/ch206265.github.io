@@ -1,232 +1,816 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords" content=""><meta name="author" content="ch206265"><meta name="copyright" content="ch206265"><title>天下古今之庸人，皆以一懒字致之 | 清醒即活着</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  }
-} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">ch206265</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">18</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">20</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">4</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">清醒即活着</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">清醒即活着</div><div id="site-sub-title">天下古今之庸人，皆以一懒字致之</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2019/11/25/set-the-password-for-hexo/">给Hexo博客设置访问密码</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-25</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/hexo-blog-encrypt/">hexo-blog-encrypt</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/hexo-encrypt/">hexo-encrypt</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99/">个人建站</a></span><div class="content"><p> 2019/11/06 00:37 </p>
-<p>最近想要给博客文章做个加密，一开始也是无从下手，但是还好有个博客：</p>
-<p><a href="http://zhailiange.com/2017/07/06/hexo-encrypt/" target="_blank" rel="noopener">Hexo 博客加密功能添加 | Hailiang’s Blog</a></p>
-<p>这里面介绍了两个博客加密插件</p>
-<p><a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a>和<a href="https://github.com/edolphin-ydf/hexo-encrypt" target="_blank" rel="noopener">hexo-encrypt</a></p>
-<p>最初按照介绍，安装hexo-blog-encrypt但是遇到了困难</p>
-<p><img src="https://img-blog.csdnimg.cn/20191123211617597.png" alt="在这里插入图片描述"></p>
-<figure class="highlight plain"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install npm WARN babel-eslint@10.0.3 requires a peer of eslint@&gt;= 4.12.1 but none is installed. You must install peer dependencies yourself.</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html>
+<html>
+<head>
+    
 
-<p>因为完全是小白，不知道是什么意思，上网搜索了一下，找到了这篇博文：</p>
-<p><a href="https://blog.csdn.net/qq_43153418/article/details/88380082" target="_blank" rel="noopener">npm install 包运行出错 - 德尼的博客 - CSDN博客</a> </p>
-<p>直接复制了人家给的答案：</p>
-<figure class="highlight plain"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install eslint@4.x babel-eslint@8 --save-dev</span><br></pre></td></tr></table></figure>
+    
 
-<p>但是一直成功不了。</p>
-<p>知道看到了下面这篇文章，</p>
-<p><a href="https://blog.csdn.net/qq_37336604/article/details/80359808" target="_blank" rel="noopener">npm WARN eslint-plugin-react-native@3.2.1 requires a peer of eslint@^3.17.0 || ^4.0.0 but none - qq_37336604的博客 - CSDN博客</a></p>
-<p>才明白了报错的含义，就是在package.json中缺少了两个依赖，</p>
-<figure class="highlight plain"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;babel-eslint&quot;: &quot;^10.0.3&quot;, &quot;eslint&quot;: &quot;^4.12.1&quot;</span><br></pre></td></tr></table></figure>
+    
 
-<p>需要我们手动安装……</p>
-<p>而之前直接复制的</p>
-<figure class="highlight plain"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install eslint@4.x babel-eslint@8 --save-dev</span><br></pre></td></tr></table></figure>
 
-<p>其实也是安装这两个依赖的，但是，它安装好后是直接在package.json中新写一个dependencies，没和原来的格式进行合并。</p>
-<p>现在虽然装好了，但是也还发现了个bug，就是对于有目录的文章，<a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">hexo-blog-encrypt</a>这个插件会使侧边的目录导航栏显示失效。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/11/25/first-setup-ubuntu/">初次安装Ubuntu18.04</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-25</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Ubuntu/">Ubuntu</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a></span><div class="content"><p> 2019/11/23 15:34 </p>
-<p> 主要解决的问题：<br>1、解决 “明明C盘还有几十G可以使用但是创建压缩卷时可压缩竟然是0”<br>2、解决“安装完之后才知道是UEFI启动模式，Easy BCD新添加条目变成灰色不可用”</p>
-<h1 id="一、设备情况"><a href="#一、设备情况" class="headerlink" title="一、设备情况"></a>一、设备情况</h1><p>双硬盘电脑：固态硬盘（win系统盘）+机械硬盘<br>BIOS模式：UEFI</p>
-<h1 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h1><h2 id="1、下载Ubuntu镜像"><a href="#1、下载Ubuntu镜像" class="headerlink" title="1、下载Ubuntu镜像"></a>1、下载Ubuntu镜像</h2><p>我是直接拷贝了同学的；你也可以从下面的网址中下载<br><a href="https://cn.ubuntu.com/download" target="_blank" rel="noopener">系统下载 | Ubuntu</a> </p>
-<h2 id="2、在磁盘中压缩出未分配的空闲区域"><a href="#2、在磁盘中压缩出未分配的空闲区域" class="headerlink" title="2、在磁盘中压缩出未分配的空闲区域"></a>2、在磁盘中压缩出未分配的空闲区域</h2><p>安装Ubuntu需要分配四个磁盘分区分别给“/”、“/home”、“swap”和“/boot”。<br>（具体分配体现在安装过程，现在这一步骤只是先把他们需要的磁盘空间给压缩出来）<br>其中，挂载点“/”是Ubuntu系统盘相当于win系统的C盘；<br>挂载点“/home”是用户文件夹，相当于win系统的Users；<br>挂载点“swap”是交换空间，相当于win的虚拟内存；<br>而挂载点“/boot”则是Ubuntu的启动引导空间。<br>（<a href="https://blog.csdn.net/lin353809836/article/details/86747491" target="_blank" rel="noopener">什么是分区/主分区/逻辑分区/挂载点</a>）<br>由于电脑是双硬盘，固态硬盘（win系统盘）+机械硬盘，压缩出分配给这四个挂载点的磁盘空间时需要注意以下几点：</p>
-<h3 id="注意1：在机械硬盘和装win系统的固态硬盘上分别压缩出一个空闲区域"><a href="#注意1：在机械硬盘和装win系统的固态硬盘上分别压缩出一个空闲区域" class="headerlink" title="注意1：在机械硬盘和装win系统的固态硬盘上分别压缩出一个空闲区域"></a>注意1：在机械硬盘和装win系统的固态硬盘上分别压缩出一个空闲区域</h3><p>机械硬盘上压缩出一个较大空闲区域后，在win10系统盘（固态）上再压缩出大约500MB的空闲区域。<br>机械硬盘上压缩出来的空闲空间主要分配给：挂载点“/”、“/home”、“swap”；<br>在装win系统的固态硬盘上压缩出的空间分配给挂载点“/boot”。</p>
-<ul>
-<li>为什么不把挂载点“/”、“/home”、“swap”和“/boot”的分配统一放在固态盘或者机械盘？<br>统一放在固态盘就和win系统装在一起了，能不在一起就别再在一起；<br>统一都放在机械硬盘中，“/boot”分区没在win的系统盘，容易开机引导失效，具体描述就在下面⬇</li>
-<li>为什么挂载点“/boot”分区要和win系统盘在一起？<br>参看<a href="https://blog.csdn.net/qq_24624539/article/details/81775635" target="_blank" rel="noopener">这篇博文</a>的讲解，如果不这么办，会出现Ubuntu开机时光标一直在左上角闪烁无法进入系统的问题，我按照博文中的描述，一次就安装成功了，没有出现左上角光标一直闪烁开机引导失效的情况。<h3 id="注意2：明明C盘还有几十G可以使用但是创建压缩卷时可压缩竟然是0怎么办"><a href="#注意2：明明C盘还有几十G可以使用但是创建压缩卷时可压缩竟然是0怎么办" class="headerlink" title="注意2：明明C盘还有几十G可以使用但是创建压缩卷时可压缩竟然是0怎么办"></a>注意2：明明C盘还有几十G可以使用但是创建压缩卷时可压缩竟然是0怎么办</h3>一般情况下，我们使用<a href="https://jingyan.baidu.com/article/425e69e6bbd0c7be14fc164a.html" target="_blank" rel="noopener">win10自带的磁盘管理功能</a>就可以从磁盘上压缩出空闲空间，但是也有一些例外。<br>明明C盘还有几十G可以使用但是创建压缩卷时可压缩竟然是0？？我遇见了……网上查了一些方法，比如磁盘清理，清了的确不少的东西，但是还不行；又有人说磁盘清理之后要碎片整合，也搞了，还是不行。所以，最后用——DiskGenius了。<br>在我多次使用过程中偶然发现，用过DiskGenius后，再用win10磁盘管理中自带的“压缩卷”功能时，可压缩空间突然变多了，已经不是0了……，这样再调整压缩空间大小的时候就不必用DiskGenius，每次重启进入PE了。<h2 id="3、安装开机引导程序，Easy-BCD或者Easy-UEFI"><a href="#3、安装开机引导程序，Easy-BCD或者Easy-UEFI" class="headerlink" title="3、安装开机引导程序，Easy BCD或者Easy UEFI"></a>3、安装开机引导程序，Easy BCD或者Easy UEFI</h2><a href="https://easybcd.en.softonic.com/" target="_blank" rel="noopener">EasyBCD - Download</a><br><a href="https://easyuefi.en.softonic.com/" target="_blank" rel="noopener">EasyUEFI - Download</a> <h2 id="4、制作U盘启动盘"><a href="#4、制作U盘启动盘" class="headerlink" title="4、制作U盘启动盘"></a>4、制作U盘启动盘</h2><a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#0" target="_blank" rel="noopener">Create a bootable USB stick on Windows | Ubuntu tutorials</a> <h2 id="5、进入BIOS中，将开机启动设置为从U盘启动"><a href="#5、进入BIOS中，将开机启动设置为从U盘启动" class="headerlink" title="5、进入BIOS中，将开机启动设置为从U盘启动"></a>5、进入BIOS中，将开机启动设置为从U盘启动</h2>设置方法，<a href="https://jingyan.baidu.com/article/1974b289ebb809b4b0f7747d.html" target="_blank" rel="noopener">参考此链接</a><h1 id="三、安装过程"><a href="#三、安装过程" class="headerlink" title="三、安装过程"></a>三、安装过程</h1>安装过程主要参考这篇博文：<br><a href="https://blog.csdn.net/u013052326/article/details/81545449" target="_blank" rel="noopener">Win10+Ubuntu18.04双系统安装指南（一）（实操真谛） - 索命的博客 - CSDN博客</a><br><a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">Windows + Ubuntu 16.04 双系统安装详细教程 - flyyufenfei的博客 - CSDN博客</a><br>简单总结以下需要注意的点有：<h2 id="1、断网"><a href="#1、断网" class="headerlink" title="1、断网"></a>1、断网</h2>安装过程需要断网吗？讲道理都可以，但是断网的话在安装的时候不检查更新了，安装的更快，并且在<a href="https://blog.csdn.net/qq_24624539/article/details/81775635" target="_blank" rel="noopener">这篇文章</a>中说到，16.04安装时必须断网（原文说是“拔掉网线”），不然会导致“选地图处安装程序卡死、安装失败”。因此我是断网安装的（但是安装的是18.04），安装成功。<h2 id="2、-键盘布局"><a href="#2、-键盘布局" class="headerlink" title="2、 键盘布局"></a>2、 键盘布局</h2>什么的这些设置按照默认，英语（美国）就行了<h2 id="3、-“更新和其他软件”"><a href="#3、-“更新和其他软件”" class="headerlink" title="3、 “更新和其他软件”"></a>3、 “更新和其他软件”</h2>“更新和其他软件”这一步，<br>选择“最小安装”，<br>去掉“安装Ubuntu时下载更新”，<br>勾选“为图形或无线硬件，以及其他媒体格式安装第三方软件”<br>（在没有网的情况下这么设置，并且这样在安装的过程中就不会自动检查更新了，提高了安装的速度）<h2 id="4、“安装类型”"><a href="#4、“安装类型”" class="headerlink" title="4、“安装类型”"></a>4、“安装类型”</h2>“安装类型”这一步选择“其他选项”自己创建调整分区，随后便进入到自己创建分区的关键环节，<br>需要创建前文提到的“/”、“/home”、“swap”和“/boot”四个分区，前三个建在机械硬盘的那个空闲空间中，“/boot”分区创建在固态硬盘的空闲空间中，其中“/boot”分区比较关键一点，容易出错。<br>在这一步，EFI引导和boot引导的设置有所不同，需要根据自己设置的启动方式确定。<br>总体来讲，如果是Bios的启动模式是UEFI，对应EFI引导，则不需要”/boot”，创建分区的时候“用于”设置为“EFI系统分区”：图片来自：<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">https://blog.csdn.net/flyyufenfei/article/details/79187656</a><br><img src="https://img-blog.csdnimg.cn/20191123205218727.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" alt="图片来自"><br>Bios的启动模式如果是Legacy，对应的就要设置Boot引导，需要创建“/Boot”分区：<br>图片来自：<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">https://blog.csdn.net/flyyufenfei/article/details/79187656</a><br><img src="https://img-blog.csdnimg.cn/20191123205312600.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其他分区根据自己需要结合参考文章进行设置，这里不再总结了。<h2 id="6、“安装启动引导器的设备”"><a href="#6、“安装启动引导器的设备”" class="headerlink" title="6、“安装启动引导器的设备”"></a>6、“安装启动引导器的设备”</h2>然后不要直接点击”安装“，还是在进行分区设置的界面左下方，有一个“安装启动引导器的设备”的设置选项。<br>这里如果是EFI引导的话，选择EFI引导对应的分区；<br>若是Boot引导的话，就选择”/boot“分区所在的设备。<br>图片来自：<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">https://blog.csdn.net/flyyufenfei/article/details/79187656</a><br><img src="https://img-blog.csdnimg.cn/20191123205402915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="7、-最后"><a href="#7、-最后" class="headerlink" title="7、 最后"></a>7、 最后</h2>最后会出现一个你配置好的分区表让你检查是否有误，无误后继续；<br>然后会出现个地图让你选择地域（选上海）；<br>然后设置键盘布局，设置设备名称/账号名称/开机密码等；<br>最后进入到安装状态；<br>安装完成后，拔下U盘重启，更改Bios的启动项为原来的“操作系统的启动管理员”。<h1 id="四、使用Easy-BCD或者Easy-UEFI进行引导设置"><a href="#四、使用Easy-BCD或者Easy-UEFI进行引导设置" class="headerlink" title="四、使用Easy BCD或者Easy UEFI进行引导设置"></a>四、使用Easy BCD或者Easy UEFI进行引导设置</h1>由于我安装的时候没有意识到自己是UEFI模式，完全按照网上的教程只在固态盘创建了个”/boot“分区，然后<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">参考这篇博文</a>，使用Easy BCD的时候才有所提示，并且新添加条目时都是灰色：<br>（图片来自：<a href="https://blog.csdn.net/qiusuoxiaozi/article/details/72807104）" target="_blank" rel="noopener">https://blog.csdn.net/qiusuoxiaozi/article/details/72807104）</a><br><img src="https://img-blog.csdnimg.cn/20191123205515964.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>此时我以为自己第一次安装要凉了，结果网上搜到有讲，可以使用Easy UEFI进行引导，并按照<a href="https://blog.csdn.net/www_helloworld_com/article/details/84672165" target="_blank" rel="noopener">这篇博客</a>完成了引导设置（只看Easy UEFI的使用这部分就可以了）。<br>但是有一个比较奇怪的地方，我在Easy UEFI中找之前boot分区(或者efi系统分区)所在的那500MB空间时无法选中，但是在固态硬盘中还有一块260MB的efi分区，在这个分区中找到了<code>grubx64.efi</code>（这个貌似是windows的efi引导区）我也不知道为什么……<br>最终重启后出现了让选择启用那个系统的界面，直接回车就进入到了Ubuntu系统，然后自动提示需要更新以下所选择语言的一些东西，具体是什么忘记了……<br>第一次安装就这么“成功”了，限于自己的认识，这可能并不是真正的成功，或许有很多隐藏的小隐患……但是，只能先这样用着了，毕竟目前也没什么问题出现……此外，这只是针对自己遇到的情况的一些总结，并不具有普遍性……</li>
-</ul>
-<p><strong>注</strong>：由于我以为在Easy UEFI中选择了那个260MB的分区进行引导，故而500MB的那个没有用了，就把500MB的分区给格式化了，然后悲剧就来了，引导崩溃了，显示<code>Minimal BASH like line editing is supported. For the first word, TAB lists possible command completions. anywhere else TAB lists possible device or file completions.</code>错误，导致我win10和ubuntu两个系统都无法进入了，最后从<a href="https://blog.csdn.net/heroacool/article/details/50817856" target="_blank" rel="noopener">这篇文章</a>中找到了<a href="https://www.linuxidc.com/Linux/2015-07/120748.htm" target="_blank" rel="noopener">解决办法</a>，使用<code>bootrepair</code>,但是这个工具也只能让我从新进入到win10中，ubuntu还是没法进入，无奈就重新安装了（除了这次手抽，应该还算是一次安装成功<code>^_^</code>）。重新安装后就注意到自己是UEFI 模式了，就专门在500MB 的分区选择<code>efi系统分区</code>，但是奇怪的是，在用Easy UEFI引导的时候500MB 的那个分区仍然是不可选的，无奈还是选择了260MB的那个……</p>
-<h1 id="五、ubuntu系统安装好后"><a href="#五、ubuntu系统安装好后" class="headerlink" title="五、ubuntu系统安装好后"></a>五、ubuntu系统安装好后</h1><p><a href="https://blog.csdn.net/Jesse_Mx/article/details/52816928" target="_blank" rel="noopener">https://blog.csdn.net/Jesse_Mx/article/details/52816928</a><br><a href="https://blog.csdn.net/day_to_die/article/details/78689999" target="_blank" rel="noopener">安装Ubuntu后必须要做的几件事(一)</a></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/11/22/lean-git/">git的初步学习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/git/">git</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/GitHub/">GitHub</a></span><div class="content"><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。</p>
-<h1 id="初次用到的命令"><a href="#初次用到的命令" class="headerlink" title="初次用到的命令"></a>初次用到的命令</h1><p>本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：</p>
-<ol>
-<li><p><strong>git status、git branch</strong></p>
-</li>
-<li><p><strong>git add、git add –all、git add –a</strong></p>
-</li>
-<li><p><strong>git commit -m “log_message”、git commit</strong></p>
-</li>
-<li><p><strong>git diff、git diff HEAD</strong></p>
-</li>
-<li><p><strong>git remote add origin sshURL、git remote rm origin</strong></p>
-</li>
-<li><p><strong>git push origin branchname</strong></p>
-</li>
-<li><p><strong>git pull origin branchname</strong></p>
-</li>
-</ol>
-<h1 id="对这些命令的初步认识"><a href="#对这些命令的初步认识" class="headerlink" title="对这些命令的初步认识"></a>对这些命令的初步认识</h1><ol>
-<li><p>git add、git commit、git push之见的关系，以及git diff 和git diff HEAD到底是谁和谁在比较差异。</p>
-<p><strong>通过git add、git commit、git push理解git的三个区：</strong></p>
-<p>①工作区（working tree）②暂存区（index/stage）③本地仓库区（.git）</p>
-<img src="https://img-blog.csdnimg.cn/2019112520480633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="65%">
 
-<p><strong>git diff 和git diff HEAD的区别：</strong></p>
-<p>git diff 命令可以查看当前工作树与暂存区之间的差别。<br>git diff HEAD命令可以查看工作树和最新提交之间的差别。<br>另外，退出git diff HEAD需要在那个窗口按<code>q</code></p>
-<img src="https://img-blog.csdnimg.cn/20191125205028291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
-<img src="https://img-blog.csdnimg.cn/20191125205043489.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
-<img src="https://img-blog.csdnimg.cn/20191125205104115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
-<img src="https://img-blog.csdnimg.cn/20191125210226785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
-<img src="https://img-blog.csdnimg.cn/20191125211331185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
-（上图是测试一下git add之前working tree和暂存区(stage/index)的差别）
-<img src="https://img-blog.csdnimg.cn/20191125205904917.png" width="80%">
-（上图是测试一下git add之后working tree和暂存区(stage/index)的差别——没有差别） 
-<img src="https://img-blog.csdnimg.cn/20191125205256244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
-（上图是测试一下git commit之前working tree和最新提交的差别）
-<img src="https://img-blog.csdnimg.cn/20191125205317428.png" width="80%">
-（上图是测试一下git commit之后working tree和最新提交的差别——没差别）
+    <meta charset="utf-8">
+    
+    
+    
+    
+    
+    
+    <title>清醒即活着 | 天下古今之庸人，皆以一懒字致之</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="清醒即活着">
+<meta property="og:url" content="http:&#x2F;&#x2F;ch206265.github.io&#x2F;index.html">
+<meta property="og:site_name" content="清醒即活着">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+    
+    <!-- custom head -->
+    
 
-<blockquote>
-<p>此部分建议参考：</p>
-<ul>
-<li><a href="https://blog.csdn.net/u013485584/article/details/53303858" target="_blank" rel="noopener">git diff与git diff HEAD – file - 二楼后座的专栏 - CSDN博客</a></li>
-<li><a href="https://blog.csdn.net/minolk/article/details/81777467" target="_blank" rel="noopener">git的三个区域工作区，缓存区，暂存区 - minolk的博客 - CSDN博客</a></li>
-</ul>
-</blockquote>
-</li>
-<li><p>git commit -m “logmessage”只是在引号中写一些本次commit的一些备注，简短的一句话；如果写完git commit后回车，那么会进入vim编辑器中，在界面的左上角开始可以记述详细提交信息。</p>
-<p>提交格式如下：</p>
-<blockquote>
-<p>第一行：用一行文字简述提交更改的内容</p>
-<p>第二行：空行</p>
-<p>第三行及以后：记述更改的原因和详细内容</p>
-</blockquote>
-</li>
-</ol>
-<img src="https://img-blog.csdnimg.cn/2019112521034670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="95%">
+</head>
 
-<p>   这是刚进入编辑器的界面，按下字母c就可以进入编辑状态；<br><img src="https://img-blog.csdnimg.cn/2019112521041458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="95%"><br>   按下字母后按照上文提到的提交格式，在左上角开始编辑；编辑完成之后按下Esc，接着连按两次大写的Z，便可退出编辑器。</p>
-<h1 id="一些推荐"><a href="#一些推荐" class="headerlink" title="一些推荐"></a>一些推荐</h1><p>最后推荐一些对git基础操作总结的比较好的文章</p>
-<p><a href="https://blog.csdn.net/Jesse_Mx/article/details/78059733" target="_blank" rel="noopener">Git简易教程笔记（1） - Jesse_Mx的博客 - CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/Jesse_Mx/article/details/78158790" target="_blank" rel="noopener">Git简易教程笔记（2） - Jesse_Mx的博客 - CSDN博客</a> </p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/11/22/Multiterminal-synchronization-of-hexo-blog/">多终端同步Hexo博客</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/git/">git</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/hexo/">hexo</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/">建站笔记</a></span><div class="content"><p>记录一下实现多终端同步Hexo博客的一些操作，学习的过程中意外学习了一些git的基本操作，并记录在另外一篇博文中。</p>
-<h1 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h1><p>整体思路和流程主要参考以下两篇文章：</p>
-<blockquote>
-<p><a href="https://www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="noopener">利用Hexo在多台电脑上提交和更新github pages博客 -简书</a><br><a href="https://blog.csdn.net/monkey_lzl/article/details/60870891" target="_blank" rel="noopener">如何解决github+Hexo的博客多终端同步问题 - monkey_lzl的博客 -CSDN博客</a></p>
-</blockquote>
-<p>然后，在新电脑上需要重新安装git、node.js、Hexo环境、以及生成SSH添加到GitHub，这些设置参考下面文章的相应内容即可：</p>
-<blockquote>
-<p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">hexo史上最全搭建教程 - Fangzh的技术博客 - CSDN博客</a><br><a href="https://help.github.com/cn/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">生成新 SSH 密钥并添加到 ssh-agent - GitHub 帮助</a></p>
-</blockquote>
-<p>详细的步骤就不写了，根据下面总结的思路配合上面的提到的参考文章，相信如果下次还需要进行这样的操作，也会很快就熟悉了。下面总结一下主要思路：<br><strong>首先需要知道Hexo在本地和在GitHub上的文件是两个不同的东西。本地的主要是部署文件包括了自己写的所有文章的MarkDown文件，主题文件等等；上传到GitHub中的文件是部署文件渲染过后的文件，我们最终访问GitHubName.github.io看到的个人站点其实就是这些保存在GitHub中渲染过的东西。想要实现多端同步，关键点是让多台电脑上都有最新的部署文件，也就是那个本地文件，因此我们可以利用git实现这一需求。</strong></p>
-<h1 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h1><ol>
-<li>到GitHubName.github.io这个仓库，新建分支命名为hexo（这个新建的branch就是为了存储本地的部署文件），并将新建的hexo分支设置为default分支；</li>
-<li>然后在老电脑上（有本地部署文件的电脑）使用git clone，把hexo仓库克隆下来，再把部署文件全部复制粘贴进这个克隆下来的hexo文件夹中（最好使用clone吧，刚开始我是直接把那个仓库的ZIP压缩包下载下来了，但是在某一步一直会报错）；</li>
-<li>按照上面的思路分析，我们最终目的是要将hexo的本地部署文件上传到GitHub上，所以按顺序依次使用git init、git add、git diff HEAD、git commit、git remote add origin sshURL 、git push origin hexo等命令，就可以把最新粘贴进分支hexo中的部署文件同步到GitHub中了。这个<br>过程出现的大多数问题应该是由于不熟悉这些git命令造成的。</li>
-</ol>
-<blockquote>
-<p>我刚开始尝试时遇到过这些问题： </p>
-<ol>
-<li><a href="https://blog.csdn.net/comeonbabe_/article/details/80244854" target="_blank" rel="noopener">github连接远程仓库时出现Warning: Permanently added the RSA host key for IP address <strong><strong>***</strong></strong> …… - comeonbabe_的博客 - CSDN博客</a> </li>
-<li><a href="https://www.cnblogs.com/lovebing/p/7121754.html" target="_blank" rel="noopener">Git提交时提示‘The file will have its original line endings in your working directory’ - 刘俊涛的博客 - 博客园</a>  </li>
-<li><a href="https://blog.csdn.net/top_code/article/details/50381432" target="_blank" rel="noopener">Git 提示fatal: remote origin already exists错误解决办法 - Ricky - CSDN博客</a>  </li>
-<li>在gitBash中，复制粘贴的快捷键不是CtrlC/V </li>
-<li><a href="https://blog.csdn.net/yemoweiliang/article/details/52980658" target="_blank" rel="noopener">git push 失败出现error: src refspec master does not match any.解决方案 - 青阳十五的专栏 -CSDN博客</a>  </li>
-<li><a href="https://stackoverflow.com/questions/23957836/git-error-error-src-refspec-master-does-not-match-any" target="_blank" rel="noopener">git error - “error: src refspec master does not match any.” -Stack Overflow</a>  </li>
-<li><a href="https://blog.csdn.net/csdn799316120/article/details/79565579" target="_blank" rel="noopener">warning: LF will be replaced by CRLF in 解决办法 -csdn799316120的博客 - CSDN博客</a>  </li>
-<li><a href="https://blog.csdn.net/Amos_luoye/article/details/88292438" target="_blank" rel="noopener">git commit之后进入vim（vi）界面，如何退出 -Amos_luoye的博客 - CSDN博客</a><br><br/>其中更详细的了解可以看下总结的git基本操作那篇总结。</li>
-</ol>
-</blockquote>
-<ol start="4">
-<li>然后在新电脑上安装git、node.js、Hexo环境、以及生成SSH添加到GitHub。</li>
-<li>新电脑上的准备工作就绪之后，把hexo分支git clone下来，然后就可以和在原来电脑上一样进行写作了。写完之后一般按照 git init、git add、git diff HEAD、git commit、git remote add origin sshURL 、git push origin hexo。其中git remote add origin sshURL也不必每次都弄。</li>
-<li>上一步只是把最新的部署文件上传到了GitHub中，但是并没有对其渲染，所以还得依次执行Hexo 的命令：hexo clean 、hexo g、hexo s、hexo d。</li>
-<li>最后，这样就可以在两台电脑上都写最新的文章并及时发布了。但是在每台电脑上，开始写博客之前，最好都使用git pull origin hexo从GitHub中把最新的部署文件获取下来。</li>
-</ol>
-<p>过程基本就是这样。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/11/09/writing-skills-of-zhou/">总结-周志华教授如何做研究与写论文</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</a></span><div class="content"><p>本文由两部分组成，一是对《周志华教授如何做研究与写论文》的总结，二是分享一下彭明辉教授阅读文献方法的流程图。</p>
-<p>首先认识什么是研究，研究和研发的区别，其次，做研究，先有<strong>话题</strong>，再有<strong>问题</strong>，然后有如何解决问题的<strong>想法</strong>，最后进行坚实、具体的工作让想法变为现实，写论文就是把这个过程用文字总结一下。</p>
-<p><strong>核心思路：Topic-Problem-Idea-Concrete work</strong></p>
-<h2 id="如何找话题：Topic"><a href="#如何找话题：Topic" class="headerlink" title="如何找话题：Topic"></a>如何找话题：<strong>Topic</strong></h2><p>一级学科划定的研究范围是非广袤，先要进入一个具体的分支学课和领域，并获得必要的了解，即使在一个分支学科和领域中，也有太多的话题</p>
-<p>(1)通常老师给你一个topic/然后阅读关于该话题的重要文献，了解该话题的研究历程/研究现状</p>
-<p>(2)需要自己找Topic时：找人请教以及自力更生。自力更生时注意要搞清楚自己的领域里最重要的刊物/会议，找来那上面在最近几年的文章，进行阅读，目的时为了知道有哪些topic，读摘要就可以了，可能会花费很多时间</p>
-<p>(3)如何选择最适合自己的topic：首先是要自己感兴趣，然后结合自身是否有这方面的知识积累，以及能否获得例如实验数据这样的必要资源</p>
-<h2 id="如何产生问题：Problem"><a href="#如何产生问题：Problem" class="headerlink" title="如何产生问题：Problem"></a>如何产生问题：<strong>Problem</strong></h2><p>“问题”是科学研究的心脏</p>
-<p>(1)导师给你一个问题</p>
-<p>(2)自己产生问题，导师帮你判断。有了问题之后，要搞清楚该问题上已经有过的所有工作，优点是什么，缺点是什么，为什么没有彻底解决问题？自己尝试总结出已有工作的发展线索。</p>
-<p>(3)完全自立更生。读发表在重要刊物和会议上的有关自己选定话题的文献，多读一些文献，了解一下有哪些问题是没有解决的，并且关注这个topic上活跃的leading expert的工作、他们的文章中可能会指出一些需要解决的重要问题。宜“小题大做”，忌“大题小做”。对于这个找问题的的过程，是对研究能力极大的锻炼，可能会走很多弯路，有可能一无所成，但是也有可能练就一身硬功夫。</p>
-<h2 id="如何产生解决问题的新想法：Idea"><a href="#如何产生解决问题的新想法：Idea" class="headerlink" title="如何产生解决问题的新想法：Idea"></a>如何产生解决问题的新想法：<strong>Idea</strong></h2><p>idea是要自己产生的，但是和老师讨论和判断idea是必要的。</p>
-<p>(1)思考它是不是一个新的idea，是不是合理，是不是有更好的解决办法</p>
-<h2 id="剩下的就是concrete-work"><a href="#剩下的就是concrete-work" class="headerlink" title="剩下的就是concrete work"></a>剩下的就是<strong>concrete work</strong></h2><p>concrete work不是孤军奋战，遇到不会的，除了自己学习之外，一定要学会与人合作</p>
-<p>(1)理论分析，数学功底</p>
-<p>(2)试验验证，实验设计能力</p>
-<img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20191109012112.png" alt="彭明辉教授文献阅读流程图" style="zoom:67%;" /></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/11/09/preliminary-note-of-hexo/">hexo笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/hexo/">hexo</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/">建站笔记</a></span><div class="content"><p>关于hexo博客的搭建之前参考了很多优秀的博文，当时按照文中的指导大多数想要的功能都可以实现，但是功能以实现我懒癌就犯，时间一久，就不知道当初是怎么操作的了，还得从头搜索。这里先把他们罗列出来，有机会的话再对其进行一些总结。</p></div><a class="more" href="/2019/11/09/preliminary-note-of-hexo/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/11/02/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-10-28%EF%BC%89/">周总结（2019/10/28）</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%80%BB%E7%BB%93/">总结</a></span><div class="content"><p>虽然在博客上很久没有写这个总结了，但在我平时工作学习中，脑海偶尔灵光一现的时候，我还是会把想要所说的话进行简单记录的。这次主要想总结4件事情，以后要注意改正。</p>
-<h2 id="流于形式的打招呼方式"><a href="#流于形式的打招呼方式" class="headerlink" title="流于形式的打招呼方式"></a>流于形式的打招呼方式</h2><p>首先，我发现，自己打招呼的方式有点流于形式。</p>
-<p>如果是刚认识还好，但一直都是，见面抬手然后“嗨”一声，没了下文，久而久之这样很尴尬，但是在这种尴尬的背后其实有更尴尬的事实——无话可说。关于无话可说，之前我反思过，然而这次的无话可说基本就是真的无话可说，但一直用这种流于形式的打招呼方式所展现出来的并不是自己的热情，反而是冷漠，这样久而久之又真的会使彼此之间产生一层隔阂，和自己的初衷完全不同。</p>
-<p>真正的交谈应该是走心的，而走心就是要走进生活，无论是工作还是业余，都是生活。</p>
-<h2 id="陌生地点干之前从来没干过的公差"><a href="#陌生地点干之前从来没干过的公差" class="headerlink" title="陌生地点干之前从来没干过的公差"></a>陌生地点干之前从来没干过的公差</h2><p>第二件事，到车站接专家。</p>
-<p>之前对车站真的是了解很少，又是大车站，也没有接站的经历。实话实说，我自己去过好多次的火车站，关于出口，我自己都是没有太留心，基本上都是看着指引牌，一路走下来，真的是什么都没有记住。不过好在我是提前去了，在途中问了出租车师傅出站口的情况以及同学他们平时在车站叫滴滴的话在哪个出口比较方便。他们的建议对这次接站真的帮了很大的忙。除了自己搞清楚出站口情况，还有其他的一些细节需要注意。比如专家乘车的班次快要抵达前要提前打电话告知自己在哪个出站口等着他，顺便再确认一下他乘车的班次（或者抵达时间）。再其次，在接站过程中有个小瑕疵，看到接站的班次已经到站了之后，就要认真在出站口等待了，不要被其他事情吸引注意力错过了要接的人。这次接站，刚好在专家出站的这个时段，旁边的旅客有些事情在和出站检票口的工作人员交涉，我就好奇的关注了下他们的谈话，最后专家走到我的跟前问是不是接他的，好尴尬，下次需要注意。最后，一定要问对方的全名，不要只是姓氏，虽然这种接错人的概率很小，但是还是小心为好。</p>
-<h2 id="干公差对于时间上的把握"><a href="#干公差对于时间上的把握" class="headerlink" title="干公差对于时间上的把握"></a>干公差对于时间上的把握</h2><p>第三件事，感觉在机关里面办公务事，有点纠结。</p>
-<p>如果你办事比较积极，结果程序流程啥的都是错的，有时候就连通知的人都不清楚具体怎么操作，白费功夫；如果你干事不是很积极，那么，说不定以前正常的流程现在就又变了，所有手续材料还得重新整理，还是白费功夫。所以呀，在这种情况下，还是要擦亮眼睛，判断好事情的轻重缓急，以及难易程度，有时候不是很复杂的事情，比较轻易就能完成的活，就不要再拖了，别让政策有变之时，一切再从头整理。</p>
-<h2 id="归根结底还是脸皮薄"><a href="#归根结底还是脸皮薄" class="headerlink" title="归根结底还是脸皮薄"></a>归根结底还是脸皮薄</h2><p>第四件事情，就是公共场所打电话。</p>
-<p>我目前为止大多数接打电话都是出去在走廊或者人少的地方，除非要边打电话听着对方的指导边操作电脑。但是呢，身边也有好多人，接打电话就直接在机房进行了，并且声音很大，当然，基本都是公务，不可能是私人电话。有时候听着他们在公务上和他人打电话，感觉他们外联公关能力挺强的。对比一下自己，感觉可能自己有点极端了，大所有电话都是想要找到一个没有人的地方，充满了浓烈的不自信？感觉除了私人电话外，有时候在公共场所还是可以因公打或接电话的。但是怎么说呢，总归我还是感觉这主要得看周围人的反应，或者实验室的氛围和风气了，这种公共场所可以打电话的并非绝对。（ 2019/10/28 16:07 ）</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/10/08/%E7%94%9F%E6%B4%BB/">生活需要平衡</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-08</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8F%8D%E6%80%9D/">反思</a></span><div class="content"><p>关心自己的人一直在关心自己，而我大概却只是把这种关心当成了生活中普普通通的东西，没有好好珍惜。最大的表现就是没有把这些关心听到心里去。父母经常告诉我不要熬夜，那我是否听父母的话呢，好像没有，基本每天都在熬夜，很久都没有早早睡觉的习惯了。<br>那种基本11点之前就睡觉的感觉貌似高中之后就没有了。小学时候在家中，作息和家里人一致，完成每天的作业之后还能和家人在电视前追剧，这是在我记忆中家庭场景印象比较深的时刻。说起这个，每次能回想起来发生场景是在家的趣事，基本都是一些小时候记忆。其实想一想，自小学之后，自己呆在家中的时间越来越少，而家人一起参加的活动除了晚饭基本再没有其他，我们的生活都被某种因素禁锢或分割，感觉这很是问题，也是我一直想要改变的。其实这种禁锢就是谋生，不单单我们家这样，很多家庭也都是这样。<br>父母做小生意整日奔波，虽然自己就是自己的老板，但是没有见他们给自己放过假。爷爷奶奶也是这样，虽然老人们相继生了大病，以前的工作以现在的身体条件实在无法为继，但也没有完全偃旗息鼓。我和姐姐，小学时候还对成绩没有太大概念，只知道期末成绩考的好的话会收获到亲人的表扬，上初中时有了成绩的排名，从那时起，看着比较靠前的名次，我们的精力自然很少从学习中分离。就这样，大家的生活都有了谋生的方向。<br>社会中每个人的谋生都是不易的，少不了背井离乡，岁月静好的背后是有人在负重前行。但是呢，为了谋生，我们不应该牺牲现在的幸福，就像《瓦尔登湖》中梭罗说的那样，“把大半生的时光花费在挣钱上，目的是期望在一生中最没有价值的一段时光里享受到很成问题的自由。这种情形使我想起那个英国人，开头时跑到印度去发财，希图将来返回英国时可以过着诗人般的生活。其实他应该立刻爬上阁楼去。”幸福的生活也不应该被谋生作为借口而不断侵蚀。不要希冀等一切准备好了才可以，不同的阶段都会有令你烦恼和疲于应对的事情，这样，真正重要的东西只会被一拖再拖，酿成遗憾，况且自己真正准备好了的时刻或许永远不会到来。（ 2019/10/07 15:47 ）</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/09/14/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-09-07%EF%BC%89/">周总结（2019-09-07）</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-14</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8F%8D%E6%80%9D/">反思</a></span><div class="content"><p>这个周总结的草稿在一周之前就创建了，当时也有一些想要总结的东西，但只是简单的在纸上记录了一下，准备在周末的时候完善，没想到被拖了又一周，现在的周总结变成了半月谈……</p>
-<h1 id="不要把简单的事情复杂化"><a href="#不要把简单的事情复杂化" class="headerlink" title="不要把简单的事情复杂化"></a>不要把简单的事情复杂化</h1><p>上个星期或者是上两个星期，总体来说还可以，主要是在完成老师布置的任务以及自己的学习之间两方面度过的，偶尔会又出公差，但是也还好。在这过程中，有一些小事，总是断断续续，不能直接了当地完成，牵扯了我比较多的精力。为什么会断断续续呢，有以下几种情况：</p>
-<ol>
-<li><p>事情本身就是要走流程，这个进程不是我能控制的，在走的每个阶段流程中，进行地还算顺利。这类事其实不牵扯太多精力，只需要准备好要提交地材料，然后等。</p>
+<script type="text/javascript" src="/source/js/linkcard.js"></script>
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ch206265</h5>
+          <a href="mailto:penghhjj@qq.com" target="_blank" rel="noopener" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/favorite"  >
+                <i class="icon icon-lg icon-heart"></i>
+                收藏夹
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timesaying"  >
+                <i class="icon icon-lg icon-hourglass"></i>
+                时光碎语
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">清醒即活着</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">清醒即活着</h1>
+        <h5 class="subtitle">
+            
+                天下古今之庸人，皆以一懒字致之
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-set-the-password-for-hexo"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-25 16:51:53" datetime="2019-11-25T08:51:53.000Z"  itemprop="datePublished">2019-11-25</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/25/set-the-password-for-hexo/">给Hexo博客设置访问密码</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+         2019/11/06 00:37 
+最近想要给博客文章做个加密，一开始也是无从下手，但是还好有个博客：
+Hexo 博客加密功能添加 | Hailiang’s Blog
+这里面介绍了两个博客加密插件
+hexo-blog-encrypt和hexo-encrypt
+最初按照介绍，安装hexo-blog-encrypt但是遇到了困难
+
+                
+              ...
+    
+
+        <a href="/2019/11/25/set-the-password-for-hexo/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog-encrypt/" rel="tag">hexo-blog-encrypt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-encrypt/" rel="tag">hexo-encrypt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99/" rel="tag">个人建站</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-first-setup-ubuntu"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-25 16:51:11" datetime="2019-11-25T08:51:11.000Z"  itemprop="datePublished">2019-11-25</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/25/first-setup-ubuntu/">初次安装Ubuntu18.04</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+         2019/11/23 15:34 
+ 主要解决的问题：1、解决 “明明C盘还有几十G可以使用但是创建压缩卷时可压缩竟然是0”2、解决“安装完之后才知道是UEFI启动模式，Easy BCD新添加条目变成灰色不可用”
+一、设备情况双硬盘电脑：固态硬盘（win系统盘）+机械硬盘BIOS模式：UEFI
+二、准备工作1、下载Ubuntu镜像我是直接拷贝了同学的；你也可以从下面的网址中下载系统下载 |...
+    
+
+        <a href="/2019/11/25/first-setup-ubuntu/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-lean-git"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-22 01:44:29" datetime="2019-11-21T17:44:29.000Z"  itemprop="datePublished">2019-11-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/22/lean-git/">git的初步学习</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        起因为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。
+初次用到的命令本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：
+
+git status、git branch
+
+git add、git add –all、git add –a
+
+git commit...
+    
+
+        <a href="/2019/11/22/lean-git/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Multiterminal-synchronization-of-hexo-blog"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-22 01:14:07" datetime="2019-11-21T17:14:07.000Z"  itemprop="datePublished">2019-11-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/22/Multiterminal-synchronization-of-hexo-blog/">多终端同步Hexo博客</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        记录一下实现多终端同步Hexo博客的一些操作，学习的过程中意外学习了一些git的基本操作，并记录在另外一篇博文中。
+整体思路整体思路和流程主要参考以下两篇文章：
+
+利用Hexo在多台电脑上提交和更新github pages博客 -简书如何解决github+Hexo的博客多终端同步问题 - monkey_lzl的博客 -CSDN博客
+
+然后，在新电脑上需要重新安装git、node.js、Hex...
+    
+
+        <a href="/2019/11/22/Multiterminal-synchronization-of-hexo-blog/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/" rel="tag">建站笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-writing-skills-of-zhou"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-09 01:13:54" datetime="2019-11-08T17:13:54.000Z"  itemprop="datePublished">2019-11-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/09/writing-skills-of-zhou/">总结-周志华教授如何做研究与写论文</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        本文由两部分组成，一是对《周志华教授如何做研究与写论文》的总结，二是分享一下彭明辉教授阅读文献方法的流程图。
+首先认识什么是研究，研究和研发的区别，其次，做研究，先有话题，再有问题，然后有如何解决问题的想法，最后进行坚实、具体的工作让想法变为现实，写论文就是把这个过程用文字总结一下。
+核心思路：Topic-Problem-Idea-Concrete work
+如何找话题：Topic一级学科划...
+    
+
+        <a href="/2019/11/09/writing-skills-of-zhou/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-preliminary-note-of-hexo"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-09 00:56:24" datetime="2019-11-08T16:56:24.000Z"  itemprop="datePublished">2019-11-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/09/preliminary-note-of-hexo/">hexo笔记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        关于hexo博客的搭建之前参考了很多优秀的博文，当时按照文中的指导大多数想要的功能都可以实现，但是功能以实现我懒癌就犯，时间一久，就不知道当初是怎么操作的了，还得从头搜索。这里先把他们罗列出来，有机会的话再对其进行一些总结。
+    
+
+        <a href="/2019/11/09/preliminary-note-of-hexo/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/" rel="tag">建站笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-周总结（2019-10-28）"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-02 14:56:42" datetime="2019-11-02T06:56:42.000Z"  itemprop="datePublished">2019-11-02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/02/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-10-28%EF%BC%89/">周总结（2019/10/28）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        虽然在博客上很久没有写这个总结了，但在我平时工作学习中，脑海偶尔灵光一现的时候，我还是会把想要所说的话进行简单记录的。这次主要想总结4件事情，以后要注意改正。
+流于形式的打招呼方式首先，我发现，自己打招呼的方式有点流于形式。
+如果是刚认识还好，但一直都是，见面抬手然后“嗨”一声，没了下文，久而久之这样很尴尬，但是在这种尴尬的背后其实有更尴尬的事实——无话可说。关于无话可说，之前我反思过，然而...
+    
+
+        <a href="/2019/11/02/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-10-28%EF%BC%89/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-生活"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-10-08 12:22:52" datetime="2019-10-08T04:22:52.000Z"  itemprop="datePublished">2019-10-08</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/10/08/%E7%94%9F%E6%B4%BB/">生活需要平衡</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        关心自己的人一直在关心自己，而我大概却只是把这种关心当成了生活中普普通通的东西，没有好好珍惜。最大的表现就是没有把这些关心听到心里去。父母经常告诉我不要熬夜，那我是否听父母的话呢，好像没有，基本每天都在熬夜，很久都没有早早睡觉的习惯了。那种基本11点之前就睡觉的感觉貌似高中之后就没有了。小学时候在家中，作息和家里人一致，完成每天的作业之后还能和家人在电视前追剧，这是在我记忆中家庭场景印象比较...
+    
+
+        <a href="/2019/10/08/%E7%94%9F%E6%B4%BB/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-周总结（2019-09-07）"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-14 21:52:40" datetime="2019-09-14T13:52:40.000Z"  itemprop="datePublished">2019-09-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/09/14/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-09-07%EF%BC%89/">周总结（2019-09-07）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        这个周总结的草稿在一周之前就创建了，当时也有一些想要总结的东西，但只是简单的在纸上记录了一下，准备在周末的时候完善，没想到被拖了又一周，现在的周总结变成了半月谈……
+不要把简单的事情复杂化上个星期或者是上两个星期，总体来说还可以，主要是在完成老师布置的任务以及自己的学习之间两方面度过的，偶尔会又出公差，但是也还好。在这过程中，有一些小事，总是断断续续，不能直接了当地完成，牵扯了我比较多的精力...
+    
+
+        <a href="/2019/09/14/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-09-07%EF%BC%89/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-周总结（2019-08-30）"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-08-30 16:55:03" datetime="2019-08-30T08:55:03.000Z"  itemprop="datePublished">2019-08-30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/30/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-08-30%EF%BC%89/">周总结（2019-08-30）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        距离上次写周总结有一段时间了，想总结的东西也还挺多。
+总结：
+第一，感觉自己办公差的能力比较差。最集中表现在两方面，问话和回话。回话回不好其实还是问话的问题。
+关于问话，我感觉问题可以归结为：如何在对背景不甚了解的情况下问话成功？其实在问话过程中，我最大的问题体现在不会反问，脑子不会转弯，直来直去的，总是习惯于接受，别人说什么就是什么，主动权永远在对方那里。今天去财务咨询一件事情，前前后后跑...
+    
+
+        <a href="/2019/08/30/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-08-30%EF%BC%89/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ch206265 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/&title=清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/&title=清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=清醒即活着&url=http://ch206265.github.io/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAAAAAAZai4+AAABVUlEQVR42u3awRKCMAxFUf7/p+uMK11Q7mtQx+Z2xQjC6YK0JDkOPMZznB2/jvnvNw9ZsjZijemYU+rTOL2bLFktWfzWa283f5YsWbLmrPlrn14pS5asuwIE30DLkiWLsMimmZz9wV5elqwtWPVEEj/+an5Llqw/YY2lQZb5ylNkyerG4inaSrAgy/nFbGTJ2ppFXvi09FKZ/FvckiWrDYsvupUkEZ82k8qStRtrnmBNg0KabArssmQ1Y6XtPjyxyycgS1Y3FlnJ0wenjQgX05Alqxlr7VMz/Sgt1X9kydqald6UtCOsNSLIkiUrLWdWCp+ohiJLVhtWvdWAf+IG4UOWrGasdBu91kyQ/leWrJ6sSimFnyVbbbSDkCVraxYPCqRkspa0kiVLViUV+5GNsixZssICJyltxiknWbJastIWukpqSZYsWZUWhDSIrC3esmQ1Yz0ALoo1/Sr1xH0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
 </li>
-<li><p>在办事的过程中，发现了一些小纰漏，然后要修改它们，比较麻烦。这时候，要怎么样修改，我会犹豫不决，简单一点的改法——“这样行不行啊？”；万无一失的改法——“这样好麻烦，还得再找一遍领导签字”，其实倒不是怕自己麻烦，只是还得再麻烦领导……文字写下来之后，感觉是自己想多了……不过，趁早下定决心，确定如何处理问题，比犹犹豫豫半天还不确定更好，尤其是在不是什么特别特别重要的大事面前。想的太多，犹豫不决，不仅给自己徒增思想负担，也耽误其他人的事情。有时候，没有那么多时间来等巧妙的时机以促成最佳解决方案并做出抉择，只需要现在就行动起来，去解决它，不要一直陷入思考和抉择的煎熬当中。</p>
-</li>
-<li><p>要和他人商议解决事情的时候。此时，我比较犹豫，没有一个果断的处理办法（还是没有上心，没积极地去解决，而因此导致枝节横生）。如过自己真的不方便，那就采用别人的方案，不要再提自己的搞乱别人了，积极配合就行了。要是真的想自己提出办法解决，那就积极用心一点。</p>
-<p>关于这一点，可以用下面的话提醒自己一番，虽然有点鸡汤：</p>
-<blockquote>
-<p>什么是悟性？什么是智慧？悟性和智慧就是用最简单的方法来处理、看待切事物。但一些庸人自扰的人总是把简单的事情看复杂了、做复杂了。繁和简其实是一回事，是一回事的两个方面。聪明的人看到的是简单的一面，愚蠢的人看到的是复杂的一面。</p>
-<p>所谓看开人生，绝不是悲观，而是积极乐观；不是看破，而是看透；并非什么都不做，而是及时做。</p>
-</blockquote>
-<p>总是想的太多，顾虑太多，真有些庸人自扰的感觉。</p>
-</li>
-</ol>
-<h1 id="交谈要突出重点"><a href="#交谈要突出重点" class="headerlink" title="交谈要突出重点"></a>交谈要突出重点</h1><p>上次总结说到传话时候的注意事项，其实委托他人帮忙时，也要what,when,where,who,how，交代清楚，以免出现纰漏。</p>
-<p>平时和他人交谈时，要注意场合，该简短时简短，务必突出<strong>重点</strong>，不要前面像讲故事一样说了一堆，最后才蹦出了大家关注的东西，更尴尬的是，前面的一堆和结论的<strong>逻辑</strong>链接貌似还有问题。</p>
-<p>该娓娓道来时，就做好铺垫。除非是坐下来，两个人面对面深入交谈，即使平时随意侃，也尽量避免这样。就像走路聊天，要简短一点，这时候大家基本没有那么多耐心听你的铺垫。碎片化的时间里进行的交谈，就是要突出重点，不然也不会催生那么多的标题党文章。</p>
-<p>其次，要让别人听清楚自己说的话，说话声音大一些，不然容易引起误解。</p>
-<h1 id="对汇报的内容要负责"><a href="#对汇报的内容要负责" class="headerlink" title="对汇报的内容要负责"></a>对汇报的内容要负责</h1><p>做汇报的时候，细枝末节尽量少讲，要突出亮点，上干货。当然，比较尴尬的是干货比较少，或没有干货。这时候还必须要汇报，那就讲概念讲思想讲理解，这就比较考验思考的深度了。思考的结果其实也是干货。</p>
-<p>还有，做汇报的时候，自己要对PPT上所展示的每一张图片，每一句话负责。图不能乱引用，对于没有深刻理解的话也不要乱引用。如果对自己做的东西还不甚了解，面对他人的质疑和询问，自己还不能给出很好的解释，那只能说明没认真做或者做的还远远不够。</p>
-<p>总之，汇报时，要对自己讲的每一句，每一个插图负责，都要能经得起深究。</p>
-<h1 id="做好阶段工作成果的整理"><a href="#做好阶段工作成果的整理" class="headerlink" title="做好阶段工作成果的整理"></a>做好阶段工作成果的整理</h1><p>有时候，时间很紧迫，各种过程材料啊，原始或者中间数据啊，以及最后成果啊，都是七零八落地散在电脑中。但是自己抓紧时间完成任务之后，就选择了放松，没有对完成这些任务产生地零碎地东西进行整理，带到下次利用或修改，或者换电脑，或者给他人分享之时，很是头疼。</p>
-<p>所以，完成任务后，先打扫一下战场，做下阶段成果的总结，在好好休息~</p>
-<h1 id="任务协调分配的能力"><a href="#任务协调分配的能力" class="headerlink" title="任务协调分配的能力"></a>任务协调分配的能力</h1><p>自己的团队领导能力还是太欠缺。可能习惯了经常性的一个人埋头苦干，也没有想过，如果让自己负责一件事情时，该怎么用好身边的帮手们。</p>
-<p>应该努力的调整一下，不要总是单干，以后只会有越来越多任务量繁重的事情，不可能自己一个人干下去，也不要总是习惯于他人给自己分配好工作。</p>
-<p>平时，自己干一件事情的时候，总是眼前看到了什么活儿，就去做就去干好什么活儿。一件事情，我很少一次性把他干完的打算和决心，往往是慢慢悠悠一点一点干完。（其实有些事情还是及时完成要好，不要一直分成好几步去做，这样就会一直拖着，横生好多枝节，错过好多机会。其实有时候一直拖着，是有些对明天的顾虑，怎么说呢，都是有利有弊……但是至少，可以先把不影响下一步推进的工作做完）</p>
-<p>团队协作的话也更偏重于效率，大家聚在一起，分配好任务，短时间内快速完成。这就需要很明确的任务分配，而想要做好任务分配，首先自己要对完成任务有一个总体的认识，有一个清晰的路线。任务在描述上还不能太复杂，尤其是几个人通过网络合作，没有当面沟通交流时。所以，前期自己要把琐碎的东西给梳理通了，把简单好操作的任务分配下去。</p>
-<p>所以，面对任务分配，我需要加强的有一下两点：</p>
-<ol>
-<li>分配任务前，<strong>做好梳理准备工作</strong>。其实很多次不能果断地进行任务分配都可以归结为前期地准备工作没有做好，以至于分配任务时，分配不明确，不果决，或者总是有很多顾虑。这点也很好理解，因为并不是所有东西都可以分的，往往是进行到后期，更好分配一点，前期的东西比较琐碎，还需自己要提前处理好，以方便后期有整块的任务分给其他人做。</li>
-<li>如果没有很多时间让自己做梳理，做准备，那么交代他人的任务就要尽可能<strong>明确</strong>和<strong>易操作</strong>，不要再额外牵涉很多其他东西。</li>
-</ol>
-<h1 id="越熟悉的人越无话题可说"><a href="#越熟悉的人越无话题可说" class="headerlink" title="越熟悉的人越无话题可说"></a>越熟悉的人越无话题可说</h1><p>之前就发现了这个发生在我身上的尴尬现象。往往初次见面的时候可能还说的比较多，但是熟悉了以后，貌似可说的话题就变得很少了，或者话题只是局限于学习和工作。</p>
-<p>之前分析的原因是，其他方面的知识涉猎的太少，或者，生活中除了正常的工作状态，基本没有其他业余爱好。这样，我和他人之间自然就缺少了很多可以交流的话题。</p>
-<p>发现了问题所在，我似乎并没有认真去解决它。首先我的很多时间用在了刷手机上也并没有加大图书阅读量，其次，几次朋友叫我跑步去我也没有去😓……真是一边感慨着自己某方面的不足，还一边无动于衷……</p>
-<h1 id="计划："><a href="#计划：" class="headerlink" title="计划："></a>计划：</h1><ol>
-<li>还是要多喝水。</li>
-<li>第二天的工作状态要有保证。</li>
-<li>挤出来的时间，就要多做些对自己将来有增益，能回味的事情，比如学习积极性不高的时候，多些团建少些无意义的消磨，回寝室后多读书，少刷手机（突然发现kindle有买4年了，但是在上面读完的书好像不超过3本😓）</li>
-<li>努力做到不纠结，果断一点，知道自己现在在干什么，下一步要干什么，就像博客的主题一样，清醒地活着。</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/08/30/%E5%91%A8%E6%80%BB%E7%BB%93%EF%BC%882019-08-30%EF%BC%89/">周总结（2019-08-30）</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-30</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8F%8D%E6%80%9D/">反思</a></span><div class="content"><p>距离上次写周总结有一段时间了，想总结的东西也还挺多。</p>
-<p>总结：</p>
-<p>第一，感觉自己办公差的能力比较差。最集中表现在两方面，问话和回话。回话回不好其实还是问话的问题。</p>
-<p>关于问话，我感觉问题可以归结为：如何在对背景不甚了解的情况下问话成功？其实在问话过程中，我最大的问题体现在不会反问，脑子不会转弯，直来直去的，总是习惯于接受，别人说什么就是什么，主动权永远在对方那里。今天去财务咨询一件事情，前前后后跑好多趟，总是get不到重点，总是问完之后自己梳理时发现还是有问题。怎么办呢，只有再回去问了，前前后后好多次，自己都不好意思了，被询问的人那边肯定也烦。之所以前前后后询问好多次就是因为没把问题当面搞明白，对于蹦出来的那些意外情况，总是抓不住其关键反问回去。</p>
-<p>每次我遇到这种情况，都感觉自己的脑袋像木头疙瘩一样，其实随着年龄的增大，也真的感觉自己越来越缺少灵性。小时候那么调皮捣蛋，现在怎么就变成这样了呢？这或许和我在大学养成的一个习惯有关。大学里，学习新东西，相对于理解的过程，我总是在怎么“记住”他们方面花费很多精力，仿佛，这些东西记在我脑子里了就是我的了，我就会用了一般。当然，输入的过程也有思考，但是思考的很浅，甚至有些思考是为了更好的记住它们。搁在大学时期，或许这些东西记在脑子里了，就可以对付考试了，考试时，只需要从脑子里面取出记住的东西就可以了，严重缺少思考的过程。长期这样，自己的大脑似乎就很适应这种简单的条件反射（这应该就是典型的死读书吧）。最深受其害的一点体会就是考研数学……当年的经历，我只能说，我从来没有在考场上这么蒙蔽过。</p>
-<p>但是现在，没有考试了，一切都是实战。当时在时间不自由、资源、工具稀缺的时候，仅仅为了应付考试的学习方式，已经对现在时间、资源和工具都相对自由的我的进一步学习造成严重破坏。</p>
-<p>正确的方式？对于自己目前的这个状态，首先对待问题要<strong>刨根问底</strong>。不管是在学习，还是处事上，有什么不知道的不懂的，要问，不要揣着糊涂装明白！尤其在处事上，对于老师或者长辈交代的事情，有啥疑问就当面大胆地问，不要总是好好好，是是是。对于老师啊领导啊等这些不经常见面但又有要事要找他们的人，自己一定要提前想好下次遇到他们时问些什么，不要偶然的一次见面，支支吾吾，不仅问题描述不清楚，甚至有可能忘记询问一些重要的事情。当面问事情，一定要记得what、when、where、who、how，关键点一定搞清楚，而对于蹦跶出来的意外情况一定要反问一个why。针对意外情况，事情办不成了，最笨的方法就是，别人回复你的每一句话，都先对自己反问一个为什么，自己能够理解的就算了，不能够理解的再反问回去。虽然笨，但是有效，办不砸事，并且这是在培养一种思维习惯。以后经历的事情多了，了解的多了就好了，要努力地去思考去弄明白问题，而不是揣着糊涂装明白，自欺欺人，关键时候害人害己。但是，话说回来，闲聊的时候，别人说起什么你都不知道，不尴尬吗？这是另外一个问题了。</p>
-<p>第二，不会表达和展示自己。当需要让别人知道你自己的见解，想法，和别人分享时，要能够写出来，能够讲出来。对应现在的阶段，那就是能够写好论文，能够做好汇报。只有这样，才能更好地让别人知道你在想什么，你在干什么，才能让别人知道你是有付出的，你并没有吃闲饭混日子。反之，如果不能很好的表达自己，而自己又为之付出了那么多，还得不到认可和理解，岂不是委屈。这一方面，除了多争取锻炼的机会，把握好每次的历练之外，还要对每次的展示给予充足的时间准备。一件展示或者汇报，当你对它做了认真充足的准备后，就已经成功了一半。</p>
-<p>计划：</p>
-<ol>
-<li>保持健康的生活方式，注意饮食健康，多喝水</li>
-<li>晚上早点从机房回到寝室，这是对生活的尊重</li>
-<li>感觉想要与他人维持或更深地交流和交往，应该建立在工作之外；拥有共同的兴趣爱好才能长久，读书或者运动？</li>
-</ol>
-</div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class=&quot;fa fa-chevron-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2019 By ch206265</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-  $('#nav').addClass('is-mobile')
-  $('footer').addClass('is-mobile')
-}</script></body></html>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
