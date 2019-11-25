@@ -23,13 +23,13 @@
     
     
     <meta name="keywords" content="git,GitHub">
-    <meta name="description" content="起因为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。 初次用到的命令本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：  git status、git branch  git add、git add —all、git add —a  git commit -m">
+    <meta name="description" content="起因为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。 初次用到的命令本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：  git status、git branch  git add、git add –all、git add –a  git commit -m">
 <meta name="keywords" content="git,GitHub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git的初步学习">
 <meta property="og:url" content="http:&#x2F;&#x2F;ch206265.github.io&#x2F;2019&#x2F;11&#x2F;22&#x2F;lean-git&#x2F;index.html">
 <meta property="og:site_name" content="清醒即活着">
-<meta property="og:description" content="起因为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。 初次用到的命令本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：  git status、git branch  git add、git add —all、git add —a  git commit -m">
+<meta property="og:description" content="起因为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。 初次用到的命令本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：  git status、git branch  git add、git add –all、git add –a  git commit -m">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2019112520480633.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125205028291.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
@@ -211,24 +211,44 @@
 <ol>
 <li><p><strong>git status、git branch</strong></p>
 </li>
-<li><p><strong>git add、git add —all、git add —a</strong></p>
+<li><p><strong>git add、git add –all、git add –a</strong></p>
 </li>
-<li><strong>git commit -m “log_message”、git commit</strong></li>
-<li><strong>git diff、git diff HEAD</strong></li>
-<li><strong>git remote add origin sshURL、git remote rm origin</strong></li>
-<li><strong>git push origin branchname</strong></li>
-<li><strong>git pull origin branchname</strong></li>
+<li><p><strong>git commit -m “log_message”、git commit</strong></p>
+</li>
+<li><p><strong>git diff、git diff HEAD</strong></p>
+</li>
+<li><p><strong>git remote add origin sshURL、git remote rm origin</strong></p>
+</li>
+<li><p><strong>git push origin branchname</strong></p>
+</li>
+<li><p><strong>git pull origin branchname</strong></p>
+</li>
 </ol>
 <h1 id="对这些命令的初步认识"><a href="#对这些命令的初步认识" class="headerlink" title="对这些命令的初步认识"></a>对这些命令的初步认识</h1><ol>
 <li><p>git add、git commit、git push之见的关系，以及git diff 和git diff HEAD到底是谁和谁在比较差异。</p>
 <p><strong>通过git add、git commit、git push理解git的三个区：</strong></p>
-<p>①工作区（working tree）②暂存区（index/stage）③本地仓库区（.git）<br><img src="https://img-blog.csdnimg.cn/2019112520480633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="65%"></p>
+<p>①工作区（working tree）②暂存区（index/stage）③本地仓库区（.git）</p>
+<img src="https://img-blog.csdnimg.cn/2019112520480633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="65%">
+
 <p><strong>git diff 和git diff HEAD的区别：</strong></p>
-<p>git diff 命令可以查看当前工作树与暂存区之间的差别。<br>git diff HEAD命令可以查看工作树和最新提交之间的差别。<br>另外，退出git diff HEAD需要在那个窗口按<code>q</code><br><img src="https://img-blog.csdnimg.cn/20191125205028291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br><img src="https://img-blog.csdnimg.cn/20191125205043489.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br><img src="https://img-blog.csdnimg.cn/20191125205104115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br><img src="https://img-blog.csdnimg.cn/20191125210226785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br><img src="https://img-blog.csdnimg.cn/20191125211331185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br>（上图是测试一下git add之前working tree和暂存区(stage/index)的差别）<br><img src="https://img-blog.csdnimg.cn/20191125205904917.png" width="80%"><br>（上图是测试一下git add之后working tree和暂存区(stage/index)的差别——没有差别）<br><img src="https://img-blog.csdnimg.cn/20191125205256244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br>（上图是测试一下git commit之前working tree和最新提交的差别）<br><img src="https://img-blog.csdnimg.cn/20191125205317428.png" width="80%"><br>（上图是测试一下git commit之后working tree和最新提交的差别——没差别）</p>
+<p>git diff 命令可以查看当前工作树与暂存区之间的差别。<br>git diff HEAD命令可以查看工作树和最新提交之间的差别。<br>另外，退出git diff HEAD需要在那个窗口按<code>q</code></p>
+<img src="https://img-blog.csdnimg.cn/20191125205028291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
+<img src="https://img-blog.csdnimg.cn/20191125205043489.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
+<img src="https://img-blog.csdnimg.cn/20191125205104115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
+<img src="https://img-blog.csdnimg.cn/20191125210226785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
+<img src="https://img-blog.csdnimg.cn/20191125211331185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
+（上图是测试一下git add之前working tree和暂存区(stage/index)的差别）
+<img src="https://img-blog.csdnimg.cn/20191125205904917.png" width="80%">
+（上图是测试一下git add之后working tree和暂存区(stage/index)的差别——没有差别） 
+<img src="https://img-blog.csdnimg.cn/20191125205256244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
+（上图是测试一下git commit之前working tree和最新提交的差别）
+<img src="https://img-blog.csdnimg.cn/20191125205317428.png" width="80%">
+（上图是测试一下git commit之后working tree和最新提交的差别——没差别）
+
 <blockquote>
 <p>此部分建议参考：</p>
 <ul>
-<li><a href="https://blog.csdn.net/u013485584/article/details/53303858" target="_blank" rel="noopener">git diff与git diff HEAD — file - 二楼后座的专栏 - CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/u013485584/article/details/53303858" target="_blank" rel="noopener">git diff与git diff HEAD – file - 二楼后座的专栏 - CSDN博客</a></li>
 <li><a href="https://blog.csdn.net/minolk/article/details/81777467" target="_blank" rel="noopener">git的三个区域工作区，缓存区，暂存区 - minolk的博客 - CSDN博客</a></li>
 </ul>
 </blockquote>
@@ -242,7 +262,8 @@
 </blockquote>
 </li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/2019112521034670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="95%"></p>
+<img src="https://img-blog.csdnimg.cn/2019112521034670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="95%">
+
 <p>   这是刚进入编辑器的界面，按下字母c就可以进入编辑状态；<br><img src="https://img-blog.csdnimg.cn/2019112521041458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="95%"><br>   按下字母后按照上文提到的提交格式，在左上角开始编辑；编辑完成之后按下Esc，接着连按两次大写的Z，便可退出编辑器。</p>
 <h1 id="一些推荐"><a href="#一些推荐" class="headerlink" title="一些推荐"></a>一些推荐</h1><p>最后推荐一些对git基础操作总结的比较好的文章</p>
 <p><a href="https://blog.csdn.net/Jesse_Mx/article/details/78059733" target="_blank" rel="noopener">Git简易教程笔记（1） - Jesse_Mx的博客 - CSDN博客</a></p>

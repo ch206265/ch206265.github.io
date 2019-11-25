@@ -193,6 +193,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>关于hexo博客的搭建之前参考了很多优秀的博文，当时按照文中的指导大多数想要的功能都可以实现，但是功能以实现我懒癌就犯，时间一久，就不知道当初是怎么操作的了，还得从头搜索。这里先把他们罗列出来，有机会的话再对其进行一些总结。</p>
 <a id="more"></a>
+
 <p>1、<a href="https://blog.csdn.net/AinUser/article/details/77609180" target="_blank" rel="noopener">hexo+github搭建个人博客(超详细教程)</a></p>
 <p>主要参照这篇博文下载安装了git、node.js以及使用git初次安装hexo</p>
 <p>2、<a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">hexo史上最全搭建教程</a></p>
@@ -212,7 +213,7 @@
 <ol>
 <li><p>介绍了文件根目录下的_config.yml文件；</p>
 </li>
-<li><p>front-matter则是设置markdown博客文件开头，采用统一的yaml格式，用三条短横线分隔，就是用<em> </em> _把它与博客正文分开的那部分，主要是设置文章属性，比如标题title、创建日期date、修改日期updated、标签tags、分类categories、是否开启评论comments等等基本信息(它其实有模板，每次新创建文章是可以自动生成这个文章开头的属性设置，新建文档的头部的模板：scaffold文件夹下的post.md，在这里面修改一下，以后新建的博客文档头部都会是这个样式)</p>
+<li><p>front-matter则是设置markdown博客文件开头，采用统一的yaml格式，用三条短横线分隔，就是用_ _ _把它与博客正文分开的那部分，主要是设置文章属性，比如标题title、创建日期date、修改日期updated、标签tags、分类categories、是否开启评论comments等等基本信息(它其实有模板，每次新创建文章是可以自动生成这个文章开头的属性设置，新建文档的头部的模板：scaffold文件夹下的post.md，在这里面修改一下，以后新建的博客文档头部都会是这个样式)</p>
 </li>
 <li><p>layout，是hexo的布局设置，三种默认布局：post、page、draft，对应的文件夹是source/_posts、source、source/_drafts</p>
 </li>
@@ -265,6 +266,7 @@
                 </div>
                 <div class="image-caption">百度收录</div>
             </figure>
+
 <p>（<a href="https://ziyuan.baidu.com/site/siteadd" target="_blank" rel="noopener">百度搜索资源平台</a>）然后按照前面的两篇关于网站SEO的文章进行优化即可。需要注意的是Github禁掉了百度的爬虫，使用GitHub建立的博客无法被百度收录，所以在进行验证的时候验证不成功。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -273,6 +275,7 @@
                 </div>
                 <div class="image-caption">验证失败</div>
             </figure>
+
 <p>貌似想要被收录可用用CDN，让百度蜘蛛从CDN的网址爬取博文；再或者就是双写，在其他博客平台上发布相同的文章，然后给出GitHub博客的链接。</p>
 <p>3、<a href="https://blog.csdn.net/meifannao789456/article/details/81673816" target="_blank" rel="noopener">Hexo even主题博客配置</a> </p>
 <p>可能比较有用的就是介绍了一下hexo的文件结构以及各个主题文件的文件结构</p>
