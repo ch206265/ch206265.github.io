@@ -1,34 +1,515 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head>
+    
 
-block content
-  if page.type === 'tags'
-    .tag-cloud
-      .tag-cloud__title= _p('page.tag')
-        |  - 
-        span.tag-cloud__amount= site.tags.length
-      - var start_color = theme.theme_color ? (theme.theme_color.tag_start_color || '#A4D8FA'): '#A4D8FA'
-      - var end_color = theme.theme_color ? (theme.theme_color.tag_end_color || '#1B9EF3') : '#1B9EF3'
-      .tag-cloud-tags!= tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color, end_color})
-    if page.comments !== false
-      include includes/comments/index.pug
-  else if page.type === 'categories'
-    #post-content
-      .category-lists
-        .category__title= _p('page.category')
-          |  - 
-          span.category__amount= site.categories.length
-        div!= list_categories()
-    if page.comments !== false
-      include includes/comments/index.pug
-  else if page.type === 'slides'
-    include ./includes/mixins/slide.pug
-    +slideArticle()
-    if page.comments !== false
-      include includes/comments/index.pug
-  else
-    article#page
-      h1= page.title
-      .article-container!= page.content
-    include includes/pagination.pug
-    if page.comments !== false
-      include includes/comments/index.pug
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    
+    
+    <title>时光碎语 | 清醒即活着 | 天下古今之庸人，皆以一懒字致之</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="2019&#x2F;11&#x2F;22 19:25     2019&#x2F;11&#x2F;22 01:51   多端实现hexo博客的功能实现了，感觉这个过程学习到了很多其他的东西 真的是不要想太多而不动手，千里之行始于足下，着眼于一个点，然后钻研、耕耘慢慢的就好了，重要的是行动起来   2019&#x2F;11&#x2F;08 21:20    现在社会，除了自身实力之外，真的就是在比拼信息差啊，去贫穷限制了我们的想象，多么痛的领悟 以后要早点">
+<meta property="og:type" content="website">
+<meta property="og:title" content="时光碎语">
+<meta property="og:url" content="http:&#x2F;&#x2F;ch206265.github.io&#x2F;timesaying&#x2F;index.html">
+<meta property="og:site_name" content="清醒即活着">
+<meta property="og:description" content="2019&#x2F;11&#x2F;22 19:25     2019&#x2F;11&#x2F;22 01:51   多端实现hexo博客的功能实现了，感觉这个过程学习到了很多其他的东西 真的是不要想太多而不动手，千里之行始于足下，着眼于一个点，然后钻研、耕耘慢慢的就好了，重要的是行动起来   2019&#x2F;11&#x2F;08 21:20    现在社会，除了自身实力之外，真的就是在比拼信息差啊，去贫穷限制了我们的想象，多么痛的领悟 以后要早点">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ch206265&#x2F;BlogPictures&#x2F;master&#x2F;20191122192645.png">
+<meta property="og:updated_time" content="2019-11-25T08:45:31.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ch206265&#x2F;BlogPictures&#x2F;master&#x2F;20191122192645.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+    
+    <!-- custom head -->
+    
+
+</head>
+
+<script type="text/javascript" src="/source/js/linkcard.js"></script>
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ch206265</h5>
+          <a href="mailto:penghhjj@qq.com" target="_blank" rel="noopener" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/favorite"  >
+                <i class="icon icon-lg icon-heart"></i>
+                收藏夹
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/timesaying"  >
+                <i class="icon icon-lg icon-hourglass"></i>
+                时光碎语
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">时光碎语</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header page-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">时光碎语</h1>
+        <h5 class="subtitle">
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <p> <strong>2019/11/22 19:25</strong> </p>
+<blockquote>
+<p><img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20191122192645.png"></p>
+</blockquote>
+<p><strong>2019/11/22 01:51</strong> </p>
+<blockquote>
+<p>多端实现hexo博客的功能实现了，感觉这个过程学习到了很多其他的东西</p>
+<p>真的是不要想太多而不动手，千里之行始于足下，着眼于一个点，然后钻研、耕耘慢慢的就好了，重要的是行动起来</p>
+</blockquote>
+<p> <strong>2019/11/08 21:20</strong> </p>
+<blockquote>
+<p> 现在社会，除了自身实力之外，真的就是在比拼信息差啊，去贫穷限制了我们的想象，多么痛的领悟</p>
+<p>以后要早点休息，熬夜使人变笨🤣</p>
+</blockquote>
+<p> <strong>2019/11/08 09:14</strong> </p>
+<blockquote>
+<ol>
+<li>可以先简单了解一下Go语言;</li>
+<li>学会分辨正确但无用的知识”——以写作调身心博客中的一句话</li>
+<li>焦虑过程中也不要放弃坚持一些习惯，再迷茫也不要什么事情都不做</li>
+<li>敢于面对真实的自己</li>
+<li>处处留心皆学问，身边事，要善于观察和记忆，身边人，要多择其善者而从之，其不善者而改之</li>
+<li>有知识≠有文化≠有智慧，知识，文化和智慧是不同等级的东西</li>
+<li>不要想着所有东西都要归纳于一张大网之中，也不要想着总结出某单一模式解释或者套用在所有东西上，这是对创造性的打压，对灵性的毁灭。</li>
+<li>记忆容量是有限的，不要什么都想着往脑袋里装。</li>
+</ol>
+</blockquote>
+<p> <strong>2019/11/07 09:41</strong> </p>
+<blockquote>
+<p>学习要小题大做，不要大题小做。有时候一味求大、求全反而不好，铺开的面太大了不好驾驭或者说无法深入，还不如找好一个小点，然后深入钻研。</p>
+<p>工作之前要有一个全局观，一定要明确所干之事的定位，合理分配时间和精力的投资，</p>
+</blockquote>
+<p> <strong>2019/11/06 13:37</strong> </p>
+<blockquote>
+<p>记录下word里面很有用的一个快捷键，F4或者Ctrl+Y，重复上一次的操作</p>
+<p>慈不掌兵</p>
+<p>不要眼前的基本的东西都还没有搞好，就在慌更远的更陌生的东西——不要好高骛远，要脚踏实地</p>
+<p>处处思取巧，终弄巧成拙</p>
+</blockquote>
+<p> <strong>2019/11/06 00:11</strong> </p>
+<blockquote>
+<p>心胸狭隘的人看到的都是威胁</p>
+<p>想的太多干的太少</p>
+</blockquote>
+<p><strong>2019/11/02 19:29</strong> </p>
+<blockquote>
+<p>感觉自己现在的学习状态就是东一榔头西一棒槌，基础上的东西缺的太多了，想要达到的目标就在眼前，但是第一步太艰难了，不管从哪里开始，都是会陷入到问题的无底洞——所以，补基础，先不要想着完成多么高大上的目标——但是，补基础难道就是抱着一本厚厚的书把上面的内容从头看到尾吗？——其实，自己什么都没有做，就已经开始想这么多了，人啊……</p>
+</blockquote>
+<p><strong>2019/11/02 15:46</strong> </p>
+<blockquote>
+<p>博客完善计划：</p>
+<ol>
+<li>这个站点的访问量计数有问题，每刷新一次页面就会增加一次访问</li>
+<li><del>学习一下怎么在两台电脑上实现对博客的发布和更改。有时候在机房电脑上写好文章没法及时发布，基本就会一直拖拉下去，导致写作时间和发布时间有点混乱，不是很舒服……</del></li>
+<li>修改一下这个博客的链接样式，改成类似知乎的卡片风格</li>
+<li><del>尝试添加一下私密文章的访问设置</del>但是还有一些小BUG，会使文章目录消失不见</li>
+<li>收藏夹页面更改一下，除了一些工具网站的收藏外，添加一些友链</li>
+<li>尝试把归档页面的卡片样式改成时间轴样式，主要是卡片太大了，不能展现归档后想要的那种整体概览性……</li>
+<li>尝试修改一下文章中的图片显示风格</li>
+<li>现在句子中穿插的链接以及代码块颜色是粉红色，修改一下</li>
+<li>怎样给hexo摘要配上插图</li>
+</ol>
+</blockquote>
+<p><strong>2019/11/02 15:15</strong> </p>
+<blockquote>
+<p>可以减少留给自己工作的时间以提高学习效率，😊，减少的那部分当然是要留给生活啦🤣</p>
+</blockquote>
+<p> <strong>2019/10/31 16:27</strong> </p>
+<blockquote>
+<p>归根结底还是自己的动手能力差，编程总是没有能够脱离书本，也明白要找项目锻炼，为什么还是深入不下去，是内心深处对动手实践的抵触吗？</p>
+<p>选择的前提，就是知道你现在在哪，将来要去哪，一定要清醒的认识自己，以及当下手里握的资源，把自己重新审视清楚，做好定位。认清自己要走的路之后，在什么阶段，就把这个阶段的事做好，才是最佳的选择；</p>
+<p>扩大眼界的方法，多读书，多旅行；改变自己，一是要从精神层面、二是要从生活层面</p>
+</blockquote>
+<p><strong>2019/10/30 21:54</strong></p>
+<blockquote>
+<p>火鸡问题，最开始是在<a href="https://www.ftchinese.com/story/001084929" target="_blank" rel="noopener">此网站</a>了解到的。文中说到，“火鸡问题”的本质，是我们强行从本没有规律的事件中寻找规律，或者基于有限的小样本去总结规律。这主要是对归纳主义者的讽刺。我在想，平时生活中我似乎也是有点过于归纳主义了。</p>
+</blockquote>
+<p><strong>2019/10/28 20:16  </strong></p>
+<blockquote>
+<p> 生活的余地越宽阔，活的就会越优雅</p>
+<p>习惯于早起的人比喜欢熬夜的人更可怕</p>
+<p>总是在用事后的眼光抱怨着昨天的短视，却很少有人想着干好眼前的事，这样只会产生更多的遗憾</p>
+<p>感觉在空虚浮躁的时候，就去看书和跑步，刷剧看新闻玩游戏只会制造更多的空虚</p>
+</blockquote>
+<p><strong>2019-10-08</strong></p>
+<blockquote>
+<p>在给别人交代任务或请求他人帮忙的时候，一定要果断，干脆利落</p>
+<p>有个好习惯，修改文件后在文件名后面加修改日期，对于需要长期进行的工作创建文件夹时也可以以时间命名，继续保持</p>
+<p>每次都是想的计划的很好，但是执行很差，归根结底就是自制力的问题/(ㄒoㄒ)/~~。现在，明确，要养成的习惯，多读书，多喝水，多运动。关于熬夜，援引知乎上丁香医生的回答“睡得晚不一定是熬夜，睡不够、睡不好，才是真正的熬夜”，其实关键是看第二天的安排，要有精力保证第二天的工作。<a href="https://www.zhihu.com/question/31964665/answer/795476786" target="_blank" rel="noopener">究竟几点之后才算熬夜？丁香医生的回答 - 知乎</a></p>
+</blockquote>
+<p><strong>2019-09-14</strong></p>
+<blockquote>
+<p>大多数人的努力程度之低，根本轮不上拼天赋。</p>
+<p>最近找了本书，逻辑思维的<a href="https://book.douban.com/subject/26333850/" target="_blank" rel="noopener">《成大事者不纠结》</a>，读过<a href="https://book.douban.com/subject/5325618/" target="_blank" rel="noopener">《高效能人士的七个习惯》</a>，不会轻易对这种鸡汤标题的书做出评价，到底怎么样，读过之后才知道</p>
+</blockquote>
+<p><strong>2019-08-3</strong></p>
+<blockquote>
+<p>老师突然询问我要不要换一下方向，现在这个方向依托的项目没立下来？？😵😵😵</p>
+</blockquote>
+<p><strong>2019-08-29</strong></p>
+<blockquote>
+<p>有一堆事情要做，那就赶快去做，而不是一直在沮丧的情绪中不去行动；处理消极情绪最糟糕的方法就是躲避真正的问题，不要做鸵鸟人。</p>
+</blockquote>
+<p><strong>2019-08-07</strong></p>
+<blockquote>
+<p>最近在整理之前写在有道云笔记中的东西。发现现在要时刻自我提醒的东西，其实早在4年前就已经反思过了。已经发现的问题，如果没有任何改进和变化，做这么多的反思和总结，又有什么用？</p>
+</blockquote>
+<p><strong>2019-08-03</strong></p>
+<blockquote>
+<p>博客中存在的大问题终于解决的差不多了</p>
+<ul>
+<li><p>换了个主题indigo，发现和主题作者同城，并且离的超近😂；</p>
+</li>
+<li><p>侧边栏加了几个自定义菜单，并且配上了 fontawesome图标，也给站点配了个ico小图标；</p>
+</li>
+<li>解决了博客里面的图片问题：<a href="https://www.wjy329.com/blog/article/156.html" target="_blank" rel="noopener">从失效的七牛云中下载图片</a>，<a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E7%9B%B8%E5%86%8C%E5%8C%BA" target="_blank" rel="noopener">改用GitHub图床</a>；</li>
+</ul>
+<p>接下来，<a href="https://www.jianshu.com/p/4242bb065550" target="_blank" rel="noopener">添加评论系统</a>，文章浏览量，站点运行计时等功能慢慢加……</p>
+</blockquote>
+<p><strong>2017-05-31</strong> </p>
+<blockquote>
+<p>当你心中没有积淀的时候，恐惧会使外来的所有都变成威胁；<br>当你有强大的实力的时候，眼光会使外来的所有都变成启发。<br>没有积淀，没有真本领的人，会特别在意别人的目光，<br>有真才实学的人，别人的目光会自动聚向他那里，<br>而他只需要坚持自己的道路一直走下去。</p>
+</blockquote>
+<p><strong>2016-12-06</strong></p>
+<blockquote>
+<p>先要搞清楚什么叫专业和非专业，难道就是因为你在80年或者更长的人生中，有三四年或者五六年学了一个所谓的专业，剩下的人生中就要一直从事这个专业吗？其实这是自己给自己画的一个圈而已。学习是终身的事情，自学是很重要的途径。[<a href="https://www.zhihu.com/question/21671705/answer/133056223" target="_blank" rel="noopener">原话出处</a>]</p>
+</blockquote>
+<p><strong>2016-03-31</strong></p>
+<blockquote>
+<p>对于我来说，保持好的生活状态有两种方法：看书，学习新东西。专心致志。</p>
+</blockquote>
+<p><strong>2015-11-27</strong></p>
+<blockquote>
+<p>世上没有所谓的玩笑，所有玩笑都有认真的成分。</p>
+</blockquote>
+<p><strong>2015-06-17</strong></p>
+<blockquote>
+<p><strong>天下古今之庸人，皆以一懒字致之</strong></p>
+</blockquote>
+<p><strong>2015-05-02</strong></p>
+<blockquote>
+<p>知识性的东西会随着时间而不断更新，但思想性的东西、智慧性的东西，越经过时间的沉淀，就越有魅力。</p>
+</blockquote>
+<p><strong>2015-04-15</strong></p>
+<blockquote>
+<p>就像打游戏，不要只会打顺风局一样，与人相处，也不要只会你好我好，相安无事，多在矛盾与冲突中应对与成长，拒绝做事后诸葛。</p>
+</blockquote>
+<p><strong>2015-01-09</strong></p>
+<blockquote>
+<p>有些事情不需要你在事前想象，策划那么多，很累并且想的那些也不一定能够用上，等于说是白忙活，有点眉目和思路时就可以去做了，剩下的部分靠你在真正的实践中去摸索总结。其实在你做的过程中，方法就越来越清晰了，这时候，你再顺水推舟，因风吹火，效果好还不费力。一句话，就是实践出真知。</p>
+<p>当然，这并不是否决提前策划想象的必要性，如果能够在策划归纳总结中实践，在实践中总结，二者同步还是挺不错的。我也只是想给自己说，不能始终沉浸在一个自我的小世界里面，想象地再完美也是空想都是白搭。</p>
+</blockquote>
+
+        </div>
+
+        
+
+        
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '15fb3f88aa202cb2cb68',
+          clientSecret: '31bb5ea95401c493f47b641e956a0596b886c60e',
+          repo: 'BlogTalks',
+          owner: 'ch206265',
+          admin: ['ch206265'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+    </article>
+    
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ch206265 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/timesaying/&title=《时光碎语》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/timesaying/&title=《时光碎语》 — 清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/timesaying/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《时光碎语》 — 清醒即活着&url=http://ch206265.github.io/timesaying/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/timesaying/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aS26EMBAFwLn/pck2G+A9G3tIVF6NZISLWbT6488nXsfJ+r179uT12z4rFi4u7jT3uFwJ96kPjk7BxcXdyD07IHkmCW3XgSwx4OLivpmbJDdJ6oOLi/ufuEkISxIgXFzc93NnAk2+24Y5XFzcb3Hzpsa630v6u7i4uEPco1z5ByTDlfp0XFzcLdw8oCQJR46eOhcXF3cxNwlVObQtWuoLHLi4uFu4Yy2JPLlpG6xFioOLi7uY++yFqpmYM5MM4eLiPsVNjmnTlPlQGBU/uLi4y7jtRYr8w+aLn+L6BS4u7gLuTOky1vrMr3pEzRFcXNxHufko9DqQrUh6TosfXFzcjdwVI9U2GbpJs3Bxcbdw2+TjOqHJi6i8yKmHrLi4uI9y2yJnZqCSJ0CngQwXF3c7N295tIflbZFTFS4u7nZuW/y0rc/8wkexjYuL+yj3KNfYAHWscsHFxf0WN1/5IGSGPta6xcXFXcEdC155i6Rtl9zs4uLibuTOBJq2gZKnR7i4uH+FOzYUaXE3zRFcXNyXcduGSJsw3bwTFxd3I7cdfOYHjw1aboasuLi4i7kzg8/82kSCy/8mXFzcZdwfKijiMWiyXvEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

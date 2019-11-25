@@ -1,99 +1,551 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head>
+    
 
-block top_img
-  - var top_img = page.top_img || theme.post_meta.top_img || theme.top_img || config.top_img
-  if (top_img && page.top_img !== false)
-    - var bg_img = top_img !== true ? `background-image: url(${top_img})` : ''
-    - var flag = top_img === true ? 'no-bg' : ''
-    div#top-container(style=bg_img class=flag)
-      include ./includes/header.pug
-      #post-info
-        #post-title= page.title || _p('no_title')
-        #post-meta
-          if (theme.post_meta.date_type)
-            - var date_type = theme.post_meta.date_type === 'updated' ? 'updated' : 'date'
-            time.post-meta__date #[i.fa.fa-calendar(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-          if (theme.post_meta.categories && page.categories.data.length > 0)
-            if (theme.post_meta.date_type)
-              span.post-meta__separator |
-            each item, index in page.categories.data
-              i.fa.fa-inbox.post-meta__icon(aria-hidden="true")
-              a(href=url_for(item.path)).post-meta__categories #[=item.name]
-              if (index < page.categories.data.length - 1)
-                 i.fa.fa-angle-right(aria-hidden="true")
-          if (theme.disqus.enable && theme.disqus.count)
-            if (theme.post_meta.date_type || theme.post_meta.categories && page.categories.data.length > 0)
-              span.post-meta__separator |
-            i.fa.fa-comment-o.post-meta__icon(aria-hidden="true")
-            a(href=url_for(page.path) + '#disqus_thread')
-              span.disqus-comment-count(data-disqus-identifier=page.path)
-          if (theme.wordcount && theme.wordcount.enable)
-            .post-meta-wordcount
-              span= _p('post.wordcount') + ': '
-              span.word-count= wordcount(page.content)
-              span.post-meta__separator |
-              span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-  else
-    div#top-container.plain
-      include ./includes/header.pug
+    
 
-block content
-  article#post(class="")
-    if (!top_img)
-      #post-title.plain= page.title || _p('no_title')
-      #post-meta
-        if (theme.post_meta.date_type)
-          - var date_type = theme.post_meta.date_type === 'updated' ? '' : 'date'
-          time.post-meta__date #[i.fa.fa-calendar(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-        if (theme.post_meta.categories && page.categories.data.length > 0)
-          if (theme.post_meta.date_type)
-            span.post-meta__separator |
-          each item, index in page.categories.data
-            i.fa.fa-inbox(aria-hidden="true")
-            a(href=url_for(item.path)).post-meta__categories  #[=item.name]
-            if (index < page.categories.data.length - 1)
-                i.fa.fa-angle-right.post-meta__separator(aria-hidden="true")
-        if (theme.disqus.enable && theme.disqus.count)
-          if (theme.post_meta.date_type || theme.post_meta.categories && page.categories.data.length > 0)
-            span.post-meta__separator |
-          i.fa.fa-comment-o(aria-hidden="true")
-          a(href=url_for(page.path) + '#disqus_thread')
-            span.disqus-comment-count(data-disqus-identifier=page.path)
-        if (theme.wordcount && theme.wordcount.enable)
-          span.post-meta__separator |
-          span.post-meta-wordcount
-            span= _p('post.wordcount') + ': '
-            span.word-count= wordcount(page.content)
-            span.post-meta__separator |
-            span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-    #post-content.article-container!= page.content
-  if (theme.post_copyright && theme.post_copyright.enable)
-    .post-copyright
-      .post-copyright__author
-        span.post-copyright-meta= _p('post.copyright.author') + ": "
-        span.post-copyright-info
-          a(href=`mailto:${config.email}`) #[=config.author]
-      .post-copyright__type
-        span.post-copyright-meta= _p('post.copyright.link') + ": "
-        span.post-copyright-info
-          a(href=url_for(page.permalink)) #[=page.permalink]
-      .post-copyright__notice
-        span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
-        span.post-copyright-info!= _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
-  if (theme.post_meta.tags)
-    .post-meta__tag-list
-      each item, index in page.tags.data
-        a(href=url_for(item.path)).post-meta__tags #[=item.name]
-  if (theme.QR_code)
-    if (theme.QR_code.length > 0)
-      .post-qr-code
-        each item in theme.QR_code
-          .post-qr-code-item
-            img.post-qr-code__img(src=(item.itemlist||item).img)
-            .post-qr-code__desc=(item.itemlist||item).text
-  include includes/share/index.pug
-  include includes/pagination.pug
-  if (theme.adv && theme.adv.enable)
-    .post-adv!= theme.adv.info
-  if page.comments !== false
-    include includes/comments/index.pug
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    
+    
+    <title>git的初步学习 | 清醒即活着 | 天下古今之庸人，皆以一懒字致之</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git,GitHub">
+    <meta name="description" content="起因为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。 初次用到的命令本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：  git status、git branch  git add、git add —all、git add —a  git commit -m">
+<meta name="keywords" content="git,GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git的初步学习">
+<meta property="og:url" content="http:&#x2F;&#x2F;ch206265.github.io&#x2F;2019&#x2F;11&#x2F;22&#x2F;lean-git&#x2F;index.html">
+<meta property="og:site_name" content="清醒即活着">
+<meta property="og:description" content="起因为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。 初次用到的命令本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：  git status、git branch  git add、git add —all、git add —a  git commit -m">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2019112520480633.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125205028291.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125205043489.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125205104115.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125210226785.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125211331185.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125205904917.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125205256244.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191125205317428.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2019112521034670.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2019112521041458.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-11-25T13:25:37.384Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2019112520480633.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70">
+    
+        <link rel="alternate" type="application/atom+xml" title="清醒即活着" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+    
+    <!-- custom head -->
+    
+
+</head>
+
+<script type="text/javascript" src="/source/js/linkcard.js"></script>
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ch206265</h5>
+          <a href="mailto:penghhjj@qq.com" target="_blank" rel="noopener" title="penghhjj@qq.com" class="mail">penghhjj@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/favorite"  >
+                <i class="icon icon-lg icon-heart"></i>
+                收藏夹
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timesaying"  >
+                <i class="icon icon-lg icon-hourglass"></i>
+                时光碎语
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git的初步学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git的初步学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-21T17:44:29.000Z" itemprop="datePublished" class="page-time">
+  2019-11-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#起因"><span class="post-toc-number">1.</span> <span class="post-toc-text">起因</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#初次用到的命令"><span class="post-toc-number">2.</span> <span class="post-toc-text">初次用到的命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对这些命令的初步认识"><span class="post-toc-number">3.</span> <span class="post-toc-text">对这些命令的初步认识</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一些推荐"><span class="post-toc-number">4.</span> <span class="post-toc-text">一些推荐</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-lean-git"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git的初步学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-22 01:44:29" datetime="2019-11-21T17:44:29.000Z"  itemprop="datePublished">2019-11-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。</p>
+<h1 id="初次用到的命令"><a href="#初次用到的命令" class="headerlink" title="初次用到的命令"></a>初次用到的命令</h1><p>本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：</p>
+<ol>
+<li><p><strong>git status、git branch</strong></p>
+</li>
+<li><p><strong>git add、git add —all、git add —a</strong></p>
+</li>
+<li><strong>git commit -m “log_message”、git commit</strong></li>
+<li><strong>git diff、git diff HEAD</strong></li>
+<li><strong>git remote add origin sshURL、git remote rm origin</strong></li>
+<li><strong>git push origin branchname</strong></li>
+<li><strong>git pull origin branchname</strong></li>
+</ol>
+<h1 id="对这些命令的初步认识"><a href="#对这些命令的初步认识" class="headerlink" title="对这些命令的初步认识"></a>对这些命令的初步认识</h1><ol>
+<li><p>git add、git commit、git push之见的关系，以及git diff 和git diff HEAD到底是谁和谁在比较差异。</p>
+<p><strong>通过git add、git commit、git push理解git的三个区：</strong></p>
+<p>①工作区（working tree）②暂存区（index/stage）③本地仓库区（.git）<br><img src="https://img-blog.csdnimg.cn/2019112520480633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="65%"></p>
+<p><strong>git diff 和git diff HEAD的区别：</strong></p>
+<p>git diff 命令可以查看当前工作树与暂存区之间的差别。<br>git diff HEAD命令可以查看工作树和最新提交之间的差别。<br>另外，退出git diff HEAD需要在那个窗口按<code>q</code><br><img src="https://img-blog.csdnimg.cn/20191125205028291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br><img src="https://img-blog.csdnimg.cn/20191125205043489.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br><img src="https://img-blog.csdnimg.cn/20191125205104115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br><img src="https://img-blog.csdnimg.cn/20191125210226785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br><img src="https://img-blog.csdnimg.cn/20191125211331185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br>（上图是测试一下git add之前working tree和暂存区(stage/index)的差别）<br><img src="https://img-blog.csdnimg.cn/20191125205904917.png" width="80%"><br>（上图是测试一下git add之后working tree和暂存区(stage/index)的差别——没有差别）<br><img src="https://img-blog.csdnimg.cn/20191125205256244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%"><br>（上图是测试一下git commit之前working tree和最新提交的差别）<br><img src="https://img-blog.csdnimg.cn/20191125205317428.png" width="80%"><br>（上图是测试一下git commit之后working tree和最新提交的差别——没差别）</p>
+<blockquote>
+<p>此部分建议参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/u013485584/article/details/53303858" target="_blank" rel="noopener">git diff与git diff HEAD — file - 二楼后座的专栏 - CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/minolk/article/details/81777467" target="_blank" rel="noopener">git的三个区域工作区，缓存区，暂存区 - minolk的博客 - CSDN博客</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p>git commit -m “logmessage”只是在引号中写一些本次commit的一些备注，简短的一句话；如果写完git commit后回车，那么会进入vim编辑器中，在界面的左上角开始可以记述详细提交信息。</p>
+<p>提交格式如下：</p>
+<blockquote>
+<p>第一行：用一行文字简述提交更改的内容</p>
+<p>第二行：空行</p>
+<p>第三行及以后：记述更改的原因和详细内容</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/2019112521034670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="95%"></p>
+<p>   这是刚进入编辑器的界面，按下字母c就可以进入编辑状态；<br><img src="https://img-blog.csdnimg.cn/2019112521041458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="95%"><br>   按下字母后按照上文提到的提交格式，在左上角开始编辑；编辑完成之后按下Esc，接着连按两次大写的Z，便可退出编辑器。</p>
+<h1 id="一些推荐"><a href="#一些推荐" class="headerlink" title="一些推荐"></a>一些推荐</h1><p>最后推荐一些对git基础操作总结的比较好的文章</p>
+<p><a href="https://blog.csdn.net/Jesse_Mx/article/details/78059733" target="_blank" rel="noopener">Git简易教程笔记（1） - Jesse_Mx的博客 - CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/Jesse_Mx/article/details/78158790" target="_blank" rel="noopener">Git简易教程笔记（2） - Jesse_Mx的博客 - CSDN博客</a> </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-25T13:25:37.384Z" itemprop="dateUpdated">2019-11-25 21:25:37</time>
+</span><br>
+
+
+        
+        转载请附本文链接：<a href="/2019/11/22/lean-git/" target="_blank" rel="external">http://ch206265.github.io/2019/11/22/lean-git/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ch206265.github.io">
+            <img src="/img/avatar.jpg" alt="ch206265">
+            ch206265
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/11/22/lean-git/&title=《git的初步学习》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/11/22/lean-git/&title=《git的初步学习》 — 清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/11/22/lean-git/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git的初步学习》 — 清醒即活着&url=http://ch206265.github.io/2019/11/22/lean-git/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/11/22/lean-git/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/11/25/first-setup-ubuntu/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">初次安装Ubuntu18.04</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/22/Multiterminal-synchronization-of-hexo-blog/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">多终端同步Hexo博客</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '15fb3f88aa202cb2cb68',
+          clientSecret: '31bb5ea95401c493f47b641e956a0596b886c60e',
+          repo: 'BlogTalks',
+          owner: 'ch206265',
+          admin: ['ch206265'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ch206265 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ch206265.github.io/2019/11/22/lean-git/&title=《git的初步学习》 — 清醒即活着&pic=http://ch206265.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ch206265.github.io/2019/11/22/lean-git/&title=《git的初步学习》 — 清醒即活着&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ch206265.github.io/2019/11/22/lean-git/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git的初步学习》 — 清醒即活着&url=http://ch206265.github.io/2019/11/22/lean-git/&via=http://ch206265.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ch206265.github.io/2019/11/22/lean-git/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aSXKDQAwFUN//0uQAjvGX1EkV3Y9VisHwNoqm1ys+rrfj/eqn+1/Fo/cUBgbG3ozr9kjuSV58f+f7u/Jvw8DAOIeR//T9ZyVP5WeSb8PAwMCoBsQ8rcwDPQYGBsaEkSPvzyRXMTAwMPLAl4TOpJWW/MKf1OIYGBgPZFSb9f/595/MNzAwMB7FuIpHr3HWSxYLX4WBgbE1Iw9wOamaGt6fKQxEMTAwjmHMA25ecOZtvuTtGBgYuzImad/9p1cbc3la+ctVDAyMAxi9QjRfEeuF4MKYAQMDY2tGHmTni18LcthkXIqBgbEpIyliCyEvb5CN18jKtTgGBsZjGb20rNf0r7bqymsZGBgYmzKSJKw6QuiteeXD0cIkFgMDYyNG78XzFLCK/1KFY2BgbMrIW2bJAKDa1p8MUDEwME5gTNpqk/WI6p2FnREMDIxNGUnjbEGRGX/ugp0RDAyM7RirliTy5bBeQP/4axgYGFszkiFidZw5H1VW00QMDIwTGHk7vtdcy9cmCoXr/bIFBgbG1oxJcJyMKqtDzS8BFwMDY1NGtcjstcbmKx3lNQsMDIyHM67i0QvHveHo4vobAwPjsYxqmJsMBqpLG70RKQYGxq6MXgGZF5l5+B4FXAwMjAMY1Yb+JDWc/Af4kudiYGBgFJ/KW3K9oIyBgYHRSw0XrE20klcMDIwTGL1Ub1WHrzpCwMDAOI3RKx0nw8vyyteqdQ0MDIznMX4AF+uJh5e7kY4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
