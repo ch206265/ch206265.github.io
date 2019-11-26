@@ -15,11 +15,9 @@ mathjax: false
 
 [Hexo 博客加密功能添加 | Hailiang's Blog]( http://zhailiange.com/2017/07/06/hexo-encrypt/)
 
-这里面介绍了两个博客加密插件
+这里面介绍了两个博客加密插件[hexo-blog-encrypt](https://github.com/MikeCoder/hexo-blog-encrypt)和[hexo-encrypt](https://github.com/edolphin-ydf/hexo-encrypt)
 
-[hexo-blog-encrypt](https://github.com/MikeCoder/hexo-blog-encrypt)和[hexo-encrypt](https://github.com/edolphin-ydf/hexo-encrypt)
-
-最初按照介绍，安装hexo-blog-encrypt但是遇到了困难
+最初按照介绍，安装hexo-blog-encrypt但是遇到了困难<!--more-->
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191123211617597.png)
 

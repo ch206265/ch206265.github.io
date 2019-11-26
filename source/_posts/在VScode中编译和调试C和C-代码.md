@@ -13,7 +13,7 @@ mathjax: false
 ## 安装VS code
 ## 安装插件
 
-![chinese(Simplified) Language pack for VScode](https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190806230417.png)
+![chinese(Simplified) Language pack for VScode](https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190806230417.png)<!--more-->
 ![C/C++](https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190806230510.png)
 ![Code Runner](https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190806230541.png)
 

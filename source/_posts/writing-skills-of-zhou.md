@@ -10,7 +10,7 @@ mathjax: false
 
 首先认识什么是研究，研究和研发的区别，其次，做研究，先有**话题**，再有**问题**，然后有如何解决问题的**想法**，最后进行坚实、具体的工作让想法变为现实，写论文就是把这个过程用文字总结一下。
 
-**核心思路：Topic-Problem-Idea-Concrete work**
+**核心思路：Topic-Problem-Idea-Concrete work**<!--more-->
 
 ## 如何找话题：**Topic**
 

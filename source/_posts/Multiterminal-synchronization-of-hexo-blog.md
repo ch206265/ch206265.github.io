@@ -15,6 +15,8 @@ mathjax: false
 
 整体思路和流程主要参考以下两篇文章：
 
+<!--more-->
+
 > [利用Hexo在多台电脑上提交和更新github pages博客 -简书](https://www.jianshu.com/p/0b1fccce74e0) 
 > [如何解决github+Hexo的博客多终端同步问题 - monkey_lzl的博客 -CSDN博客](https://blog.csdn.net/monkey_lzl/article/details/60870891)
 
