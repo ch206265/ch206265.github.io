@@ -8,9 +8,7 @@
     noSupport: 'The browser does not support'
   }
 } </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#傅里叶变换FT"><span class="toc-number">1.</span> <span class="toc-text">傅里叶变换FT</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#短时傅里叶变换STFT"><span class="toc-number">2.</span> <span class="toc-text">短时傅里叶变换STFT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个短时傅里叶变换的例子"><span class="toc-number">2.1.</span> <span class="toc-text">一个短时傅里叶变换的例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小波变换WT"><span class="toc-number">3.</span> <span class="toc-text">小波变换WT</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">ch206265</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">18</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">20</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">4</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://raw.githubusercontent.com/ch206265/BlogPictures/master/20191126005236.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">清醒即活着</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/timesaying">Timesaying</a></span></div><div id="post-info"><div id="post-title">从傅里叶变换到小波变换</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-05</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%81%A5%E6%84%9F%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">遥感与图像处理</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>一般称在时间域内的离散数字信号为原始信号。大多数的信号都是这种基于时间的函数，其对应的图形也就是关于“时间-幅值”的图形。但是，仅有这一种描述形式还远远不够，因为信号的一些重要特征在时间域内并不能够有明显的体现。</p>
-<p>如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。</p>
-<a id="more"></a>
-
+<p>如果想要在其他的变换域内表示信号，就必须对信号施加各种数学变换，傅里叶变换/小波变换等都是其中的一种。而任何经过某种数学变换的输出信号则被称为处理信号。<br><a id="more"></a></p>
 <h1 id="傅里叶变换FT"><a href="#傅里叶变换FT" class="headerlink" title="傅里叶变换FT"></a>傅里叶变换FT</h1><p><strong>傅里叶变换</strong>主要是将信号从时间域转换到频率域，信号的一些在时间域内表现的不明显的特征在频率域内会更加明显，更有利于对信号的分析。此外，傅里叶变换（包括小波变换）是一种可逆的数学变换，即它不仅能够将时间域内的信号转换到频率域（频率-幅值），还可以把频率域的信号转换回时间域（时间-幅值）。</p>
 <p>但是，对于傅里叶变换在任何给定的时间，人们只能看到时间-幅值和频率-幅值二者之间的一种变化波形。也就是说：</p>
 <ul>
@@ -20,13 +18,16 @@
 <p>再次回顾一下傅里叶变换，它是将时间域的信号转换到了频率域，给出了信号的频谱，描述的是信号的“频率-幅值”波形。通过振幅值可以判断信号中存在多少频率成分（对应振幅值为0的频率成分不存在），发现信号在时间域中发现不了的特征。但是，傅里叶变换并没有告诉我们何种频率成分出现在何时。那么是不是在分析所有信号的时候都需要知道“何种频率成分出现在何时”呢？</p>
 <p>首先，平稳信号。在时间域中，我们称频率成分不随时间变化的信号为平稳信号。对于平稳信号，人们不需要知道其某一频率成分在什么时候出现。因为它的所有频率成分不随时间变化，在所有时刻都是一样的，也即平稳信号的所有频率成分在所有时刻出现。但是，对于非平稳信号，它的频率成分是随时间变化的，人们需要分析其频率和时间的关系也就需要同时知道它的时间和频率信息。这样，使用傅里叶变换分析非平稳信号就不太合适了。</p>
 <h1 id="短时傅里叶变换STFT"><a href="#短时傅里叶变换STFT" class="headerlink" title="短时傅里叶变换STFT"></a>短时傅里叶变换STFT</h1><p>非平稳信号在任一较短的时间间隔内可以近似认为是平稳信号，由此可以想象如果将非平稳信号切分成较短的时间区间，或用一个窗口长度较小的限制函数对原始非平稳信号加以限制，就可以形成一个近似的局部平稳信号，然后就可以在局部使用傅里叶变换进行分析。</p>
-<p>这种通过取较短时间间隔或者加窗进行傅里叶变换的方法称为<strong>短时傅里叶变换</strong>（short time Fourier transform,STFT）又叫做<strong>窗口傅里叶变换</strong>(windowed Fourier transform,WFT)。所以，信号的短时傅里叶变换不是别的，正是这个信号和窗口函数相乘后的傅里叶变换。<br>$$<br>S T F T_{f}(b, \omega)=\int_{-\infty}^{+\infty}[f(t) g(t-b)] \cdot \mathrm{e}^{-\mathrm{i} 2 \pi \omega t} \mathrm{d} t<br>$$<br>但是，短时傅里叶变换也具有局限性，且与其窗口函数有关。<strong>海森伯测不准原理</strong>说明，窗口函数的分辨率单元不可能在时间维和频率维同时达到无限小，即不可能得到信号的时频精确表示，也就是说，人们不可能知道哪一频率成分发生在哪一精确时刻，只能够知道某一披绿范围（即频带）发生在哪个时间间隔。</p>
+<p>这种通过取较短时间间隔或者加窗进行傅里叶变换的方法称为<strong>短时傅里叶变换</strong>（short time Fourier transform,STFT）又叫做<strong>窗口傅里叶变换</strong>(windowed Fourier transform,WFT)。所以，信号的短时傅里叶变换不是别的，正是这个信号和窗口函数相乘后的傅里叶变换。</p>
+<script type="math/tex; mode=display">
+S T F T_{f}(b, \omega)=\int_{-\infty}^{+\infty}[f(t) g(t-b)] \cdot \mathrm{e}^{-\mathrm{i} 2 \pi \omega t} \mathrm{d} t</script><p>但是，短时傅里叶变换也具有局限性，且与其窗口函数有关。<strong>海森伯测不准原理</strong>说明，窗口函数的分辨率单元不可能在时间维和频率维同时达到无限小，即不可能得到信号的时频精确表示，也就是说，人们不可能知道哪一频率成分发生在哪一精确时刻，只能够知道某一披绿范围（即频带）发生在哪个时间间隔。</p>
 <p>为了满足平稳性的假设，就必须有足够短的窗口函数，在这个较短的时间间隔内，信号才可以近似认为是平稳的。但是，窗口函数的时间域支撑越短，越适合平稳性假设，也就能获得越好的时间粉笔那缕，但是频率分辨率就越差；而宽的窗口给出了较好的频率分辨率但是时间分辨率变差，并且较宽的窗口也不满足平稳性要求。所以窗口函数的选择问题突出体现了短时傅里叶的变换的局限性</p>
 <p>一般来说，实验中观测道德信号，其特定频率成分事先是不知道的，因此，利用短时傅里叶变换对信号进行有效分解时，也不能保证选择到恰当的窗口大小尺寸。</p>
 <p>为了解决分析处理非平稳信号时遇到的这种分辨率选择，也即分析确定窗口函数宽度的问题，研究人员需要寻找其他更适合的技术，小波变换就是其中之一。</p>
-<h2 id="一个短时傅里叶变换的例子"><a href="#一个短时傅里叶变换的例子" class="headerlink" title="一个短时傅里叶变换的例子"></a>一个短时傅里叶变换的例子</h2><p>信号$f(t)$的表达式如下：<br>$$<br>f(t)=\left{\begin{array}{ll}{\sin 2 \pi \cdot 300 t,} &amp; {t \in[0,250]} \ {\sin 2 \pi \cdot 200 t,} &amp; {t \in[250,500]} \ {\sin 2 \pi \cdot 100 t,} &amp; {t \in[500,750]} \ {\sin 2 \pi \cdot 50 t,} &amp; {t \in[750,1000]}\end{array}\right.<br>$$<br>很明显它是一个非平稳信号，并且它的时间域图像如下：</p>
- <img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4" alt="1559820115294.png" title="1559820115294.png"  width="60%"/>
-
+<h2 id="一个短时傅里叶变换的例子"><a href="#一个短时傅里叶变换的例子" class="headerlink" title="一个短时傅里叶变换的例子"></a>一个短时傅里叶变换的例子</h2><p>信号$f(t)$的表达式如下：</p>
+<script type="math/tex; mode=display">
+f(t)=\left\{\begin{array}{ll}{\sin 2 \pi \cdot 300 t,} & {t \in[0,250]} \\ {\sin 2 \pi \cdot 200 t,} & {t \in[250,500]} \\ {\sin 2 \pi \cdot 100 t,} & {t \in[500,750]} \\ {\sin 2 \pi \cdot 50 t,} & {t \in[750,1000]}\end{array}\right.</script><p>很明显它是一个非平稳信号，并且它的时间域图像如下：</p>
+<p> <img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4" alt="1559820115294.png" title="1559820115294.png"  width="60%"/></p>
 <p>下图是该信号在在不同窗口下进行短时傅里叶变换的三维图：<br><img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212156.png?token=AJD4OPQB2QBPFXBVSR7CWFS5IWFLK"  width="60%" /></p>
 <p>从这三组图中可以看出</p>
 <ul>
@@ -34,8 +35,9 @@
 <li><code>(b)</code>和<code>(c)</code>图的窗口函数宽度逐渐变大，时间轴上对应的每一个分析窗口也越来越大，但是相应的，在频率轴上对应的分析窗口的宽度却越来越窄</li>
 </ul>
 <p>这说明了短时傅里叶变换的窗口分辨率所潜在的问题，即，窗口函数的分辨率不能在时间维和频率维上同时达到最大。</p>
-<h1 id="小波变换WT"><a href="#小波变换WT" class="headerlink" title="小波变换WT"></a>小波变换WT</h1><p>小波变换的定义如下：<br>$$<br>W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}\right) d t<br>$$</p>
-<ul>
+<h1 id="小波变换WT"><a href="#小波变换WT" class="headerlink" title="小波变换WT"></a>小波变换WT</h1><p>小波变换的定义如下：</p>
+<script type="math/tex; mode=display">
+W T_{f}(a, \tau)=\frac{1}{\sqrt{a}} \int_{R} f(t) \psi^{*}\left(\frac{t-\tau}{a}\right) d t</script><ul>
 <li>其中$\tau$代表平移参数，它表示尺度化后的基本小波沿时间轴移动的中心位置</li>
 <li>$a&gt;0$，表示尺度参数，大的尺度对应着信号大范围内的整体概貌，对应较粗的观测；小的尺度则对应局部细节的观测</li>
 </ul>

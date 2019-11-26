@@ -10,7 +10,6 @@
 } </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#整体思路"><span class="toc-number">1.</span> <span class="toc-text">整体思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大致流程"><span class="toc-number">2.</span> <span class="toc-text">大致流程</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">ch206265</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">18</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">20</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">4</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://raw.githubusercontent.com/ch206265/BlogPictures/master/20191126005236.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">清醒即活着</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/timesaying">Timesaying</a></span></div><div id="post-info"><div id="post-title">多终端同步Hexo博客</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-22</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">学习工具</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>记录一下实现多终端同步Hexo博客的一些操作，学习的过程中意外学习了一些git的基本操作，并记录在另外一篇博文中。</p>
 <h1 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h1><p>整体思路和流程主要参考以下两篇文章：</p>
 <a id="more"></a>
-
 <blockquote>
 <p><a href="https://www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="noopener">利用Hexo在多台电脑上提交和更新github pages博客 -简书</a><br><a href="https://blog.csdn.net/monkey_lzl/article/details/60870891" target="_blank" rel="noopener">如何解决github+Hexo的博客多终端同步问题 - monkey_lzl的博客 -CSDN博客</a></p>
 </blockquote>
@@ -27,7 +26,7 @@
 <blockquote>
 <p>我刚开始尝试时遇到过这些问题： </p>
 <ol>
-<li><a href="https://blog.csdn.net/comeonbabe_/article/details/80244854" target="_blank" rel="noopener">github连接远程仓库时出现Warning: Permanently added the RSA host key for IP address <strong><strong>***</strong></strong> …… - comeonbabe_的博客 - CSDN博客</a> </li>
+<li><a href="https://blog.csdn.net/comeonbabe_/article/details/80244854" target="_blank" rel="noopener">github连接远程仓库时出现Warning: Permanently added the RSA host key for IP address <strong><strong><em>*</em></strong></strong> …… - comeonbabe_的博客 - CSDN博客</a> </li>
 <li><a href="https://www.cnblogs.com/lovebing/p/7121754.html" target="_blank" rel="noopener">Git提交时提示‘The file will have its original line endings in your working directory’ - 刘俊涛的博客 - 博客园</a>  </li>
 <li><a href="https://blog.csdn.net/top_code/article/details/50381432" target="_blank" rel="noopener">Git 提示fatal: remote origin already exists错误解决办法 - Ricky - CSDN博客</a>  </li>
 <li>在gitBash中，复制粘贴的快捷键不是CtrlC/V </li>
@@ -37,7 +36,7 @@
 <li><a href="https://blog.csdn.net/Amos_luoye/article/details/88292438" target="_blank" rel="noopener">git commit之后进入vim（vi）界面，如何退出 -Amos_luoye的博客 - CSDN博客</a><br><br/>其中更详细的了解可以看下总结的git基本操作那篇总结。</li>
 </ol>
 </blockquote>
-<ol start="4">
+<ol>
 <li>然后在新电脑上安装git、node.js、Hexo环境、以及生成SSH添加到GitHub。</li>
 <li>新电脑上的准备工作就绪之后，把hexo分支git clone下来，然后就可以和在原来电脑上一样进行写作了。写完之后一般按照 git init、git add、git diff HEAD、git commit、git remote add origin sshURL 、git push origin hexo。其中git remote add origin sshURL也不必每次都弄。</li>
 <li>上一步只是把最新的部署文件上传到了GitHub中，但是并没有对其渲染，所以还得依次执行Hexo 的命令：hexo clean 、hexo g、hexo s、hexo d。</li>
