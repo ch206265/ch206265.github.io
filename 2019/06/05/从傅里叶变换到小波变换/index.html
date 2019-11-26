@@ -25,13 +25,9 @@
 <p>一般来说，实验中观测道德信号，其特定频率成分事先是不知道的，因此，利用短时傅里叶变换对信号进行有效分解时，也不能保证选择到恰当的窗口大小尺寸。</p>
 <p>为了解决分析处理非平稳信号时遇到的这种分辨率选择，也即分析确定窗口函数宽度的问题，研究人员需要寻找其他更适合的技术，小波变换就是其中之一。</p>
 <h2 id="一个短时傅里叶变换的例子"><a href="#一个短时傅里叶变换的例子" class="headerlink" title="一个短时傅里叶变换的例子"></a>一个短时傅里叶变换的例子</h2><p>信号$f(t)$的表达式如下：<br>$$<br>f(t)=\left{\begin{array}{ll}{\sin 2 \pi \cdot 300 t,} &amp; {t \in[0,250]} \ {\sin 2 \pi \cdot 200 t,} &amp; {t \in[250,500]} \ {\sin 2 \pi \cdot 100 t,} &amp; {t \in[500,750]} \ {\sin 2 \pi \cdot 50 t,} &amp; {t \in[750,1000]}\end{array}\right.<br>$$<br>很明显它是一个非平稳信号，并且它的时间域图像如下：</p>
-<center> <img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4" alt="1559820115294.png" title="1559820115294.png"  width="60%"/><center/>
+ <img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212320.png?token=AJD4OPQ4ZNHNBJ2ULHMYGBC5IWFQ4" alt="1559820115294.png" title="1559820115294.png"  width="60%"/>
 
-<p>下图是该信号在在不同窗口下进行短时傅里叶变换的三维图：</p>
-<center><img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212156.png?token=AJD4OPQB2QBPFXBVSR7CWFS5IWFLK"  width="60%" /><center/>
-
-
-
+<p>下图是该信号在在不同窗口下进行短时傅里叶变换的三维图：<br><img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20190803212156.png?token=AJD4OPQB2QBPFXBVSR7CWFS5IWFLK"  width="60%" /></p>
 <p>从这三组图中可以看出</p>
 <ul>
 <li><code>(a)</code>图的窗口函数最窄，时间分辨率最高（时间轴上对应的窗口宽度最窄），但是频率分辨率较差（频率轴上对应的窗口宽度最宽）</li>
