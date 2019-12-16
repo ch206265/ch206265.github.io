@@ -46,4 +46,4 @@ concrete work不是孤军奋战，遇到不会的，除了自己学习之外，�
 
 (2)试验验证，实验设计能力
 
-<img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20191109012112.png" alt="彭明辉教授文献阅读流程图" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ch206265/BlogPictures/master/20191109012112.png" alt="彭明辉教授文献阅读流程图" width="67%;" />
