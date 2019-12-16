@@ -4,7 +4,7 @@ date: 2019-11-25 16:51:53
 tags:
 - hexo-blog-encrypt
 - hexo-encrypt
-- 个人建站
+- 建站笔记
 categories: 学习工具
 mathjax: false
 ---

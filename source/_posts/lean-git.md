@@ -9,13 +9,13 @@ mathjax: false
 
 ---
 
-# 起因
+## 起因
 
 为了实现博客文章的及时更新，需要多端实现Hexo同步，在网上查找的大部分文章都是基于GitHub，创建分支，实现此功能的，因此便简单学习一下git的基本操作，在此做下记录。
 
 <!--more-->
 
-# 初次用到的命令
+## 初次用到的命令
 
 本文主要参考《GitHub入门与实践》这本书，目前使用到的命令是：
 
@@ -28,7 +28,7 @@ mathjax: false
 6. **git push origin branchname**
 7. **git pull origin branchname**
 
-# 对这些命令的初步认识
+## 对这些命令的初步认识
 
 1. git add、git commit、git push之见的关系，以及git diff 和git diff HEAD到底是谁和谁在比较差异。
 
@@ -47,13 +47,13 @@ mathjax: false
    <img src="https://img-blog.csdnimg.cn/20191125205104115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
    <img src="https://img-blog.csdnimg.cn/20191125210226785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
 <img src="https://img-blog.csdnimg.cn/20191125211331185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
-   （上图是测试一下git add之前working tree和暂存区(stage/index)的差别）
+   <center>（上图是测试一下git add之前working tree和暂存区(stage/index)的差别）</center>
 <img src="https://img-blog.csdnimg.cn/20191125205904917.png" width="80%">
-   （上图是测试一下git add之后working tree和暂存区(stage/index)的差别——没有差别） 
+   <center>（上图是测试一下git add之后working tree和暂存区(stage/index)的差别——没有差别） </center>
 <img src="https://img-blog.csdnimg.cn/20191125205256244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="80%">
-   （上图是测试一下git commit之前working tree和最新提交的差别）
+   <center>（上图是测试一下git commit之前working tree和最新提交的差别）</center>
 <img src="https://img-blog.csdnimg.cn/20191125205317428.png" width="80%">
-   （上图是测试一下git commit之后working tree和最新提交的差别——没差别）
+   <center>（上图是测试一下git commit之后working tree和最新提交的差别——没差别）</center>
 
    > 此部分建议参考：
    >
@@ -76,7 +76,7 @@ mathjax: false
 <img src="https://img-blog.csdnimg.cn/2019112521041458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="95%">
    按下字母后按照上文提到的提交格式，在左上角开始编辑；编辑完成之后按下Esc，接着连按两次大写的Z，便可退出编辑器。
 
-#  一些推荐
+##  一些推荐
 
 最后推荐一些对git基础操作总结的比较好的文章
 
