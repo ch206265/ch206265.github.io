@@ -1,5 +1,5 @@
 ---
-strintitle: python语言基础要素
+title: python语言基础要素
 date: 2019-11-29 10:14:11
 tags:
 - pandas

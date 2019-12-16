@@ -12,7 +12,11 @@ mathjax: false
 最近想要给博客文章做个加密，一开始也是无从下手，但是还好有篇博文：[Hexo 博客加密功能添加 | Hailiang's Blog](http://zhailiange.com/2017/07/06/hexo-encrypt/)
 这里面介绍了两个博客加密插件`hexo-blog-encrypt`和`hexo-encrypt`
 最初按照介绍，安装`hexo-blog-encrypt`但是遇到了困难
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191123211617597.png)
+
+<!--more-->
+
+![npm warn](https://img-blog.csdnimg.cn/20191123211617597.png)
+
 ```bash
 $ npm install
 npm WARN babel-eslint@10.0.3 requires a peer of eslint@>= 4.12.1 but none is installed.

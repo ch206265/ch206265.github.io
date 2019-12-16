@@ -9,11 +9,18 @@
 1. **git status、git branch**
 
 2. **git add、git add --all、git add --a**
+
 3. **git commit -m "log_message"、git commit**
+
 4. **git diff、git diff HEAD**
+
 5. **git remote add origin sshURL、git remote rm origin**
+
 6. **git push origin branchname**
+
 7. **git pull origin branchname**
+
+   <!--more-->
 
 ## 对这些命令的初步认识
 
@@ -50,10 +57,10 @@
    <img src="https://img-blog.csdnimg.cn/20191125205043489.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="65%">
    <img src="https://img-blog.csdnimg.cn/20191125205104115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="65%">
    <img src="https://img-blog.csdnimg.cn/20191125210226785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" width="65%">
-      <img src="https://img-blog.csdnimg.cn/20191125211331185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" title="上图是测试一下git add之前working tree和暂存区(stage/index)的差别" width="65%">
-      <img src="https://img-blog.csdnimg.cn/20191125205904917.png" title="上图是测试一下git add之后working tree和暂存区(stage/index)的差别——没有差别" width="65%">
-     <img src="https://img-blog.csdnimg.cn/20191125205256244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" title="上图是测试一下git commit之前working tree和最新提交的差别" width="65%">
-        <img src="https://img-blog.csdnimg.cn/20191125205317428.png" title="上图是测试一下git commit之后working tree和最新提交的差别——没差别" width="65%">
+      <img src="https://img-blog.csdnimg.cn/20191125211331185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" alt="上图是测试一下git add之前working tree和暂存区(stage/index)的差别" width="65%">
+      <img src="https://img-blog.csdnimg.cn/20191125205904917.png" alt="上图是测试一下git add之后working tree和暂存区(stage/index)的差别——没有差别" width="65%">
+     <img src="https://img-blog.csdnimg.cn/20191125205256244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoMjA2MjY1,size_16,color_FFFFFF,t_70" alt="上图是测试一下git commit之前working tree和最新提交的差别" width="65%">
+        <img src="https://img-blog.csdnimg.cn/20191125205317428.png" alt="上图是测试一下git commit之后working tree和最新提交的差别——没差别" width="65%">
 
    > 此部分建议参考：
    >

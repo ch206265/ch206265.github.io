@@ -7,7 +7,7 @@ tags:
 - 数据处理
 categories:
 - Python
-mathjax:false
+mathjax: false
 ---
 
 简单记录以下使用python处理空气质量数据的摸索过程。
@@ -21,6 +21,8 @@ mathjax:false
 3. 对筛选出来的数据进行合并；
 
 其实合并这一步可以使用更合适的筛选条件来完成
+
+<!--more-->
 
 - 此例表示使用`read_csv`和`to_csv`对文本文件进行读写
 
