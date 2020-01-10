@@ -6,7 +6,7 @@ tags:
 - python
 - 数据处理
 categories:
-- python
+- Python
 mathjax: false
 ---
 
